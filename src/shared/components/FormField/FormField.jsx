@@ -23,7 +23,6 @@ function FormField({
   min,
   max,
   error,
-  dirtyInput /* {classNames(s["plus"], "focus")} */,
 }) {
   const id = useMemo(() => nanoid(), []);
   const isRadio = type === "radio" ? true : false;
