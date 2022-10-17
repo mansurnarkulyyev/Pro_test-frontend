@@ -1,9 +1,5 @@
-const NavbarAuth = ()=> {
-    return (
-        <div>
-            Login | Register
-        </div>
-    )
-}
+const NavbarAuth = () => {
+  return <div>Login | Register</div>;
+};
 
 export default NavbarAuth;
