@@ -1,8 +1,13 @@
-import React from "react";
-import "./shared/styles/main.scss";
+import UserRoutes from "./UserRoutes";
+import Header from "./modules/Header/Header";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <>
+      <Header />
+      <UserRoutes />
+    </>
+  );
 }
 
 export default App;
