@@ -1,6 +1,8 @@
 import classNames from "classnames";
+import { HandySvg } from "handy-svg";
 
 import s from "./authCommonPart.module.scss";
+import icon from "../../../images/icons/google-icon.svg";
 
 function AuthCommonPart() {
   return (
@@ -10,6 +12,7 @@ function AuthCommonPart() {
       </p>
       <div className={s["btn-wrapper"]}>
         <button className={s.button} type="button">
+          <HandySvg src={icon} className={s[`icon-google`]} />
           Google
         </button>
       </div>

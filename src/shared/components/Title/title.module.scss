@@ -6,4 +6,12 @@
     color: black;
     @include fonts($fs: normal, $fw: 800, $fsz: 20px, $lh: 24px, $ls: 0.02em);
 
+    @include mq(tablet) {
+        @include fonts($fs: normal,
+            $fw: 800,
+            $fsz: 30px,
+            $lh: 37px,
+            $ls: 0.02em);
+
+    }
 }

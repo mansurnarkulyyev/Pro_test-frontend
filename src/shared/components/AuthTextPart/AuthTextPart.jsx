@@ -1,4 +1,4 @@
-import s from "./textPart.module.scss";
+import s from "./authtextPart.module.scss";
 
 function AuthTextPart() {
   return (

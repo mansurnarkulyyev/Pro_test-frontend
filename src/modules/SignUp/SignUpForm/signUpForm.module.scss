@@ -3,8 +3,12 @@
 .form {
     width: 240px;
     margin-top: 20px;
+
+    @include mq(tablet) {
+        width: 501px;
+    }
 }
 
 .wrapper-btn {
-    @include flex();
+    display: flex;
 }
