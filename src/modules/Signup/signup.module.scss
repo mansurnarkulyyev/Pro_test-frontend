@@ -1,29 +1,4 @@
-@import '../../shared/styles/utils/mixins';
-@import '../../shared/styles/utils/vars';
-
 .wrapper {
     background-color: white;
     padding: 40px 20px;
-}
-
-.subtitle {
-    color: black;
-    @include fonts($fs: normal, $fw: 500, $fsz: 10px, $lh: 12px, $ls: 0.02em);
-
-    text-align: center;
-    margin-bottom: 32px;
-
-    &--left {
-        text-align: left;
-        margin-bottom: 0;
-    }
-}
-
-.btn-wrapper {
-    @include flex();
-    margin-bottom: 32px;
-}
-
-.button {
-    padding: 18px 37px;
 }
