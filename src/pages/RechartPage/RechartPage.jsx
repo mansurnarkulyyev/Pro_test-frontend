@@ -14,7 +14,7 @@ class PieRechartComponent extends React.Component {
         },
         {
             name: "Others",
-            value: 10.25
+            value: 10.35
         }
     ];
     CustomTooltip = ({ active, payload, label }) => {
