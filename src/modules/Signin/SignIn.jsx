@@ -3,7 +3,7 @@ import SignInForm from "./SignInForm";
 
 import s from "./signin.module.scss";
 
-function SignUp() {
+function SignIn() {
   const isAuth = false;
 
   return (
@@ -13,4 +13,4 @@ function SignUp() {
     </div>
   );
 }
-export default SignUp;
+export default SignIn;
