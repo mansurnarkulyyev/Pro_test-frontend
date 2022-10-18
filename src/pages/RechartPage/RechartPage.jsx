@@ -1,23 +1,48 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 
 import photo from "../../images/icons/010 1.png";
+// import Button from "../../shared/components/Button";
 
 import s from "./rechartsPage.module.scss";
 
-class PieRechartComponent extends React.Component {
-    COLORS = ["#FF6B01", "#D7D7D7"];
-    pieData = [
+
+
+function PieRechartComponent() {
+
+    // const [correct, setSorrect] = useState([]);
+    // const [incorrect, setIncorrect] = useState([]);
+
+    // useEffect(() => {
+    //     const getData = async () => {
+    //         const correct = [];
+    //         const incorrect = [];
+    //         const reqData = await fetch("https://");
+    //         const resData = await reqData.json();
+
+    //         for (let i = 0; i < resData.length; i += 1) {
+    //             correct.push(reqData[i].name)
+
+    //         }
+
+    //     }
+    //     getData();
+    // })
+
+
+
+    const COLORS = ["#FF6B01", "#D7D7D7"];
+    const pieData = [
         {
-            name: "One Plus",
+            name: "Correct",
             value: 66.14
         },
         {
-            name: "Others",
+            name: "Incorrect",
             value: 10.35
         }
     ];
-    CustomTooltip = ({ active, payload, label }) => {
+    const CustomTooltip = ({ active, payload, label }) => {
         if (active) {
             return (
                 <div
@@ -34,53 +59,55 @@ class PieRechartComponent extends React.Component {
         }
         return null;
     };
-    render() {
-        return (
-            <div className={s.rechart}>
-                <h2 className={s.title}>Results</h2>
-                <span>[ TESTING THEORY_ ]</span>
+    return (
+        <div className={s.rechart}>
+            <h2 className={s.title}>Results</h2>
+            <span>[ TESTING THEORY_ ]</span>
 
-                <div className={s.line}></div>
+            <div className={s.line}></div>
 
-                <PieChart width={500} height={300}>
-                    <Pie
-                        data={this.pieData}
-                        color="#000000"
-                        dataKey="value"
-                        nameKey="name"
-                        cx="50%"
-                        cy="50%"
-                        outerRadius={120}
-                        fill="#FF6B01"
-                    >
-                        {this.pieData.map((entry, index) => (
-                            <Cell
-                                key={`cell-${index}`}
-                                fill={this.COLORS[index % this.COLORS.length]}
-                            />
-                        ))}
-                    </Pie>
-                    <Tooltip content={<this.CustomTooltip />} />
-                    <Legend layout="vertical" verticalAlign="middle" align="right" />
-                </PieChart>
+            <PieChart width={500} height={300}>
+                <Pie
+                    data={pieData}
+                    color="#000000"
+                    dataKey="value"
+                    nameKey="name"
+                    cx="50%"
+                    cy="50%"
+                    outerRadius={120}
+                    fill="#FF6B01"
+                >
+                    {pieData.map((entry, index) => (
+                        <Cell
+                            key={`cell-${index}`}
+                            fill={COLORS[index % COLORS.length]}
+                        />
+                    ))}
+                </Pie>
+                <Tooltip content={<CustomTooltip />} />
+                <Legend layout="vertical" verticalAlign="middle" align="right" />
+            </PieChart>
 
-                <div className={s.result}>
-                    <p>Correct answers - <strong>9</strong></p>
-                    <div className={s.line2}>&#124;</div>
+            <div className={s.result}>
+                <p>Correct answers - <strong>9</strong></p>
+                <div className={s.line2}>&#124;</div>
 
-                    <p>Total questions - <strong>12</strong></p>
-
-                </div>
-                <img
-                    src={photo}
-                    alt="01"
-                />
-
-                <h2><strong>Not bad!</strong></h2>
-                <p>But you still need to learn some materials.</p>
+                <p>Total questions - <strong>12</strong></p>
 
             </div>
-        );
-    }
+            <img
+                src={photo}
+                alt="01"
+            />
+
+            <h2><strong>Not bad!</strong></h2>
+            <p>But you still need to learn some materials.</p>
+
+            {/* <Button /> */}
+            <button>Try again</button>
+
+        </div>
+    );
 }
 export default PieRechartComponent;
+
