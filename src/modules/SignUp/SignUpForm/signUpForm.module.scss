@@ -1,0 +1,10 @@
+@import '../../../shared/styles/utils/mixins';
+
+.form {
+    width: 240px;
+    margin-top: 20px;
+}
+
+.wrapper-btn {
+    @include flex();
+}

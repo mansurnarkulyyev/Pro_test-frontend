@@ -1,0 +1,48 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/vars';
+
+.button {
+    display: block;
+    font-family: inherit;
+
+    border-color: transparent;
+    background-color: transparent;
+
+    &:not(:last-child) {
+        margin-right: 20px;
+    }
+
+}
+
+.text {
+    min-width: 110px;
+    min-height: 60px;
+    padding: 25px;
+
+
+    @include fonts($fs: normal, $fw: 700, $fsz: 10px, $lh: 12px, $ls: 0.02em);
+    text-transform: uppercase;
+    text-align: center;
+
+    color: black;
+
+}
+
+
+.base {
+    border: 1px solid $color-input;
+    background-color: white;
+}
+
+.disabled {
+    composes: base;
+    border: 1px solid $color-input;
+    color: $color-input;
+}
+
+.focus {
+    border: 1px solid $color-focus;
+    background-color: $color-focus;
+
+    color: white;
+}
