@@ -4,12 +4,14 @@ import SignInForm from "./SignInForm";
 import s from "./signin.module.scss";
 
 function SignIn() {
-  const isAuth = false;
+  const onSubmit = (data) => {
+    console.log("data", data);
+  };
 
   return (
     <div className={s.wrapper}>
       <AuthCommonPart />
-      <SignInForm onSubmit="OnSubmit" />
+      <SignInForm onSubmit={onSubmit} />
     </div>
   );
 }
