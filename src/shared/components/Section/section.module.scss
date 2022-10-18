@@ -14,4 +14,10 @@
 
     }
 
+    @include mq(desktop) {
+        padding: 124px;
+        padding-top: 98px;
+        padding-bottom: 99px;
+    }
+
 }
