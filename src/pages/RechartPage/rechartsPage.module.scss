@@ -1,0 +1,26 @@
+.rechart{
+align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.title{
+    margin-top: 40px;
+}
+.line{
+        width: 321.5px;
+        height: 0px;
+        left: 479px;
+        top: 197px;
+        opacity: 0.15;
+        border: 1px solid #00122F;
+}
+.line2{
+    opacity: 0.15;
+}
+
+.result{
+    display: flex;
+        gap: 30px;
+}
