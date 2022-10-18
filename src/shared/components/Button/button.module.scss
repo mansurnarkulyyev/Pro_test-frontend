@@ -26,6 +26,12 @@
 
     color: black;
 
+    @include mq(tablet) {
+        min-width: 210px;
+
+        @include fonts($fs: normal, $fw: 700, $fsz: 12px, $lh: 15px, $ls: 0.02em);
+    }
+
 }
 
 

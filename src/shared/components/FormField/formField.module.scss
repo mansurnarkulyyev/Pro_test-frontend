@@ -8,6 +8,10 @@
         width: inherit;
     }
 
+    @include mq(tablet) {
+        width: 425px;
+    }
+
 }
 
 input:invalid:not(:placeholder-shown) {

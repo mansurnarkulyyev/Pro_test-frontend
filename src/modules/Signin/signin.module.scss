@@ -1,0 +1,13 @@
+@import '../../shared/styles/utils/mixins';
+
+
+.wrapper {
+    background-color: white;
+    padding: 40px 20px;
+
+    @include mq(tablet) {
+        margin: 0 auto;
+        width: 501px;
+        padding: 60px 32px;
+    }
+}

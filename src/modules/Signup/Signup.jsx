@@ -1,5 +1,4 @@
-import classNames from "classnames";
-
+import AuthCommonPart from "../../shared/components/AuthCommonPart";
 import SignUpForm from "./SignUpForm";
 
 import s from "./signup.module.scss";
@@ -9,18 +8,7 @@ function SignUp() {
 
   return (
     <div className={s.wrapper}>
-      <p className={s.subtitle}>
-        You can use your Google Account to authorize:
-      </p>
-      <div className={s["btn-wrapper"]}>
-        <button className={s.button} type="button">
-          Google
-        </button>
-      </div>
-
-      <p className={classNames(s.subtitle, s[`subtitle--left`])}>
-        Or login to our app using e-mail and password:
-      </p>
+      <AuthCommonPart />
       <SignUpForm onSubmit="OnSubmit" />
     </div>
   );

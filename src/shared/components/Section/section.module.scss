@@ -7,4 +7,11 @@
     padding-top: 42px;
     padding-bottom: 34px;
 
+    @include mq(tablet) {
+        padding: 134px;
+        padding-top: 80px;
+        padding-bottom: 70px;
+
+    }
+
 }
