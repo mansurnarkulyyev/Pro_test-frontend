@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 
-const PieRechartComponent = lazy(() => import("./pages/RechartPage/RechartPage"));
+const PieRechartComponent = lazy(() => import("./pages/RechartPage/DiagramPage"));
 
 const SignIn = lazy(() => import("./pages/SignInPage"));
 const SignUp = lazy(() => import("./pages/SignUpPage"));
