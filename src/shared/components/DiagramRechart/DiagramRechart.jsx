@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+// import React, { useState, useEffect } from "react";
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 
-import photo from "../../images/icons/010 1.png";
+import Title from "../../components/Title/Title";
+
+import photo from "../../../images/icons/010 1.png";
 // import Button from "../../shared/components/Button";
 
-import s from "./rechartsPage.module.scss";
+import s from "./diagramRechart.module.scss";
 
 
 
@@ -28,7 +31,6 @@ function PieRechartComponent() {
     //     }
     //     getData();
     // })
-
 
 
     const COLORS = ["#FF6B01", "#D7D7D7"];
@@ -61,8 +63,9 @@ function PieRechartComponent() {
     };
     return (
         <div className={s.rechart}>
-            <h2 className={s.title}>Results</h2>
-            <span>[ TESTING THEORY_ ]</span>
+            <Title text="Results" />
+
+            <span className={s.test_th}>[ TESTING THEORY_ ]</span>
 
             <div className={s.line}></div>
 
@@ -74,6 +77,7 @@ function PieRechartComponent() {
                     nameKey="name"
                     cx="50%"
                     cy="50%"
+                    stroke="none"
                     outerRadius={120}
                     fill="#FF6B01"
                 >
@@ -100,11 +104,14 @@ function PieRechartComponent() {
                 alt="01"
             />
 
-            <h2><strong>Not bad!</strong></h2>
-            <p>But you still need to learn some materials.</p>
+            <Title text="Not bad!" />
 
-            {/* <Button /> */}
-            <button>Try again</button>
+            <p className={s.text}>But you still need to learn some materials.</p>
+
+            {/* <Button
+                type="submit"
+                text="Sign in"
+            /> */}
 
         </div>
     );
