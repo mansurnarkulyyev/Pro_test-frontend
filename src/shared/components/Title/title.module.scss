@@ -1,0 +1,9 @@
+@import '../../styles/utils/mixins';
+
+
+.title {
+    margin-bottom: 8px;
+    color: black;
+    @include fonts($fs: normal, $fw: 800, $fsz: 20px, $lh: 24px, $ls: 0.02em);
+
+}

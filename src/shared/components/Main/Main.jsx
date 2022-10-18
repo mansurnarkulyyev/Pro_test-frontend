@@ -1,4 +1,4 @@
 function Main({ children }) {
-  return <main className={style}>{children}</main>;
+  return <main>{children}</main>;
 }
 export default Main;

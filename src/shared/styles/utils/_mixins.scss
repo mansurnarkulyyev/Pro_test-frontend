@@ -11,7 +11,7 @@
 
 
 //Настройки шрифта//
-@mixin fonts($fs: normal, $fw: 400, $fsz: 14px, $lh: 24px, $ls: 0.03em) {
+@mixin fonts($fs: normal, $fw: 500, $fsz: 12px, $lh: 20px, $ls: 0.02em) {
     font-style: $fs;
     font-weight: $fw;
     font-size: $fsz;
