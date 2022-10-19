@@ -5,9 +5,10 @@ import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 import Title from "../../components/Title/Title";
 
 import photo from "../../../images/icons/010 1.png";
-// import Button from "../../shared/components/Button";
+import Button from "../../components/Button/Button";
 
 import s from "./diagramRechart.module.scss";
+import classNames from "classnames";
 
 
 
@@ -108,10 +109,11 @@ function PieRechartComponent() {
 
             <p className={s.text}>But you still need to learn some materials.</p>
 
-            {/* <Button
+            <Button
+                className={classNames("button", "text", "focus")}
                 type="submit"
                 text="Sign in"
-            /> */}
+            />
 
         </div>
     );

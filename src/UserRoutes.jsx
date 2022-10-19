@@ -22,8 +22,8 @@ const UserRoutes = () => {
         <Route path="*" element={<NotFoundPage />} />
         <Route path="/test" element={<TestPage />} />
 
-        {/* <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} /> */}
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </Suspense>
   );

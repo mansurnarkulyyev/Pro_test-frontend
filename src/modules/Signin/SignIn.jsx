@@ -1,7 +1,7 @@
 import AuthCommonPart from "../../shared/components/AuthCommonPart";
 import SignInForm from "./SignInForm";
 
-import s from "./signin.module.scss";
+import s from "./signIn.module.scss";
 
 function SignIn() {
   const onSubmit = (data) => {
