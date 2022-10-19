@@ -41,12 +41,12 @@ function SignUpForm({ onSubmit }) {
       />
       <div className={s[`wrapper-btn`]}>
         <Button
-          className={classNames("button", "text", "focus")}
+          className={classNames("button", "text", "focus", "auth")}
           type="submit"
           text="Sign up"
         />
         <Button
-          className={classNames("button", "text", "base")}
+          className={classNames("button", "text", "base", "auth")}
           type="button"
           text="Sign in"
           onClick={goToSignIn}
