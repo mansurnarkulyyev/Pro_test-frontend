@@ -1,12 +1,13 @@
 import UserRoutes from "./UserRoutes";
 import Header from "./modules/Header";
-import HomePage from "./pages/HomePage";
+import Footer from "./modules/Footer";
 
 function App() {
   return (
     <>
       {/* <Header /> */}
       <UserRoutes />
+      <Footer />
     </>
   );
 }

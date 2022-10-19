@@ -3,10 +3,6 @@ import { useDispatch } from "react-redux";
 import { addQuestionsKind } from "../../redux/questions/questionsKind/questionsKind-actions";
 import classNames from "classnames";
 
-// import Container from "../../shared/components/Container";
-// import Section from "../../shared/components/Section";
-// import Main from "../../shared/components/Main";
-// import Title from "../../shared/components/Title/Title";
 import Button from "../../shared/components/Button";
 
 import styles from "./homePage.module.scss";
@@ -29,14 +25,14 @@ const HomePage = () => {
         <h3 className={styles.quoteAuthor} >Linus Torvalds</h3>
         <p className={styles.authorDetails} >Linux kernel creator, hacker, 1969</p>
         <div className={styles.btnWrapper}>
-          <Link to={"/test"} onClick={() => setQuestionsKind("tech")} className={styles.firstLink} >
+          <Link to={"/test"} onClick={() => setQuestionsKind("tech")} style={{textDecoration: "none"}} className={styles.firstLink} >
             <Button 
               type="button" 
               text="QA technical training" 
               className={classNames("button", "mainBtn", "firstBtn")} 
             />
           </Link>
-          <Link to={"/test"} onClick={() => setQuestionsKind("tech")} >
+          <Link to={"/test"} onClick={() => setQuestionsKind("tech")} style={{textDecoration: "none"}} >
             <Button 
               type="button" 
               text="Testing theory" 
@@ -50,6 +46,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
-{/* <Link to={"/test"} onClick={() => setQuestionsKind("tech")} ><button type="button" className={styles.button} >QA technical training</button></Link>
-<Link to={"/test"} onClick={() => setQuestionsKind("tech")} ><button type="button" className={styles.button} >Testing theory</button></Link> */}

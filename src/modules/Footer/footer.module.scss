@@ -1,0 +1,36 @@
+@import '../../shared/styles/utils/mixins';
+@import '../../shared/styles/utils/vars';
+
+
+.footer {
+    height: 56px;
+    background-color: $color-btn-darkblue;
+}
+
+.footerText {
+    width: 280px;
+    margin: 0 auto;
+    padding-top: 10px;
+    color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+
+    @include mq(tablet) {
+        width: 448px;
+        padding-top: 18px;
+        font-size: 12px;
+        line-height: 15px;
+    }
+}
+
+.copyright {
+    font-size: 13px;
+}
+
+.heart {
+    color: rgba(255, 107, 9, 1);
+    font-size: 13px;
+}
