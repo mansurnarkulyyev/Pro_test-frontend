@@ -1,5 +1,5 @@
 import React from "react";
-// import React, { useState, useEffect } from "react";
+
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 
 import Title from "../../components/Title/Title";
