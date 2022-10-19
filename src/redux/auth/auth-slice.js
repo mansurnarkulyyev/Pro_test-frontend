@@ -8,7 +8,7 @@ import {
 import { pending, rejected } from "../../shared/utils/utils";
 
 const initialState = {
-  user: {},
+  email: null,
   token: "",
   isLogin: false,
 
@@ -19,11 +19,8 @@ const initialState = {
 const fulfilled = (store, { payload }) => {
   store.loading = false;
   store.error = null;
-  store.user = {
-    email: payload.user.email,
-    id: payload.user.id,
-  };
-  store.token = payload.accessToken;
+  store.email = payload.email;
+  store.token = payload.token;
   store.isLogin = true;
 };
 
@@ -36,7 +33,7 @@ const authSlice = createSlice({
     [signupRequest.fulfilled]: (store, { payload }) => {
       store.loading = false;
       store.error = null;
-      store.user = payload;
+      store.email = payload.email;
       store.isLogin = false;
     },
 
@@ -50,18 +47,7 @@ const authSlice = createSlice({
 
     [getCurrentRequest.pending]: pending,
     [getCurrentRequest.rejected]: rejected,
-    [getCurrentRequest.fulfilled]: (store, { payload }) => {
-      return {
-        ...store,
-        loading: false,
-        error: null,
-        user: {
-          email: payload.email,
-          id: payload.id,
-        },
-        isLogin: true,
-      };
-    },
+    [getCurrentRequest.fulfilled]: fulfilled,
   },
 });
 export default authSlice.reducer;
