@@ -52,3 +52,9 @@
 
     color: white;
 }
+
+.auth {
+    @include mq(tablet) {
+        min-width: 203px;
+    }
+}
