@@ -3,14 +3,16 @@ import SignInForm from "./SignInForm";
 
 import s from "./signin.module.scss";
 
-function SignUp() {
-  const isAuth = false;
+function SignIn() {
+  const onSubmit = (data) => {
+    console.log("data", data);
+  };
 
   return (
     <div className={s.wrapper}>
       <AuthCommonPart />
-      <SignInForm onSubmit="OnSubmit" />
+      <SignInForm onSubmit={onSubmit} />
     </div>
   );
 }
-export default SignUp;
+export default SignIn;
