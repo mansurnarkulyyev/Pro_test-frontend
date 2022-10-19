@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import useBreakpoints from "../../shared/hooks/useBreakpoints";
 import getQuestionsKind from "../../redux/questions/questionsKind/questionsKind-selectors";
 import { fetchQuestions } from "../../shared/api/questions-api";
+import Container from "../../shared/components/Container";
 import Question from "../../modules/Question";
+import sprite from "../../images/icons/sprite.svg";
 import styles from "./testPage.module.scss";
 
 const initialState = {
@@ -57,28 +60,48 @@ const TestPage = () => {
       ...prevState,
       questionId: prevState.questionId + 1,
     }));
+
+  const { bigger768px } = useBreakpoints();
+  const prevText = bigger768px ? "Previous question" : "";
+  const nextText = bigger768px ? "Next question" : "";
   return (
-    <>
-      <div className={styles.headerWrapper}>
-        <span className={styles.header}>
-          [
-          {questionsKind === "tech"
-            ? "QA technical training"
-            : "Testing theory"}
-          _ ]
-        </span>
-        <button onClick={finishTest}>Finish test</button>
-      </div>
-      {questions.length > 0 && (
-        <Question question={currentQuestion} total={totalQuestions} />
-      )}
-      {questionId > 1 && (
-        <button onClick={decrementId}>Previous question</button>
-      )}
-      {questionId < totalQuestions && (
-        <button onClick={incrementId}>Next question</button>
-      )}
-    </>
+    <div className={styles.main}>
+      <Container>
+        <div className={styles.headerWrapper}>
+          <span className={styles.header}>
+            [
+            {questionsKind === "tech"
+              ? "QA technical training"
+              : "Testing theory"}
+            _ ]
+          </span>
+          <button className={styles.btn} onClick={finishTest}>
+            Finish test
+          </button>
+        </div>
+        {questions.length > 0 && (
+          <Question question={currentQuestion} total={totalQuestions} />
+        )}
+        <div className={styles.btnWrapper}>
+          {questionId > 1 && (
+            <button className={styles.prev} onClick={decrementId}>
+              <svg className={styles.left} width="24" height="24">
+                <use href={sprite + "#icon-arrow-left"}></use>
+              </svg>
+              {prevText}
+            </button>
+          )}
+          {questionId < totalQuestions && (
+            <button className={styles.next} onClick={incrementId}>
+              {nextText}
+              <svg className={styles.right} width="24" height="24">
+                <use href={sprite + "#icon-arrow-right"}></use>
+              </svg>
+            </button>
+          )}
+        </div>
+      </Container>
+    </div>
   );
 };
 
