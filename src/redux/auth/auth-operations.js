@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { createOperation } from "services/utils/utils";
+import { createOperation } from "../../shared/utils/utils";
 
 import { signin, signup, logout, getCurrent } from "../../shared/api/auth";
 
