@@ -14,4 +14,17 @@
             $ls: 0.02em);
 
     }
+
+    @include mq(desktop) {
+        @include fonts($fs: normal,
+            $fw: 800,
+            $fsz: 34px,
+            $lh: 41px,
+            $ls: 0.02em);
+    }
+
+}
+
+.signup {
+    margin-top: 15px;
 }

@@ -11,9 +11,18 @@
 
     }
 
+    @include mq(desktop) {
+        width: 420px;
+        @include fonts($fs: normal, $fw: 600, $fsz: 18px, $lh: 36px, $ls: 0.02em);
+    }
+
     &--bold {
         color: black;
         font-weight: 600;
+
+        @include mq(desktop) {
+            font-weight: 800;
+        }
     }
 
 

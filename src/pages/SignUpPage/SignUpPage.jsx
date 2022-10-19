@@ -7,7 +7,6 @@ import Section from "../../shared/components/Section";
 import Main from "../../shared/components/Main";
 import Title from "../../shared/components/Title/Title";
 import AuthTextPart from "../../shared/components/AuthTextPart";
-import AuthWrapperPage from "../../shared/components/AuthWrapperPage";
 
 function SignUpPage() {
   const { bigger1280px } = useBreakpoints();
@@ -20,13 +19,13 @@ function SignUpPage() {
     </>
   );
   const markupDekstop = (
-    <AuthWrapperPage>
-      <div>
+    <div className="wrapper-auth">
+      <div className="wrapper-title-text">
         <Title text="Pro Test" />
         <AuthTextPart />
       </div>
       <SignUp />
-    </AuthWrapperPage>
+    </div>
   );
 
   return (

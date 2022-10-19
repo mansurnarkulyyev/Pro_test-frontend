@@ -1,6 +1,8 @@
+import classNames from "classnames";
+
 import s from "./title.module.scss";
 
-function Title({ text }) {
-  return <h1 className={s.title}>{text}</h1>;
+function Title({ text, className }) {
+  return <h1 className={classNames(s.title, s[className])}>{text}</h1>;
 }
 export default Title;
