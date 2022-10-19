@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 import s from "./button.module.scss";
 
-function Button({ type, text, className, disabled, icon, onClick }) {
+function Button({ type, text, className, disabled, icon, onClick, children }) {
   // let svg;
   // switch (icon) {
   //   case "plus":
@@ -38,6 +38,7 @@ function Button({ type, text, className, disabled, icon, onClick }) {
     >
       {text}
       {/* {svg && <HandySvg src={svg} className={s[`icon-${icon}`]} />} */}
+      {children}
     </button>
   );
 }
