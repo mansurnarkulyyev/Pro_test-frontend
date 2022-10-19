@@ -1,9 +1,5 @@
-// import axios from "axios";
+import axios from "axios";
 
-// const instance = axios.create({
-//     baseURL: "https://",
-//     params: {
-//         _limit: 0
-//     }
-// });
-
+export const instance = axios.create({
+  baseURL: "https://pro-test-b.herokuapp.com/api",
+});
