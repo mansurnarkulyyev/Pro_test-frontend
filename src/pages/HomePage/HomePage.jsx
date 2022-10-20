@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { addQuestionsKind } from "../../redux/questions/questionsKind/questionsKind-actions";
 
 const HomePage = () => {
-
   const dispatch = useDispatch();
 
   const setQuestionsKind = (name) => {
@@ -23,4 +22,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
