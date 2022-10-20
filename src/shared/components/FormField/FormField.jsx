@@ -16,13 +16,11 @@ function FormField({
   placeholder,
   required,
   type,
-  pattern,
   title,
   checked,
   maxLenght,
   min,
   max,
-  error,
 }) {
   const id = useMemo(() => nanoid(), []);
   const isRadio = type === "radio" ? true : false;
@@ -30,11 +28,7 @@ function FormField({
   const inputStyle = isRadio
     ? s["input-radio"]
     : classNames(s["input-text"], s.input, `${s} ${className}`);
-  const notification = (
-    <div className={s["invalid__message--wrapper"]}>
-      <p>{error}</p>
-    </div>
-  );
+
   const textField = (
     <div className={s.wrapper}>
       {label && (
@@ -52,13 +46,11 @@ function FormField({
         placeholder={placeholder}
         type={type}
         required={required}
-        pattern={pattern}
         title={title}
         maxLength={maxLenght}
         min={min}
         max={max}
       />
-      {notification}
     </div>
   );
   const radioField = (
@@ -99,9 +91,28 @@ FormField.propTypes = {
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   type: PropTypes.string,
-  pattern: PropTypes.string,
   title: PropTypes.string,
   maxLenght: PropTypes.string,
   min: PropTypes.string,
   max: PropTypes.string,
 };
+
+/* 
+const [email, setEmail] = React.useState("");
+const [message, setMessage] = React.useState("");
+const emailValidation = () => {
+  const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g;
+  if (regEx.test(email)) {
+     setMessage("Valid Email");
+     } else if (!regEx.test(email`enter code here`) && email !== "") {
+          setMessage("Invalid email");
+     } else {
+         setMessage("");
+     }
+}
+const handleOnChange = (e)=> {
+     setEmail(e.target.value);
+}
+    <input id="email" className="input" type="email" placeholder="email" value={email} onChange={handleOnChange} />
+    <button onClick={emailValidation}>Check</button>
+    <p className="message">{message}</p> */

@@ -8,7 +8,6 @@ import Button from "../../shared/components/Button";
 import styles from "./homePage.module.scss";
 
 const HomePage = () => {
-
   const dispatch = useDispatch();
 
   const setQuestionsKind = (name) => {
@@ -45,4 +44,6 @@ const HomePage = () => {
   );
 };
 
+
 export default HomePage;
+
