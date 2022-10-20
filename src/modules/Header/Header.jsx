@@ -1,11 +1,12 @@
+import React from 'react';
 import s from '../Header/Header.module.css';
 import { Logo } from '../../shared/components/Logo';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import NavbarAuth from './NavbarAuth/NavbarAuth';
 import NavAll from './NavAll/NavAll';
 
 function Header() {
-    // const isLogin = useSelector(state => state.auth.isLoginUser)
+    const isLogin = useSelector(state => state.auth.isLogin)
     return (
         <div className={s.navAll}>
             <div className={s.navWrap}>
@@ -14,7 +15,7 @@ function Header() {
                 </div>
                 <NavAll />
             </div>
-            {/* <div>{isLogin && <NavbarAuth />}</div> */}
+            <div>{isLogin && <NavbarAuth />}</div>
         </div>
     );
 }
