@@ -9,25 +9,30 @@ import Button from "../../components/Button/Button";
 
 import s from "./diagramRechart.module.scss";
 import classNames from "classnames";
+import { useNavigate } from "react-router-dom";
 
 
 
 function PieRechartComponent() {
 
-    // const [correct, setSorrect] = useState([]);
+    // const [correct, setCorrect] = useState([]);
     // const [incorrect, setIncorrect] = useState([]);
 
     // useEffect(() => {
     //     const getData = async () => {
-    //         const correct = [];
-    //         const incorrect = [];
+    // const correct = [];
+    // const incorrect = [];
     //         const reqData = await fetch("https://");
     //         const resData = await reqData.json();
-
+    // console.log(resData);
     //         for (let i = 0; i < resData.length; i += 1) {
-    //             correct.push(reqData[i].name)
+    //             correct.push(resData[i].tech)
+    //             incorrect.push(resData[i].theory)
 
     //         }
+
+    // setCorrect(correct);
+    // setIncorrect(incorrect);
 
     //     }
     //     getData();
@@ -45,7 +50,7 @@ function PieRechartComponent() {
             value: 10.35
         }
     ];
-    const CustomTooltip = ({ active, payload, label }) => {
+    const CustomTooltip = ({ active, payload, label, value }) => {
         if (active) {
             return (
                 <div
@@ -57,11 +62,20 @@ function PieRechartComponent() {
                     }}
                 >
                     <label>{`${payload[0].name} : ${payload[0].value}%`}</label>
+                    {/* <label>{`${[{ value: 'name', type: 'line', id: 'ID01' }]}`}</label> */}
                 </div>
             );
         }
         return null;
     };
+
+    const navigate = useNavigate();
+
+    const goToTest = () => {
+        navigate("/test");
+    };
+
+
     return (
         <div className={s.rechart}>
             <Title text="Results" />
@@ -90,7 +104,10 @@ function PieRechartComponent() {
                     ))}
                 </Pie>
                 <Tooltip content={<CustomTooltip />} />
-                <Legend layout="vertical" verticalAlign="middle" align="right" />
+                <Legend layout="vertical" verticalAlign="middle" align="right" dataKey="value"
+                    nameKey="name" />
+                {/* <Legend content={<RenderLegend />} layout="vertical" verticalAlign="middle" align="right" /> */}
+
             </PieChart>
 
             <div className={s.result}>
@@ -110,13 +127,15 @@ function PieRechartComponent() {
             <p className={s.text}>But you still need to learn some materials.</p>
 
             <Button
-                className={classNames("button", "text", "focus")}
+                className={classNames("button", "text", "focus", "top")}
                 type="submit"
-                text="Sign in"
+                text="Try again"
+                onClick={goToTest}
             />
 
         </div>
     );
 }
+
 export default PieRechartComponent;
 
