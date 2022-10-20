@@ -1,0 +1,93 @@
+@import '../../shared/styles/utils/mixins';
+@import '../../shared/styles/utils/vars';
+
+
+.container {
+    background-color: #F5F6FB;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    width: 280px;
+
+    @include mq(tablet) {
+        margin: 0 auto;
+        width: 650px;
+        padding: 82px 0 125px;
+    }
+
+    @include mq(desktop) {
+        padding: 122px 0 133px;
+        width: 832px;
+    }
+}
+
+.title {
+    color: black;
+    margin: 0 auto;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+
+    @include mq(tablet) {
+        font-size: 22px;
+        line-height: 30px;
+    }
+
+    @include mq(desktop) {
+        width: 650px;
+    }
+}
+
+.quoteAuthor {
+    width: 130px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(0, 18, 47, 0.14);
+    margin-top: 32px;
+    padding-top: 12px;
+    padding-bottom: 8px;
+    color: black;
+    line-height: 14px;
+    font-size: 12px;
+
+    @include mq(tablet) {
+        width: 320px;
+        font-size: 18px;
+        line-height: 22px;
+    }
+}
+
+.authorDetails {
+    color: $color-text;
+    text-align: center;
+    font-size: 10px;
+    line-height: 12px;
+    margin-bottom: 40px;
+
+    @include mq(tablet) {
+        font-size: 14px;
+        line-height: 17px;
+        margin-bottom: 60px;
+    }
+
+    @include mq(desktop) {
+        margin-bottom: 80px;
+    }
+}
+
+.btnWrapper {
+    @include mq(tablet) {
+        margin: 0 auto;
+    }
+
+    @include mq(desktop) {
+        display: flex;
+        justify-content: space-evenly;
+    }
+}
