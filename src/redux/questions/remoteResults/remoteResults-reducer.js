@@ -2,7 +2,15 @@ import { createReducer, combineReducers } from "@reduxjs/toolkit";
 import * as actions from "./remoteResults-actions";
 
 const itemsReducer = createReducer([], {
-  [actions.fetchResultsSuccess]: (store, { payload }) => [...store, payload],
+  [actions.fetchResultsSuccess]: (store, { payload }) => {
+    const { kind } = payload;
+    const requiredIdx = store.findIndex((item) => item.kind === kind);
+    if (requiredIdx !== -1) {
+      store.splice(requiredIdx, 1, payload);
+      return;
+    }
+    return [...store, payload];
+  },
 });
 
 const loadingReducer = createReducer(false, {

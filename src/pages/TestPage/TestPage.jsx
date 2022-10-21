@@ -71,6 +71,7 @@ const TestPage = () => {
     const reqBody = { kind: questionsKind, results: resultsCount };
     await postResults(reqBody);
     dispatch(setResults(questionsKind));
+    navigate("/diagram");
   };
 
   const currentQuestion = questions.find(

@@ -39,7 +39,7 @@ const HomePage = () => {
               className={classNames("button", "mainBtn", "firstBtn")}
             />
           </Link>
-          <Link to={"/test"} onClick={() => setQuestionsKind("tech")}>
+          <Link to={"/test"} onClick={() => setQuestionsKind("theory")}>
             <Button
               type="button"
               text="Testing theory"
