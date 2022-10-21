@@ -52,7 +52,7 @@ const TestPage = () => {
   }, [questionsKind]);
 
 
-  const finishTest = () => { };
+  // const finishTest = () => { };
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
