@@ -6,49 +6,49 @@ const contactsList = [
     _id: 1,
     name: "First Dev",
     position: "Full Stack Developer",
-    image: "https://i.pravatar.cc/300",
+    image: "https://i.ibb.co/brgMdr7/Rectangle-17.jpg",
     about: "Lorem Ipsum has been the standard fish for Latin texts since the early 16th century."
   },
   {
     _id: 2,
     name: "First Dev",
     position: "Full Stack Developer",
-    image: "https://i.pravatar.cc/300",
+    image: "https://i.ibb.co/brgMdr7/Rectangle-17.jpg",
     about: "Lorem Ipsum has been the standard fish for Latin texts since the early 16th century."
   },
   {
     _id: 3,
     name: "First Dev",
     position: "Full Stack Developer",
-    image: "https://i.pravatar.cc/300",
+    image: "https://i.ibb.co/brgMdr7/Rectangle-17.jpg",
     about: "Lorem Ipsum has been the standard fish for Latin texts since the early 16th century."
   },
   {
     _id: 4,
     name: "First Dev",
     position: "Full Stack Developer",
-    image: "https://i.pravatar.cc/300",
+    image: "https://i.ibb.co/brgMdr7/Rectangle-17.jpg",
     about: "Lorem Ipsum has been the standard fish for Latin texts since the early 16th century."
   },
   {
     _id: 5,
     name: "First Dev",
     position: "Full Stack Developer",
-    image: "https://i.pravatar.cc/300",
+    image: "https://i.ibb.co/brgMdr7/Rectangle-17.jpg",
     about: "Lorem Ipsum has been the standard fish for Latin texts since the early 16th century."
   },
   {
     _id: 6,
     name: "First Dev",
     position: "Full Stack Developer",
-    image: "https://i.pravatar.cc/300",
+    image: "https://i.ibb.co/brgMdr7/Rectangle-17.jpg",
     about: "Lorem Ipsum has been the standard fish for Latin texts since the early 16th century."
   },
   {
     _id: 7,
     name: "First Dev",
     position: "Full Stack Developer",
-    image: "https://i.pravatar.cc/300",
+    image: "https://i.ibb.co/brgMdr7/Rectangle-17.jpg",
     about: "Lorem Ipsum has been the standard fish for Latin texts since the early 16th century."
   }
 ]

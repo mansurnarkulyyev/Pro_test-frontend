@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { getCurrentRequest } from "./redux/auth/auth-operations";
 
 import UserRoutes from "./UserRoutes";
-// import Header from "./modules/Header";
+import Header from "./modules/Header";
 import Footer from "./modules/Footer";
 
 import Notification from "./shared/components/Notification";
@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <UserRoutes />
       <Footer />
       <Notification />
