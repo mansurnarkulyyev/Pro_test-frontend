@@ -1,1 +1,3 @@
-export const auth = (store) => store.auth;
+ export const auth = (store) => store.auth;
+
+

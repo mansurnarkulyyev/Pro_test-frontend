@@ -18,7 +18,7 @@ function PieRechartComponent() {
 
     return (
         <div className={s.rechart}>
-            <Title text="Results" />
+            <Title className={s.title} text="Results" />
 
             <span className={s.test_th}>[ TESTING THEORY_ ]</span>
             <div className={s.line}></div>
@@ -31,7 +31,7 @@ function PieRechartComponent() {
                 <p>Total questions - <strong>12</strong></p>
             </div>
 
-            <img src={photo} alt="01" />
+            <img className={s.cat} src={photo} alt="01" />
 
             <Title text="Not bad!" />
 

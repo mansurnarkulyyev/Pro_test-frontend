@@ -43,7 +43,7 @@ const TestPage = () => {
     getQuestions(questionsKind);
   }, [questionsKind]);
 
-  const finishTest = () => {};
+  const finishTest = () => { };
 
   const currentQuestion = questions.find(
     (question) => Number(question.questionId) === questionId
