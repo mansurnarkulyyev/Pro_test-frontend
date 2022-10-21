@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const TestPage = lazy(() => import("./pages/TestPage"));
-
+const ContactsPage = lazy(() => import("./pages/ContactsPage"));
 
 const PieRechartComponent = lazy(() => import("./pages/RechartPage/DiagramPage"));
 
@@ -21,6 +21,7 @@ const UserRoutes = () => {
         <Route path="/diagram" element={<PieRechartComponent />} />
         <Route path="*" element={<NotFoundPage />} />
         <Route path="/test" element={<TestPage />} />
+        <Route path="/contacts" element={<ContactsPage />} />
 
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
