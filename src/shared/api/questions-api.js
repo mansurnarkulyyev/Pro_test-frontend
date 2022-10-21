@@ -5,7 +5,11 @@ export const fetchQuestions = async (kind) => {
   return data.questions;
 };
 
-export const getQuestionById = async (kind, id) => {
-  const { data } = await instance(`/questions/${kind}/${id}`);
+export const postResults = async (body) => {
+  await instance.post("/users/results", body);
+};
+
+export const fetchResults = async (kind) => {
+  const { data } = await instance(`users/results/${kind}`);
   return data;
 };
