@@ -51,6 +51,9 @@ const TestPage = () => {
     getQuestions(questionsKind);
   }, [questionsKind]);
 
+
+  const finishTest = () => { };
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const totalQuestions = questions.length;

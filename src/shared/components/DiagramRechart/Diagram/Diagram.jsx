@@ -1,6 +1,9 @@
+// import classNames from 'classnames';
 import React from 'react'
+// import Chart from 'react-apexcharts'
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 
+// import s from "./diagram.module.scss";
 
 function Diagram() {
 
@@ -39,6 +42,12 @@ function Diagram() {
             value: 10.35
         }
     ];
+
+
+
+
+    const radius = "80"
+
     const CustomTooltip = ({ active, payload, label, value }) => {
         if (active) {
             return (
@@ -57,7 +66,7 @@ function Diagram() {
         return null;
     };
     return (
-        <PieChart width={500} height={300}>
+        <PieChart width={450} height={200}>
             <Pie
                 data={pieData}
                 color="#000000"
@@ -66,7 +75,7 @@ function Diagram() {
                 cx="50%"
                 cy="50%"
                 stroke="none"
-                outerRadius={120}
+                outerRadius={radius}
                 fill="#FF6B01"
             >
                 {pieData.map((entry, index) => (
@@ -79,7 +88,6 @@ function Diagram() {
             <Tooltip content={<CustomTooltip />} />
             <Legend layout="vertical" verticalAlign="middle" align="right" />
         </PieChart>
-
     )
 }
 

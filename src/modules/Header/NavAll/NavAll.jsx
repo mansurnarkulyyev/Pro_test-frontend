@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import NavPrivate from "./NavPrivate/NavPrivate";
 import NavPublic from "./NavPublic/NavPublic";
 // import { getIsAuth } from "../../../redux/auth/auth-selectors"
@@ -10,8 +10,14 @@ const NavAll = () => {
     return (
         <>
             <ul>
+                {/* {isLogin ? ( */}
+                {/* <NavPrivate /> */}
+                {/* ) */}
+                {/* : (<NavPublic />)} */}
+
                    <NavPrivate /> 
                    <NavPublic />
+
             </ul>
         </>
     );
