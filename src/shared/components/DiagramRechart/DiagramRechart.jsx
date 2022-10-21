@@ -9,43 +9,45 @@ import classNames from "classnames";
 import { useNavigate } from "react-router-dom";
 import Diagram from "./Diagram/Diagram";
 
-function PieRechartComponent() {
+function PieRechartComponent({ rights, wrongs }) {
+  const navigate = useNavigate();
+  const goToTest = () => {
+    navigate("/");
+  };
 
-    const navigate = useNavigate();
-    const goToTest = () => {
-        navigate("/");
-    };
+  return (
+    <div className={s.rechart}>
+      <Title text="Results" />
 
-    return (
-        <div className={s.rechart}>
-            <Title text="Results" />
+      <span className={s.test_th}>[ TESTING THEORY_ ]</span>
+      <div className={s.line}></div>
 
-            <span className={s.test_th}>[ TESTING THEORY_ ]</span>
-            <div className={s.line}></div>
+      <Diagram rights={rights} wrongs={wrongs} />
 
-            <Diagram />
+      <div className={s.result}>
+        <p>
+          Correct answers - <strong>{rights}</strong>
+        </p>
+        <div className={s.line2}>&#124;</div>
+        <p>
+          Total questions - <strong>{wrongs}</strong>
+        </p>
+      </div>
 
-            <div className={s.result}>
-                <p>Correct answers - <strong>9</strong></p>
-                <div className={s.line2}>&#124;</div>
-                <p>Total questions - <strong>12</strong></p>
-            </div>
+      <img src={photo} alt="01" />
 
-            <img src={photo} alt="01" />
+      <Title text="Not bad!" />
 
-            <Title text="Not bad!" />
+      <p className={s.text}>But you still need to learn some materials.</p>
 
-            <p className={s.text}>But you still need to learn some materials.</p>
-
-            <Button
-                className={classNames("button", "text", "focus", "top")}
-                type="submit"
-                text="Try again"
-                onClick={goToTest}
-            />
-        </div>
-    );
+      <Button
+        className={classNames("button", "text", "focus", "top")}
+        type="submit"
+        text="Try again"
+        onClick={goToTest}
+      />
+    </div>
+  );
 }
 
 export default PieRechartComponent;
-
