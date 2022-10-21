@@ -38,8 +38,3 @@
 .text {
     @include fonts($fs: normal, $fw: 500, $fsz: 16px, $lh: 36px, $ls: 0.02em);
 }
-
-.top{
-
-    margin-top: 40px;
-}

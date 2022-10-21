@@ -19,7 +19,6 @@ function App() {
     <>
       {/* <Header /> */}
       <UserRoutes />
-      <Notification />
       <Footer />
       <Notification />
     </>
