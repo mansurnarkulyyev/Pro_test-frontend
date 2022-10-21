@@ -43,7 +43,11 @@
   }
 }
 
-.btnWrapper {
+.btnWrapperOne {
+  @include flex(end);
+}
+
+.btnWrapperBoth {
   @include flex(space-between);
 }
 
@@ -81,4 +85,9 @@
   @include mq(tablet) {
     padding: 5px 20px;
   }
+}
+
+.result {
+  @extend .next;
+  padding: 10px 20px;
 }
