@@ -1,22 +1,27 @@
 @import '../../styles/utils/mixins';
 
+
 .rechart {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+text-align: -webkit-center;
+    @include mq(desktop) {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+   
 }
 
 .title {
+    font-size: 16px;
+    @include mq(mobile) {
     color: #00122F;
     @include fonts($fs: normal, $fw: 500, $fsz: 16px, $lh: 36px, $ls: 0.02em);
     margin-top: 40px;
+    }
 }
 
 .line {
-    width: 321.5px;
-    height: 0px;
-    left: 479px;
-    top: 197px;
+    margin-top: 15px;
     opacity: 0.15;
     border: 1px solid #00122F;
 }
@@ -26,15 +31,36 @@
 }
 
 .test_th {
+    font-size: 10px;
+    @include mq(mobile) {
     @include fonts($fs: normal, $fw: 500, $fsz: 16px, $lh: 36px, $ls: 0.02em);
+    }
 }
 
 .result {
     display: flex;
+    justify-content: space-evenly;
+    @include fonts($fs: normal, $fw: 500, $fsz: 10px, $lh: 36px, $ls: 0.02em);
+    @include mq(mobile) {
+    display: flex;
     gap: 30px;
     @include fonts($fs: normal, $fw: 500, $fsz: 16px, $lh: 36px, $ls: 0.02em);
+    }
+}
+
+.cat{
+  height: 120px;
+    @include mq(mobile) {
+        display: block;
+       max-width: 100%;
+        height: auto;
+    }
 }
 
 .text {
+    @include fonts($fs: normal, $fw: 500, $fsz: 10px, $lh: 36px, $ls: 0.02em);
+  
+    @include mq(mobile) {
     @include fonts($fs: normal, $fw: 500, $fsz: 16px, $lh: 36px, $ls: 0.02em);
+    }
 }
