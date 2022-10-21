@@ -3,10 +3,6 @@ import { useDispatch } from "react-redux";
 import { addQuestionsKind } from "../../redux/questions/questionsKind/questionsKind-actions";
 import classNames from "classnames";
 
-// import Container from "../../shared/components/Container";
-// import Section from "../../shared/components/Section";
-// import Main from "../../shared/components/Main";
-// import Title from "../../shared/components/Title/Title";
 import Button from "../../shared/components/Button";
 
 import styles from "./homePage.module.scss";
@@ -43,7 +39,7 @@ const HomePage = () => {
               className={classNames("button", "mainBtn", "firstBtn")}
             />
           </Link>
-          <Link to={"/test"} onClick={() => setQuestionsKind("theory")}>
+          <Link to={"/test"} onClick={() => setQuestionsKind("tech")}>
             <Button
               type="button"
               text="Testing theory"

@@ -12,11 +12,12 @@ import s from "./signUpForm.module.scss";
 
 function SignUpForm({ onSubmit }) {
   const navigate = useNavigate();
-  const { state, handleChange, handleSubmit } = useForm({
-    onSubmit,
-    initialState,
-  });
-  const { email, password } = state;
+  const { state, handleChange, handleSubmit, validateEmail, validatePassword } =
+    useForm({
+      onSubmit,
+      initialState,
+    });
+  const { email, password, message } = state;
   const goToSignIn = () => {
     navigate("/signin");
   };
@@ -24,18 +25,20 @@ function SignUpForm({ onSubmit }) {
   return (
     <form className={s.form} onSubmit={handleSubmit}>
       <FormField
+        type="email"
         name="email"
         value={email}
         placeholder="Email"
-        type="email"
         required
         handleChange={handleChange}
+        handleBlur={validateEmail}
       />
       <FormField
         name="password"
         value={password}
         placeholder="Password"
         type="password"
+        handleBlur={validatePassword}
         required
         handleChange={handleChange}
       />
@@ -56,3 +59,23 @@ function SignUpForm({ onSubmit }) {
   );
 }
 export default SignUpForm;
+
+/* 
+const [email, setEmail] = React.useState("");
+const [message, setMessage] = React.useState("");
+const emailValidation = () => {
+  const regEx = /[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,8}(.[a-z{2,8}])?/g;
+  if (regEx.test(email)) {
+     setMessage("Valid Email");
+     } else if (!regEx.test(email`enter code here`) && email !== "") {
+          setMessage("Invalid email");
+     } else {
+         setMessage("");
+     }
+}
+const handleOnChange = (e)=> {
+     setEmail(e.target.value);
+}
+    <input id="email" className="input" type="email" placeholder="email" value={email} onChange={handleOnChange} />
+    <button onClick={emailValidation}>Check</button>
+    <p className="message">{message}</p> */

@@ -4,8 +4,6 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 8px;
-
 }
 
 .title {
@@ -40,4 +38,3 @@
 .text {
     @include fonts($fs: normal, $fw: 500, $fsz: 16px, $lh: 36px, $ls: 0.02em);
 }
-

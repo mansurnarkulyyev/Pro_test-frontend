@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { NotificationManager } from "react-notifications";
 
 import useAuthState from "../../shared/hooks/useAuthState";
 
@@ -26,7 +27,7 @@ function SignUp() {
     <div className={s.wrapper}>
       <AuthCommonPart />
       {!email ? (
-        <SignUpForm onSubmit={onSingUp} />
+        <SignUpForm onSubmit={onSingUp} error={errMessage} />
       ) : (
         <div className={s["wrapper-title"]}>
           <Title
@@ -39,7 +40,7 @@ function SignUp() {
         </div>
       )}
       {loading && <p>Loading...</p>}
-      {error && <p>{errMessage}</p>}
+      {error && NotificationManager.error(errMessage)}
     </div>
   );
 }

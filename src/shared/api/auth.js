@@ -18,8 +18,10 @@ export async function signin(data) {
   return result;
 }
 
-export function logout() {
+export async function logout() {
+  const { data: result } = await instance.get("users/logout");
   setToken("");
+  return result;
 }
 
 export async function getCurrent(token) {
