@@ -1,6 +1,6 @@
 import React from 'react';
 import s from '../Header/Header.module.css';
-import { Logo } from '../../shared/components/Logo';
+import Logo from '../../shared/components/Logo';
 import { useSelector } from 'react-redux';
 import NavbarAuth from './NavbarAuth/NavbarAuth';
 import NavAll from './NavAll/NavAll';
