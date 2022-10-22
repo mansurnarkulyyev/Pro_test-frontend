@@ -23,7 +23,7 @@ function PieRechartComponent({ rights, wrongs }) {
             <span className={s.test_th}>[ TESTING THEORY_ ]</span>
             <div className={s.line}></div>
 
-            <Diagram />
+            <Diagram rights={rights} wrongs={wrongs} />
 
             <div className={s.result}>
                 <p>

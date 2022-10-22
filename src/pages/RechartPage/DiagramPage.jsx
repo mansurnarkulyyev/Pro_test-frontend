@@ -6,20 +6,23 @@ import DiagramRechart from "../../shared/components/DiagramRechart";
 import Main from "../../shared/components/Main";
 import Section from "../../shared/components/Section";
 
-import React from 'react'
+// import React from 'react'
 
 
 const DiagramPage = () => {
-    // const questionsKind = useSelector(getQuestionsKind);
-    // const remoteResults = useSelector(getRemoteResults);
-    // const { results } = remoteResults.find((item) => item.kind === questionsKind);
-    // const [rights, wrongs] = results;
+    const questionsKind = useSelector(getQuestionsKind);
+    const remoteResults = useSelector(getRemoteResults);
+    console.log(remoteResults);
+    const results = remoteResults?.find((item) => item.kind === questionsKind);
+    const [rights = "", wrongs = ""] = results?.results ? results : []
+    // debugger
 
 
     return (
         <Main>
             <Section>
-                <DiagramRechart />
+                <DiagramRechart rights={rights} wrongs={wrongs} />
+                {/* <DiagramRechart /> */}
             </Section>
         </Main>
     );

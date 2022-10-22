@@ -19,7 +19,7 @@ const rootReducer = combineReducers({
   auth: persistAuthReducer,
   questionsKind: addQuestionsKindReducer,
   localResults: localResultsReducer,
-  remoteResults: remoteResultsReducer,
+  remoteResults: remoteResultsReducer,         
 });
 
 export default rootReducer;
