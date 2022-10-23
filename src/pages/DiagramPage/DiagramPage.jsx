@@ -12,7 +12,7 @@ import Section from "../../shared/components/Section";
 const DiagramPage = () => {
     const questionsKind = useSelector(getQuestionsKind);
     const remoteResults = useSelector(getRemoteResults);
-    console.log(remoteResults);
+    // console.log(remoteResults);
     const results = remoteResults?.find((item) => item.kind === questionsKind);
     const [rights = "", wrongs = ""] = results?.results ? results : []
     // debugger
