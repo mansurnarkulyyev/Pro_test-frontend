@@ -8,12 +8,22 @@ import Section from "../../shared/components/Section";
 // import React from 'react'
 
 const DiagramPage = () => {
+
   const { kind } = useParams();
   const remoteResults = useSelector(getRemoteResults);
   console.log(remoteResults);
   const results = remoteResults?.find((item) => item.kind === kind);
   const [rights, wrongs] = results;
   // debugger
+
+   // const questionsKind = useSelector(getQuestionsKind);
+   // const remoteResults = useSelector(getRemoteResults);
+   // console.log(remoteResults);
+   // const results = remoteResults?.find((item) => item.kind === questionsKind);
+   // const [rights = "", wrongs = ""] = results?.results ? results : []
+    // debugger
+
+
 
   return (
     <Main>
