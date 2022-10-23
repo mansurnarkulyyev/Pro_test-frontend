@@ -7,7 +7,7 @@ const TestPage = lazy(() => import("./pages/TestPage"));
 const ContactsPage = lazy(() => import("./pages/ContactsPage"));
 
 const PieRechartComponent = lazy(() =>
-  import("./pages/RechartPage/DiagramPage")
+  import("./pages/DiagramPage/DiagramPage")
 );
 
 const SignIn = lazy(() => import("./pages/SignInPage"));

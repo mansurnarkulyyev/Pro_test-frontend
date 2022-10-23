@@ -17,7 +17,7 @@ const persistAuthReducer = persistReducer(persistConfig, authReducer);
 const rootReducer = combineReducers({
   auth: persistAuthReducer,
   localResults: localResultsReducer,
-  remoteResults: remoteResultsReducer,
+  remoteResults: remoteResultsReducer,         
 });
 
 export default rootReducer;

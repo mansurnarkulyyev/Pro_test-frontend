@@ -1,13 +1,13 @@
 import React from "react";
-import Title from "../../components/Title/Title";
+import Title from "../../shared/components/Title/Title";
 
-import photo from "../../../images/icons/010 1.png";
-import Button from "../../components/Button/Button";
+import photo from "../../images/icons/010 1.png";
 
 import s from "./diagramRechart.module.scss";
 import classNames from "classnames";
 import { useNavigate } from "react-router-dom";
 import Diagram from "./Diagram/Diagram";
+import Button from "../../shared/components/Button";
 
 
 function PieRechartComponent({ rights, wrongs }) {
@@ -23,7 +23,7 @@ function PieRechartComponent({ rights, wrongs }) {
             <span className={s.test_th}>[ TESTING THEORY_ ]</span>
             <div className={s.line}></div>
 
-            <Diagram />
+            <Diagram rights={rights} wrongs={wrongs} />
 
             <div className={s.result}>
                 <p>

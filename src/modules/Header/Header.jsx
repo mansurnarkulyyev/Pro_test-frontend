@@ -1,5 +1,5 @@
 import React from 'react';
-import s from '../Header/Header.module.css';
+import s from '../Header/Header.module.scss';
 import Logo from '../../shared/components/Logo';
 import { useSelector } from 'react-redux';
 import NavbarAuth from './NavbarAuth/NavbarAuth';
@@ -8,9 +8,9 @@ import NavAll from './NavAll/NavAll';
 function Header() {
     const isLogin = useSelector(state => state.auth.isLogin)
     return (
-        <div className={s.navAll}>
-            <div className={s.navWrap}>
-                <div className={s.navLogo}>
+        <div className={s.Header}>
+            <div className={s.container}>
+                <div className={s.logo}>
                     <Logo />
                 </div>
                 <NavAll />

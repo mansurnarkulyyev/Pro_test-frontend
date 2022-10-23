@@ -1,23 +1,22 @@
-@import '../../styles/utils/mixins';
-@import '../../styles/utils/vars';
+@import "../../styles/utils/mixins";
+@import "../../styles/utils/vars";
 
 .section {
-    background-color: $background;
+  min-height: 100vh;
+  background-color: $background;
 
-    padding-top: 42px;
-    padding-bottom: 34px;
+  padding-top: 42px;
+  padding-bottom: 34px;
 
-    @include mq(tablet) {
-        padding: 134px;
-        padding-top: 80px;
-        padding-bottom: 70px;
+  @include mq(tablet) {
+    padding: 134px;
+    padding-top: 80px;
+    padding-bottom: 70px;
+  }
 
-    }
-
-    @include mq(desktop) {
-        padding: 124px;
-        padding-top: 98px;
-        padding-bottom: 99px;
-    }
-
+  @include mq(desktop) {
+    padding: 124px;
+    padding-top: 98px;
+    padding-bottom: 99px;
+  }
 }

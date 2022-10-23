@@ -40,11 +40,11 @@ function Diagram({ rights, wrongs }) {
     const pieData = [
         {
             name: "Correct",
-            value: 10,
+            value: { rights },
         },
         {
             name: "Incorrect",
-            value: 16,
+            value: { wrongs },
         },
     ];
     const CustomTooltip = ({ active, payload, label, value }) => {
