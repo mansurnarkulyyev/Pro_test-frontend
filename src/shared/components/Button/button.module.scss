@@ -1,106 +1,106 @@
-@import '../../styles/utils/mixins';
-@import '../../styles/utils/vars';
+@import "../../styles/utils/mixins";
+@import "../../styles/utils/vars";
 
 .button {
-    display: block;
-    font-family: inherit;
+  display: block;
+  font-family: inherit;
 
-    border-color: transparent;
-    background-color: transparent;
+  border-color: transparent;
+  background-color: transparent;
 
-    &:not(:last-child) {
-        margin-right: 20px;
-    }
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+}
 
+a {
+  text-decoration: none;
 }
 
 .text {
-    min-width: 110px;
-    min-height: 60px;
-    padding: 25px;
+  min-width: 110px;
+  min-height: 60px;
+  padding: 25px;
 
+  @include fonts($fs: normal, $fw: 700, $fsz: 10px, $lh: 12px, $ls: 0.02em);
+  text-transform: uppercase;
+  text-align: center;
 
-    @include fonts($fs: normal, $fw: 700, $fsz: 10px, $lh: 12px, $ls: 0.02em);
-    text-transform: uppercase;
-    text-align: center;
+  color: black;
 
-    color: black;
+  @include mq(tablet) {
+    min-width: 210px;
 
-    @include mq(tablet) {
-        min-width: 210px;
-
-        @include fonts($fs: normal, $fw: 700, $fsz: 12px, $lh: 15px, $ls: 0.02em);
-    }
-
+    @include fonts($fs: normal, $fw: 700, $fsz: 12px, $lh: 15px, $ls: 0.02em);
+  }
 }
 
-
 .base {
-    border: 1px solid $color-input;
-    background-color: white;
+  border: 1px solid $color-input;
+  background-color: white;
 }
 
 .disabled {
-    composes: base;
-    border: 1px solid $color-input;
-    color: $color-input;
+  composes: base;
+  border: 1px solid $color-input;
+  color: $color-input;
 }
 
 .focus {
-    border: 1px solid $color-focus;
-    background-color: $color-focus;
+  border: 1px solid $color-focus;
+  background-color: $color-focus;
 
-    color: white;
+  color: white;
 }
 
 .auth {
-    @include mq(tablet) {
-        min-width: 203px;
-    }
+  @include mq(tablet) {
+    min-width: 203px;
+  }
 }
 
 .mainBtn {
-    width: 280px;
-    height: 212px;
-    padding: 0;
-    border: none;
-    color: white;
-    font-weight: 800;
-    font-size: 24px;
-    line-height: 29px;
-    text-align: center;
-    letter-spacing: 0.02em;
+  width: 280px;
+  height: 212px;
+  padding: 0;
+  border: none;
+  color: white;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  letter-spacing: 0.02em;
 
-    @include mq(tablet) {
-        width: 400px;
-        font-size: 32px;
-        line-height: 39px;
-        letter-spacing: 0.06em;
-    }
+  @include mq(tablet) {
+    width: 400px;
+    font-size: 32px;
+    line-height: 39px;
+    letter-spacing: 0.06em;
+  }
 }
 
 .firstBtn {
-    background-color: $color-btn-darkblue;
-    margin-bottom: 20px;
+  background-color: $color-btn-darkblue;
+  margin-bottom: 20px;
 
-    @include mq(tablet) {
-        margin-bottom: 30px;
-    }
+  @include mq(tablet) {
+    margin-bottom: 30px;
+  }
 
-    @include mq(desktop) {
-        margin-bottom: 0;
-        margin-right: 32px;
-    }
+  @include mq(desktop) {
+    margin-bottom: 0;
+    margin-right: 32px;
+  }
 }
 
 .secondBtn {
-    background-color: $color-focus;
+  background-color: $color-focus;
 }
 
-.top{
-    width: 190px;
-    height: 48px;
-    @include mq(mobile){
+.top {
+  width: 190px;
+  height: 48px;
+  @include mq(mobile) {
     margin-top: 40px;
-    }
+  }
 }
