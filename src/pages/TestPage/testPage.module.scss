@@ -2,6 +2,7 @@
 @import "../../shared/styles/utils/mixins";
 
 .main {
+  min-height: 100vh;
   padding-top: 28px;
   padding-bottom: 20px;
   @include mq(tablet) {
