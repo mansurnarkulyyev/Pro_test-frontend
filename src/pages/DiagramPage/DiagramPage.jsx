@@ -2,7 +2,7 @@
 import { useSelector } from "react-redux";
 import getQuestionsKind from "../../redux/questions/questionsKind/questionsKind-selectors";
 import getRemoteResults from "../../redux/questions/remoteResults/remoteResults-selectors";
-import DiagramRechart from "../../shared/components/DiagramRechart";
+import DiagramRechart from "../../modules/DiagramRechart/DiagramRechart";
 import Main from "../../shared/components/Main";
 import Section from "../../shared/components/Section";
 
