@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import useBreakpoints from "../../shared/hooks/useBreakpoints";
-import getQuestionsKind from "../../redux/questions/questionsKind/questionsKind-selectors";
 import getLocalResults from "../../redux/questions/localResults/localResults-selectors";
 import { setResults } from "../../redux/questions/remoteResults/remoteResults-operations";
 import { fetchQuestions, postResults } from "../../shared/api/questions-api";
@@ -20,18 +19,21 @@ const initialState = {
   loading: false,
   error: null,
   questions: [],
-  questionId: 1,
 };
 
 const TestPage = () => {
   const [state, setState] = useState(initialState);
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const { questions, questionId, loading, error } = state;
-  const questionsKind = useSelector(getQuestionsKind);
+  const { questions, loading, error } = state;
+  const { kind } = useParams();
+  const questionId = searchParams.get("questionId");
   const results = useSelector(getLocalResults);
 
   useEffect(() => {
     const getQuestions = async (kind) => {
+      const id = questionId || "1";
+      setSearchParams({ questionId: id });
       setState((prevState) => ({ ...prevState, error: null, loading: true }));
       try {
         const questions = await fetchQuestions(kind);
@@ -48,11 +50,8 @@ const TestPage = () => {
         }));
       }
     };
-    getQuestions(questionsKind);
-  }, [questionsKind]);
-
-
-  // const finishTest = () => { };
+    getQuestions(kind);
+  }, [kind, questionId, setSearchParams]);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -63,32 +62,31 @@ const TestPage = () => {
 
   const interruptTest = () => {
     dispatch(removeResults());
+    localStorage.removeItem("answers");
     navigate("/");
   };
 
   const finishTest = async () => {
     const resultsCount = countRightsWrongs(questions, results);
-    const reqBody = { kind: questionsKind, results: resultsCount };
+    const reqBody = { kind, results: resultsCount };
     await postResults(reqBody);
-    dispatch(setResults(questionsKind));
+    dispatch(setResults(kind));
     navigate("/diagram");
   };
 
   const currentQuestion = questions.find(
-    (question) => Number(question.questionId) === questionId
+    (question) => question.questionId === questionId
   );
 
-  const decrementId = () =>
-    setState((prevState) => ({
-      ...prevState,
-      questionId: prevState.questionId - 1,
-    }));
+  const decrementId = () => {
+    const newId = Number(questionId) - 1;
+    setSearchParams({ questionId: newId });
+  };
 
-  const incrementId = () =>
-    setState((prevState) => ({
-      ...prevState,
-      questionId: prevState.questionId + 1,
-    }));
+  const incrementId = () => {
+    const newId = Number(questionId) + 1;
+    setSearchParams({ questionId: newId });
+  };
 
   const setVariant = ({ question, answer }) => {
     dispatch(addResult({ question, answer }));
@@ -99,11 +97,7 @@ const TestPage = () => {
       <Container>
         <div className={styles.headerWrapper}>
           <span className={styles.header}>
-            [
-            {questionsKind === "tech"
-              ? "QA technical training"
-              : "Testing theory"}
-            _ ]
+            [{kind === "tech" ? "QA technical training" : "Testing theory"}_ ]
           </span>
           <button className={styles.btn} onClick={interruptTest}>
             Finish test
@@ -137,7 +131,7 @@ const TestPage = () => {
               </svg>
             </button>
           )}
-          {results.length === totalQuestions && (
+          {results.length === totalQuestions && questionId === totalQuestions && (
             <button className={styles.result} onClick={finishTest}>
               See results
             </button>

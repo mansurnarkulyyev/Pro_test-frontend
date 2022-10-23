@@ -79,7 +79,7 @@
 
 .label {
   cursor: pointer;
-  @include flex(start);
+  @include flex(flex-start);
   @include fonts(10px, 12px);
 
   @include mq(tablet) {
