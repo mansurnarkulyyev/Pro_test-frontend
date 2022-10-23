@@ -2,7 +2,6 @@
 @import "../../shared/styles/utils/mixins";
 
 .main {
-  min-height: 100vh;
   padding-top: 28px;
   padding-bottom: 20px;
   @include mq(tablet) {
@@ -15,9 +14,7 @@
 }
 
 .headerWrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex(space-between, center);
   padding-bottom: 24px;
 }
 
@@ -45,7 +42,7 @@
 }
 
 .btnWrapperOne {
-  @include flex(end);
+  @include flex(flex-end);
 }
 
 .btnWrapperBoth {
