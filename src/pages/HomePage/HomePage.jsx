@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { addQuestionsKind } from "../../redux/questions/questionsKind/questionsKind-actions";
 import classNames from "classnames";
 
 import Button from "../../shared/components/Button";
@@ -8,12 +6,6 @@ import Button from "../../shared/components/Button";
 import styles from "./homePage.module.scss";
 
 const HomePage = () => {
-  const dispatch = useDispatch();
-
-  const setQuestionsKind = (name) => {
-    dispatch(addQuestionsKind(name));
-  };
-
   return (
     <main className={styles.container}>
       <div className={styles.wrapper}>
@@ -28,18 +20,14 @@ const HomePage = () => {
           Linux kernel creator, hacker, 1969
         </p>
         <div className={styles.btnWrapper}>
-          <Link
-            to={"/test"}
-            onClick={() => setQuestionsKind("tech")}
-            className={styles.firstLink}
-          >
+          <Link to={"/test/tech"} className={styles.firstLink}>
             <Button
               type="button"
               text="QA technical training"
               className={classNames("button", "mainBtn", "firstBtn")}
             />
           </Link>
-          <Link to={"/test"} onClick={() => setQuestionsKind("theory")}>
+          <Link to={"/test/theory"}>
             <Button
               type="button"
               text="Testing theory"

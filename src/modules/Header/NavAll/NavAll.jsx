@@ -1,24 +1,24 @@
 import React from "react";
-// import { useSelector } from "react-redux";
+import s from "./NavAll.module.scss"
+import { useSelector } from "react-redux";
 import NavPrivate from "./NavPrivate/NavPrivate";
 import NavPublic from "./NavPublic/NavPublic";
-// import { getIsAuth } from "../../../redux/auth/auth-selectors"
+import NavbarAuth from "../NavbarAuth/NavbarAuth";
 
 const NavAll = () => {
-    // const isLogin = useSelector(getIsAuth);
+    const isLogin = useSelector(state => state.auth.isLogin)
 
     return (
         <>
-            <ul>
-                {/* {isLogin ? ( */}
-                {/* <NavPrivate /> */}
-                {/* ) */}
-                {/* : (<NavPublic />)} */}
-
-                   <NavPrivate /> 
-                   <NavPublic />
-
+        <div className={s.NavAll}>
+            <ul className={s.Nav}>
+                {isLogin ? (
+                 <NavPrivate /> 
+                 ) 
+                 : (<NavPublic />)} 
             </ul>
+        </div>
+        <NavbarAuth />
         </>
     );
 };

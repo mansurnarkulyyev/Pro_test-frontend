@@ -1,17 +1,10 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { addResult, removeResults } from "./localResults-actions";
+import spliceOrAddToStore from "../../../helpers/spliceOrAddToStore";
 
 const localResultsReducer = createReducer([], {
   [addResult]: (store, { payload }) => {
-    const { question } = payload;
-    const requiredIdx = store.findIndex(
-      (result) => result.question === question
-    );
-    if (requiredIdx !== -1) {
-      store.splice(requiredIdx, 1, payload);
-      return;
-    }
-    return [...store, payload];
+    return spliceOrAddToStore(store, payload, "question");
   },
   [removeResults]: (store) => [],
 });

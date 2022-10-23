@@ -1,0 +1,31 @@
+@import '../../shared/styles/utils/mixins';
+@import '../../shared/styles/utils/vars';
+
+.Header {
+    position: sticky;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: $color-body;
+    border-bottom: 1px solid #E2E3E5;
+}
+
+.container {
+    align-items: stretch;
+    justify-content: space-between;
+    display: flex;
+    padding: 0 20px;
+    height: 70px;
+
+    @include mq(tablet) {
+        padding: 0 32px;
+    }
+
+    @include mq(desktop) {
+        padding: 0 16px;
+    }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}

@@ -14,9 +14,7 @@
 }
 
 .headerWrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex(space-between, center);
   padding-bottom: 24px;
 }
 
@@ -44,7 +42,7 @@
 }
 
 .btnWrapperOne {
-  @include flex(end);
+  @include flex(flex-end);
 }
 
 .btnWrapperBoth {
