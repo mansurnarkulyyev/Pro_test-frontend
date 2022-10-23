@@ -1,33 +1,34 @@
-@import '../../shared/styles/utils/mixins';
-@import '../../shared/styles/utils/vars';
+@import "../../shared/styles/utils/mixins";
+@import "../../shared/styles/utils/vars";
 
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 42px;
+  padding-bottom: 58px;
+  width: 280px;
+
+  @include mq(tablet) {
     margin: 0 auto;
-    padding-top: 42px;
-    padding-bottom: 58px;
-    width: 280px;
+    width: 650px;
+    padding: 82px 0 125px;
+  }
 
-    @include mq(tablet) {
-        margin: 0 auto;
-        width: 650px;
-        padding: 82px 0 125px;
-    }
-
-    @include mq(desktop) {
-        padding: 122px 0 133px;
-        width: 832px;
-    }
+  @include mq(desktop) {
+    padding: 122px 0 133px;
+    width: 832px;
+  }
 }
 
 .title {
-    width: 130px;
-    margin: 0 auto 20px auto;
-    border-bottom: 1px solid rgba(0, 18, 47, 0.15);
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 22px;
-    padding-bottom: 15px;
+  width: 130px;
+  margin: 0 auto 20px auto;
+  border-bottom: 1px solid rgba(0, 18, 47, 0.15);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  padding-bottom: 15px;
 }
