@@ -131,11 +131,12 @@ const TestPage = () => {
               </svg>
             </button>
           )}
-          {results.length === totalQuestions && questionId === totalQuestions && (
-            <button className={styles.result} onClick={finishTest}>
-              See results
-            </button>
-          )}
+          {results.length === totalQuestions &&
+            Number(questionId) === totalQuestions && (
+              <button className={styles.result} onClick={finishTest}>
+                See results
+              </button>
+            )}
         </div>
       </Container>
     </div>
