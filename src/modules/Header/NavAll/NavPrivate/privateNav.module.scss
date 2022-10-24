@@ -35,8 +35,10 @@
     border-bottom: 1px solid $color-focus;
 }
 
-.current {
-  border-bottom: 1px solid $color-focus;
 }
 
+.isActive {
+  text-decoration: none;
+  color: $color-black;
+  border-bottom: 1px solid $color-focus;
 }
