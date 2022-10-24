@@ -7,7 +7,7 @@
   align-items: center;
 }
 
-.margin-left {
+.marginleft {
   margin-left: 20px;
 
   :first-child {
@@ -52,7 +52,7 @@
   }
 }
 
-.log-btn-container {
+.logbtncontainer {
   display: flex;
   align-items: center;
   box-sizing: content-box;
@@ -66,7 +66,7 @@
   background: none;
   padding: 0;
 
-  :hover {
+  &:hover {
     cursor: pointer;
   }
 }
