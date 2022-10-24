@@ -9,30 +9,30 @@ import Section from "../../shared/components/Section";
 
 const DiagramPage = () => {
 
-  const { kind } = useParams();
-  const remoteResults = useSelector(getRemoteResults);
-  console.log(remoteResults);
-  const results = remoteResults?.find((item) => item.kind === kind);
-  const [rights, wrongs] = results;
-  // debugger
+    // const { kind } = useParams();
+    // const remoteResults = useSelector(getRemoteResults);
+    // console.log(remoteResults);
+    // const results = remoteResults?.find((item) => item.kind === kind);
+    // const [rights, wrongs] = results;
+    // debugger
 
-   // const questionsKind = useSelector(getQuestionsKind);
-   // const remoteResults = useSelector(getRemoteResults);
-   // console.log(remoteResults);
-   // const results = remoteResults?.find((item) => item.kind === questionsKind);
-   // const [rights = "", wrongs = ""] = results?.results ? results : []
+    // const questionsKind = useSelector(getQuestionsKind);
+    // const remoteResults = useSelector(getRemoteResults);
+    // console.log(remoteResults);
+    // const results = remoteResults?.find((item) => item.kind === questionsKind);
+    // const [rights = "", wrongs = ""] = results?.results ? results : []
     // debugger
 
 
 
-  return (
-    <Main>
-      <Section>
-        <DiagramRechart rights={rights} wrongs={wrongs} />
-        {/* <DiagramRechart /> */}
-      </Section>
-    </Main>
-  );
+    return (
+        <Main>
+            <Section>
+                {/* <DiagramRechart rights={rights} wrongs={wrongs} /> */}
+                <DiagramRechart />
+            </Section>
+        </Main>
+    );
 };
 
 export default DiagramPage;

@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./NavAll.module.scss"
+import s from "./navAll.module.scss"
 import { useSelector } from "react-redux";
 import NavPrivate from "./NavPrivate/NavPrivate";
 import NavPublic from "./NavPublic/NavPublic";
@@ -10,15 +10,15 @@ const NavAll = () => {
 
     return (
         <>
-        <div className={s.NavAll}>
-            <ul className={s.Nav}>
-                {isLogin ? (
-                 <NavPrivate /> 
-                 ) 
-                 : (<NavPublic />)} 
-            </ul>
-        </div>
-        <NavbarAuth />
+            <div className={s.NavAll}>
+                <ul className={s.Nav}>
+                    {isLogin ? (
+                        <NavPrivate />
+                    )
+                        : (<NavPublic />)}
+                </ul>
+            </div>
+            <NavbarAuth />
         </>
     );
 };
