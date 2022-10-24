@@ -5,9 +5,14 @@ import DiagramRechart from "../../modules/DiagramRechart/DiagramRechart";
 import Main from "../../shared/components/Main";
 import Section from "../../shared/components/Section";
 
-// import React from 'react'
-
 const DiagramPage = () => {
+
+  const { kind } = useParams();
+  const remoteResults = useSelector(getRemoteResults);
+  const { results } = remoteResults.find((item) => item.kind === kind);
+  console.log({ remoteResults, results });
+  const [rights, wrongs] = results;
+
 
     // const { kind } = useParams();
     // const remoteResults = useSelector(getRemoteResults);
@@ -22,6 +27,7 @@ const DiagramPage = () => {
     // const results = remoteResults?.find((item) => item.kind === questionsKind);
     // const [rights = "", wrongs = ""] = results?.results ? results : []
     // debugger
+
 
 
 

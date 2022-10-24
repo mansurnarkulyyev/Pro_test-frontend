@@ -70,8 +70,9 @@ const TestPage = () => {
     const resultsCount = countRightsWrongs(questions, results);
     const reqBody = { kind, results: resultsCount };
     await postResults(reqBody);
+    localStorage.removeItem("answers");
     dispatch(setResults(kind));
-    navigate("/diagram");
+    navigate(`/diagram/${kind}`);
   };
 
   const currentQuestion = questions.find(
@@ -112,7 +113,7 @@ const TestPage = () => {
         )}
         <div
           className={
-            questionId === 1 ? styles.btnWrapperOne : styles.btnWrapperBoth
+            questionId === "1" ? styles.btnWrapperOne : styles.btnWrapperBoth
           }
         >
           {questionId > 1 && (

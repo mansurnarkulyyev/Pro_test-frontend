@@ -5,7 +5,6 @@ import RegisterPage from "./pages/RegisterPage";
 
 // import Question from "./modules/Question";
 
-
 const HomePage = lazy(() => import("./pages/HomePage"));
 const TestPage = lazy(() => import("./pages/TestPage"));
 const ContactsPage = lazy(() => import("./pages/ContactsPage"));
@@ -26,8 +25,16 @@ const UserRoutes = () => {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/" element={<HomePage />} />
+
+
+        <Route path="/register" element={<RegisterPage />} />
+
+      //  <Route path="/diagram/:kind" element={<PieRechartComponent />} />
+      <Route path="/diagram/:kind" element={<DiagramPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+
         <Route path="/test/:kind" element={<TestPage />} />
-        <Route path="/diagram" element={<DiagramPage />} />
+       // <Route path="/diagram" element={<DiagramPage />} />
         <Route path="/contacts" element={<ContactsPage />} />
 
         <Route path="/register" element={<RegisterPage />} />
