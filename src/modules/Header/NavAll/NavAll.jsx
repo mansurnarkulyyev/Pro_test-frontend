@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./navAll.module.scss"
+import s from "./allNav.module.scss"
 import { useSelector } from "react-redux";
 import NavPrivate from "./NavPrivate/NavPrivate";
 import NavPublic from "./NavPublic/NavPublic";
@@ -18,7 +18,6 @@ const NavAll = () => {
                         : (<NavPublic />)}
                 </ul>
             </div>
-            <NavbarAuth />
         </>
     );
 };
