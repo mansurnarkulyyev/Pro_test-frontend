@@ -4,10 +4,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 // import Button from '../../shared/components/Button';
 import FormInput from '../../shared/components/FormInput';
-import s from "./register.module.scss"
+import s from "./contacts.module.scss"
 
 
-function Register() {
+function TeamRegister() {
  
     const handleSubmit=(e)=> {
         e.preventDefault();
@@ -18,6 +18,8 @@ function Register() {
         console.log(result);
   }
 
+    const history = useNavigate();
+    
     const addUserData = async(e) => {
         const data = new FormData();
      
@@ -33,7 +35,7 @@ function Register() {
             console.log("error");
         }
         
-        // history("/contacts")
+        history("/contacts")
     }
   return (
       <form className={s.form} onSubmit={handleSubmit}>
@@ -52,7 +54,7 @@ function Register() {
   )
 }
 
-export default Register;
+export default TeamRegister;
 
 
 
