@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import getRemoteResults from "../../redux/questions/remoteResults/remoteResults-selectors";
@@ -6,39 +7,28 @@ import Main from "../../shared/components/Main";
 import Section from "../../shared/components/Section";
 
 const DiagramPage = () => {
-
+  const [state, setState] = useState({ rights: 0, wrongs: 0 });
   const { kind } = useParams();
   const remoteResults = useSelector(getRemoteResults);
-  const { results } = remoteResults.find((item) => item.kind === kind);
-  console.log({ remoteResults, results });
-  const [rights, wrongs] = results;
 
+  useEffect(() => {
+    if (!remoteResults) {
+      return;
+    }
+    const { results } = remoteResults.find((item) => item.kind === kind);
+    const [rights, wrongs] = results;
+    setState({ rights, wrongs });
+  }, [kind, remoteResults]);
 
-    // const { kind } = useParams();
-    // const remoteResults = useSelector(getRemoteResults);
-    // console.log(remoteResults);
-    // const results = remoteResults?.find((item) => item.kind === kind);
-    // const [rights, wrongs] = results;
-    // debugger
+  const { rights, wrongs } = state;
 
-    // const questionsKind = useSelector(getQuestionsKind);
-    // const remoteResults = useSelector(getRemoteResults);
-    // console.log(remoteResults);
-    // const results = remoteResults?.find((item) => item.kind === questionsKind);
-    // const [rights = "", wrongs = ""] = results?.results ? results : []
-    // debugger
-
-
-
-
-    return (
-        <Main>
-            <Section>
-                {/* <DiagramRechart rights={rights} wrongs={wrongs} /> */}
-                <DiagramRechart />
-            </Section>
-        </Main>
-    );
+  return (
+    <Main>
+      <Section>
+        <DiagramRechart rights={rights} wrongs={wrongs} />
+      </Section>
+    </Main>
+  );
 };
 
 export default DiagramPage;
