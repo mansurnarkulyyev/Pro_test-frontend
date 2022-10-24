@@ -1,35 +1,35 @@
-@import '../../shared/styles/utils/mixins';
-@import '../../shared/styles/utils/vars';
+@import "../../../../shared/styles/utils/mixins";
+@import "../../../../shared/styles/utils/vars";
 
 .NavElem {
-    padding: 28px 0;
-    border-bottom: 1px solid #E2E3E5;
+  padding: 28px 0;
+  border-bottom: 1px solid #e2e3e5;
 
-        @include mq(tablet) {
-            padding: 0;
-            border-bottom: none;
-            margin-right: 60px;
+  @include mq(tablet) {
+    padding: 0;
+    border-bottom: none;
+    margin-right: 60px;
 
-                :last-child {
-                    margin-right: 40px;
-                }
-        }
+    :last-child {
+      margin-right: 40px;
+    }
+  }
 
-        @include mq(desktop) {
-            margin-right: 80px;
+  @include mq(desktop) {
+    margin-right: 80px;
 
-                :last-child {
-                    margin-right: 80px;
-                }
-        }
+    :last-child {
+      margin-right: 80px;
+    }
+  }
 }
 
 .menu {
-    text-decoration: none;
-    color: $color-black;
+  text-decoration: none;
+  color: $color-black;
 
-    :hover,
-    :focus {
-        border-bottom: $color-focus;
-    }
+  :hover,
+  :focus {
+    border-bottom: $color-focus;
+  }
 }

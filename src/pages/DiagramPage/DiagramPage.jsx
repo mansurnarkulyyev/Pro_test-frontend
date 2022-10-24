@@ -5,15 +5,12 @@ import DiagramRechart from "../../modules/DiagramRechart/DiagramRechart";
 import Main from "../../shared/components/Main";
 import Section from "../../shared/components/Section";
 
-// import React from 'react'
-
 const DiagramPage = () => {
   const { kind } = useParams();
   const remoteResults = useSelector(getRemoteResults);
-  console.log(remoteResults);
-  const results = remoteResults?.find((item) => item.kind === kind);
+  const { results } = remoteResults.find((item) => item.kind === kind);
+  console.log({ remoteResults, results });
   const [rights, wrongs] = results;
-  // debugger
 
   return (
     <Main>
