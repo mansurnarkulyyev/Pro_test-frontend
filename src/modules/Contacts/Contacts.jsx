@@ -1,5 +1,9 @@
 import ContactsCard from "./ContactsCard";
 import styles from "./contacts.module.scss";
+import Button from "../../shared/components/Button";
+import { useNavigate } from "react-router-dom";
+import classNames from "classnames";
+
 
 const contactsList = [
   {
@@ -55,21 +59,38 @@ const contactsList = [
 
 const Contacts = () => {
 
-  const elements = contactsList.map(({name, position, image, about}) => 
-    <ContactsCard 
-    name = {name}
-    position = {position}
-    image = {image}
-    about = {about}
+
+
+  const navigate = useNavigate();
+  const goToRegister = () => {
+    navigate("/register");
+  };
+
+  const elements = contactsList.map(({ name, title, avatarURL, text }) =>
+    <ContactsCard
+      name={name}
+      position={title}
+      image={avatarURL}
+      about={text}
     />
   );
 
-  return (
+  return (<>
     <ul className={styles.contactsList}>
       {elements}
     </ul>
+
+    <Button
+      className={classNames("button", "text", "focus", "top")}
+      type="submit"
+      text="add user"
+      onClick={goToRegister}
+    />
+  </>
+
+
   );
-  };
-  
-  
-  export default Contacts;
+};
+
+
+export default Contacts;

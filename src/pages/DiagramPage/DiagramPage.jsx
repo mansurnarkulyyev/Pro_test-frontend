@@ -6,20 +6,39 @@ import Main from "../../shared/components/Main";
 import Section from "../../shared/components/Section";
 
 const DiagramPage = () => {
+
   const { kind } = useParams();
   const remoteResults = useSelector(getRemoteResults);
   const { results } = remoteResults.find((item) => item.kind === kind);
   console.log({ remoteResults, results });
   const [rights, wrongs] = results;
 
-  return (
-    <Main>
-      <Section>
-        <DiagramRechart rights={rights} wrongs={wrongs} />
-        {/* <DiagramRechart /> */}
-      </Section>
-    </Main>
-  );
+
+    // const { kind } = useParams();
+    // const remoteResults = useSelector(getRemoteResults);
+    // console.log(remoteResults);
+    // const results = remoteResults?.find((item) => item.kind === kind);
+    // const [rights, wrongs] = results;
+    // debugger
+
+    // const questionsKind = useSelector(getQuestionsKind);
+    // const remoteResults = useSelector(getRemoteResults);
+    // console.log(remoteResults);
+    // const results = remoteResults?.find((item) => item.kind === questionsKind);
+    // const [rights = "", wrongs = ""] = results?.results ? results : []
+    // debugger
+
+
+
+
+    return (
+        <Main>
+            <Section>
+                {/* <DiagramRechart rights={rights} wrongs={wrongs} /> */}
+                <DiagramRechart />
+            </Section>
+        </Main>
+    );
 };
 
 export default DiagramPage;

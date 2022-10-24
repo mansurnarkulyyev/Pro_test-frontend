@@ -10,7 +10,7 @@ import Diagram from "./Diagram/Diagram";
 import Button from "../../shared/components/Button";
 
 
-function PieRechartComponent({ rights, wrongs }) {
+function DiagramRechart({ rights, wrongs }) {
     const navigate = useNavigate();
     const goToTest = () => {
         navigate("/");
@@ -51,4 +51,4 @@ function PieRechartComponent({ rights, wrongs }) {
     );
 }
 
-export default PieRechartComponent;
+export default DiagramRechart;
