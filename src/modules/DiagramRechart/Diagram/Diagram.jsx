@@ -41,11 +41,11 @@ function Diagram({ rights, wrongs }) {
         {
             name: "Correct",
             // value: { rights },
-            value: { rights },
+            value: 20,
         },
         {
             name: "Incorrect",
-            value: { wrongs },
+            value: 37,
         },
     ];
     const CustomTooltip = ({ active, payload, label, value }) => {
