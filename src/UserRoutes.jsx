@@ -37,18 +37,25 @@ const UserRoutes = () => {
         <Route element={<PublicRoute />}>
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
-          <Route path="/contacts" element={<ContactsPage />} />
         </Route>
 
         <Route element={<PrivateRoute />}>
           <Route path="/" exact={true} element={<HomePage />} />
           <Route path="/diagram/:kind" element={<DiagramPage />} />
           <Route path="/test/:kind" element={<TestPage />} />
+
           <Route path="/contacts" element={<ContactsPage />} />
           <Route path="/team" element={<TeamRegisterPage />} />
         </Route>
 
         <Route path='*' element={<NotFoundPage />} />
+
+          <Route path="/register" element={<RegisterPage />} />
+        </Route>   
+            
+       // <Route path="/contacts" element={<ContactsPage />} />        
+       // <Route path='*' element={<NotFoundPage />}/>
+
       </Routes>
     </Suspense>
   );
