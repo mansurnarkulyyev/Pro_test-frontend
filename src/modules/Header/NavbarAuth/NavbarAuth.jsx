@@ -11,7 +11,6 @@ const NavbarAuth = () => {
   const token = useSelector((state) => state.auth.token);
   return (
     <>
-
       {/* <div className={s.NavAuth}>
         <div className={`${s.avatar} ${s.margin - left}`}>{`${userName.charAt(0)}`}</div>
         <div className={s.margin - left}>{`${userName}`}</div>
