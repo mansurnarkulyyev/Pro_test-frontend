@@ -1,8 +1,8 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import PublicRoute from './shared/components/PublicRoute/PublicRoute.jsx';
-import PrivateRoute from './shared/components/PrivateRoute/PrivateRoute.jsx';
+import PublicRoute from "./shared/components/PublicRoute/PublicRoute.jsx";
+import PrivateRoute from "./shared/components/PrivateRoute/PrivateRoute.jsx";
 
 import TeamRegisterPage from "./pages/TeamRegisterPage/TeamRegisterPage";
 // import Question from "./modules/Question";
@@ -50,8 +50,8 @@ const UserRoutes = () => {
 
         <Route path='*' element={<NotFoundPage />} />
 
-          <Route path="/register" element={<RegisterPage />} />
-        
+ {/*//           <Route path="/register" element={<RegisterPage />} />*/}
+
       </Routes>
     </Suspense>
   );

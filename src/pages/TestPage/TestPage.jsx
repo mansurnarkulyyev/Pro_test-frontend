@@ -71,6 +71,7 @@ const TestPage = () => {
     const reqBody = { kind, results: resultsCount };
     await postResults(reqBody);
     localStorage.removeItem("answers");
+    dispatch(removeResults());
     dispatch(setResults(kind));
     navigate(`/diagram/${kind}`);
   };
