@@ -14,8 +14,8 @@ const NavbarAuth = () => {
       <div className={s.NavAuth}>
         <div className={s.avatar + " " + s.marginleft}>P</div>
         <div className={s.marginleft}>Pavlo</div>
-        <div className={s.logbtncontainer}>
-          <button className={s.btn + " " + s.marginleft} type="button" onClick={() => dispatch(logoutRequest(token))}>
+        <div className={s.logbtncontainer + " " + s.marginleft}>
+          <button className={s.btn} type="button" onClick={() => dispatch(logoutRequest(token))}>
             <svg className={s.svg}>
               <use href={sprite + "#logout"}></use>
             </svg>
