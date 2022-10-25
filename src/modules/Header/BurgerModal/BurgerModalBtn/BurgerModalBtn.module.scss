@@ -1,0 +1,19 @@
+@import "../../../../shared/styles/utils/vars";
+@import "../../../../shared/styles/utils/mixins";
+
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $mainFont;
+    font-size: 12px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0px 1px 1px rgba(18, 29, 46, 0.1);
+  
+    @include mq(desktop) {
+      font-size: 14px;
+    }
+  }

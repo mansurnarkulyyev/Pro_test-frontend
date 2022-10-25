@@ -12,7 +12,7 @@
     border-bottom: none;
     margin-right: 60px;
 
-    :last-child {
+    &:last-child {
       margin-right: 40px;
     }
   }
@@ -20,7 +20,7 @@
   @include mq(desktop) {
     margin-right: 80px;
 
-    :last-child {
+    &:last-child {
       margin-right: 80px;
     }
   }
@@ -30,8 +30,15 @@
   text-decoration: none;
   color: $color-black;
 
-  :hover,
-  :focus {
-    border-bottom: $color-focus;
-  }
+  &:hover,
+  &:focus {
+    border-bottom: 1px solid $color-focus;
+}
+
+}
+
+.isActive {
+  text-decoration: none;
+  color: $color-black;
+  border-bottom: 1px solid $color-focus;
 }
