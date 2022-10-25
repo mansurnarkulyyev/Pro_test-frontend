@@ -6,18 +6,34 @@ import authReducer from "./auth/auth-slice";
 import localResultsReducer from "./questions/localResults/localResults-reducer";
 import remoteResultsReducer from "./questions/remoteResults/remoteResults-reducer";
 
+// const persistConfig = {
+//   key: "token",
+//   storage,
+//   whitelist: ["token"],
+// };
+
+// const persistAuthReducer = persistReducer(persistConfig, authReducer);
+
+// const rootReducer = combineReducers({
+//   auth: persistAuthReducer,
+//   localResults: localResultsReducer,
+//   remoteResults: remoteResultsReducer,
+// });
+
+// export default rootReducer;
+
 const persistConfig = {
-  key: "token",
+  key: "root",
   storage,
-  whitelist: ["token"],
+  whitelist: ["auth", "localResults"],
 };
 
-const persistAuthReducer = persistReducer(persistConfig, authReducer);
-
 const rootReducer = combineReducers({
-  auth: persistAuthReducer,
+  auth: authReducer,
   localResults: localResultsReducer,
-  remoteResults: remoteResultsReducer,         
+  remoteResults: remoteResultsReducer,
 });
 
-export default rootReducer;
+const persistRootReducer = persistReducer(persistConfig, rootReducer);
+
+export default persistRootReducer;

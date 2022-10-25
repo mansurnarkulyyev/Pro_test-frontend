@@ -94,7 +94,12 @@ a {
 }
 
 .secondBtn {
+  padding: 0 50px;
   background-color: $color-focus;
+
+  @include mq(tablet) {
+    padding: 0 100px;
+  }
 }
 
 .top {

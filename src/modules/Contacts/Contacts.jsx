@@ -63,7 +63,7 @@ const Contacts = () => {
 
   const navigate = useNavigate();
   const goToRegister = () => {
-    navigate("/register");
+    navigate("/team");
   };
 
   const elements = contactsList.map(({ name, title, avatarURL, text }) =>
