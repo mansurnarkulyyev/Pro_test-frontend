@@ -31,7 +31,8 @@
 }
 
 .mob {
-    display: block;
+    display: flex;
+    align-items: stretch;
 
     @include mq(tablet) {
         display: none;
