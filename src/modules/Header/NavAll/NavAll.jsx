@@ -10,14 +10,12 @@ const NavAll = () => {
 
     return (
         <>
-            <div className={s.NavAll}>
                 <ul className={s.Nav}>
                     {/* {isLogin ? ( */}
                         <NavPrivate />
                     {/* ) */}
                         {/* : (<NavPublic />)} */}
                 </ul>
-            </div>
         </>
     );
 };

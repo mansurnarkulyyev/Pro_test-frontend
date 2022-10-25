@@ -10,18 +10,18 @@
 .marginleft {
   margin-left: 20px;
 
-  :first-child {
+  &:first-child {
     margin-left: 0px;
   }
 
   @include mq(tablet) {
     margin-left: 8px;
 
-    :first-child {
+    &:first-child {
       margin-left: 0px;
     }
 
-    :last-child {
+    &:last-child {
       margin-left: 20px;
     }
   }
@@ -29,7 +29,7 @@
   @include mq(desktop) {
     margin-left: 20px;
 
-    :first-child {
+    &:first-child {
       margin-left: 0px;
     }
   }
@@ -69,4 +69,9 @@
   &:hover {
     cursor: pointer;
   }
+}
+
+.svg {
+  width: 16px;
+  height: 16px;
 }
