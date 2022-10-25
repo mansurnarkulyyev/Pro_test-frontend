@@ -7,22 +7,22 @@ import s from "./NavbarAuth.module.scss";
 
 const NavbarAuth = () => {
   const dispatch = useDispatch();
-  const userName = useSelector((state) => state.auth.name);
+  // const userName = useSelector((state) => state.auth.name);
   const token = useSelector((state) => state.auth.token);
   return (
     <>
-      {/* <div className={s.NavAuth}>
-        <div className={`${s.avatar} ${s.margin - left}`}>{`${userName.charAt(0)}`}</div>
-        <div className={s.margin - left}>{`${userName}`}</div>
-        <div className={s.log - btn - container}>
-          <button className={`${s.btn} ${s.margin - left}`} type="button" onClick={() => dispatch(logoutRequest(token))}>
-            <svg width="16px" height="16px">
-              <use href={sprite + "#icon-arrow-left"}></use>
+      <div className={s.NavAuth}>
+        <div className={s.avatar + " " + s.marginleft}>P</div>
+        <div className={s.marginleft}>Pavlo</div>
+        <div className={s.logbtncontainer + " " + s.marginleft}>
+          <button className={s.btn} type="button" onClick={() => dispatch(logoutRequest(token))}>
+            <svg className={s.svg}>
+              <use href={sprite + "#logout"}></use>
             </svg>
           </button>
         </div>
-      </div> */}
-      <div className={s.NavAuth}>
+      </div>
+      {/* <div className={s.NavAuth}>
         <div className={s.avatar}>P</div>
         <div className={s.margin}>Pavlo</div>
         <div className={s.log}>
@@ -32,7 +32,7 @@ const NavbarAuth = () => {
             </svg>
           </button>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

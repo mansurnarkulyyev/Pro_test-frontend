@@ -7,21 +7,21 @@
   align-items: center;
 }
 
-.margin-left {
+.marginleft {
   margin-left: 20px;
 
-  :first-child {
+  &:first-child {
     margin-left: 0px;
   }
 
   @include mq(tablet) {
     margin-left: 8px;
 
-    :first-child {
+    &:first-child {
       margin-left: 0px;
     }
 
-    :last-child {
+    &:last-child {
       margin-left: 20px;
     }
   }
@@ -29,7 +29,7 @@
   @include mq(desktop) {
     margin-left: 20px;
 
-    :first-child {
+    &:first-child {
       margin-left: 0px;
     }
   }
@@ -52,7 +52,7 @@
   }
 }
 
-.log-btn-container {
+.logbtncontainer {
   display: flex;
   align-items: center;
   box-sizing: content-box;
@@ -65,8 +65,14 @@
   border: none;
   background: none;
   padding: 0;
+  margin: 0;
 
-  :hover {
+  &:hover {
     cursor: pointer;
   }
+}
+
+.svg {
+  width: 16px;
+  height: 16px;
 }
