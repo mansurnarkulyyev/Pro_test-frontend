@@ -33,7 +33,7 @@ function Header() {
             </div>
           )}
           <div className={s.tabDesk}>
-            <NavbarAuth />
+          {isLogin ? <NavbarAuth /> : <></>}
           </div>
           <div className={s.mob}>
             <BurgerModalBtn isActive={isActive} onClick={toggleModal} />

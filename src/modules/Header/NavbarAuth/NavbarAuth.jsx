@@ -7,13 +7,14 @@ import s from "./NavbarAuth.module.scss";
 
 const NavbarAuth = () => {
   const dispatch = useDispatch();
-  // const userName = useSelector((state) => state.auth.name);
+  const userName = useSelector((state) => state.auth.email);
+  const avatar =  JSON.stringify(userName)
   const token = useSelector((state) => state.auth.token);
   return (
     <>
       <div className={s.NavAuth}>
-        <div className={s.avatar + " " + s.marginleft}>P</div>
-        <div className={s.marginleft}>Pavlo</div>
+        <div className={s.avatar + " " + s.marginleft}>{avatar.charAt(1)}</div>
+        <div className={s.marginleft}>{userName}</div>
         <div className={s.logbtncontainer + " " + s.marginleft}>
           <button className={s.btn} type="button" onClick={() => dispatch(logoutRequest(token))}>
             <svg className={s.svg}>
