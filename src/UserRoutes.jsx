@@ -9,6 +9,7 @@ import TeamRegisterPage from "./pages/TeamRegisterPage/TeamRegisterPage";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const TestPage = lazy(() => import("./pages/TestPage"));
+const MaterialsPage = lazy(() => import("./pages/MaterialsPage"));
 const ContactsPage = lazy(() => import("./pages/ContactsPage"));
 const DiagramPage = lazy(() => import("./pages/DiagramPage/DiagramPage"));
 const SignIn = lazy(() => import("./pages/SignInPage"));
@@ -43,15 +44,14 @@ const UserRoutes = () => {
           <Route path="/" exact={true} element={<HomePage />} />
           <Route path="/diagram/:kind" element={<DiagramPage />} />
           <Route path="/test/:kind" element={<TestPage />} />
-
+          <Route path="/useful-info" element={<MaterialsPage />} />
           <Route path="/contacts" element={<ContactsPage />} />
           <Route path="/team" element={<TeamRegisterPage />} />
         </Route>
 
-        <Route path='*' element={<NotFoundPage />} />
+        <Route path="*" element={<NotFoundPage />} />
 
- {/*//           <Route path="/register" element={<RegisterPage />} />*/}
-
+        {/*//           <Route path="/register" element={<RegisterPage />} />*/}
       </Routes>
     </Suspense>
   );
