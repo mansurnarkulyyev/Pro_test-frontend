@@ -89,3 +89,13 @@
   @extend .prev;
   padding: 10px 20px;
 }
+
+.error {
+  @include fonts(20px);
+  text-align: center;
+
+  @include mq(tablet) {
+    @include fonts(30px);
+    padding-bottom: 3%;
+  }
+}

@@ -12,6 +12,7 @@ import {
 } from "../../redux/questions/localResults/localResults-actions";
 import Container from "../../shared/components/Container";
 import Question from "../../modules/Question";
+import Spinner from "../../shared/components/Spinner";
 import sprite from "../../images/icons/sprite.svg";
 import styles from "./testPage.module.scss";
 
@@ -97,49 +98,58 @@ const TestPage = () => {
   return (
     <div className={styles.main}>
       <Container>
-        <div className={styles.headerWrapper}>
-          <span className={styles.header}>
-            [{kind === "tech" ? "QA technical training" : "Testing theory"}_ ]
-          </span>
-          <button className={styles.btn} onClick={interruptTest}>
-            Finish test
-          </button>
-        </div>
-        {questions.length > 0 && (
-          <Question
-            item={currentQuestion}
-            total={totalQuestions}
-            onChange={setVariant}
-          />
-        )}
-        <div
-          className={
-            questionId === "1" ? styles.btnWrapperOne : styles.btnWrapperBoth
-          }
-        >
-          {questionId > 1 && (
-            <button className={styles.prev} onClick={decrementId}>
-              <svg className={styles.left} width="24" height="24">
-                <use href={sprite + "#icon-arrow-left"}></use>
-              </svg>
-              {prevText}
-            </button>
-          )}
-          {questionId < totalQuestions && (
-            <button className={styles.next} onClick={incrementId}>
-              {nextText}
-              <svg className={styles.right} width="24" height="24">
-                <use href={sprite + "#icon-arrow-right"}></use>
-              </svg>
-            </button>
-          )}
-          {results.length === totalQuestions &&
-            Number(questionId) === totalQuestions && (
-              <button className={styles.result} onClick={finishTest}>
-                See results
+        {loading && <Spinner />}
+        {error && <h2 className={styles.error}>{error}</h2>}
+        {!error && (
+          <>
+            <div className={styles.headerWrapper}>
+              <span className={styles.header}>
+                [{kind === "tech" ? "QA technical training" : "Testing theory"}_
+                ]
+              </span>
+              <button className={styles.btn} onClick={interruptTest}>
+                Finish test
               </button>
+            </div>
+            {questions.length > 0 && (
+              <Question
+                item={currentQuestion}
+                total={totalQuestions}
+                onChange={setVariant}
+              />
             )}
-        </div>
+            <div
+              className={
+                questionId === "1"
+                  ? styles.btnWrapperOne
+                  : styles.btnWrapperBoth
+              }
+            >
+              {questionId > 1 && (
+                <button className={styles.prev} onClick={decrementId}>
+                  <svg className={styles.left} width="24" height="24">
+                    <use href={sprite + "#icon-arrow-left"}></use>
+                  </svg>
+                  {prevText}
+                </button>
+              )}
+              {questionId < totalQuestions && (
+                <button className={styles.next} onClick={incrementId}>
+                  {nextText}
+                  <svg className={styles.right} width="24" height="24">
+                    <use href={sprite + "#icon-arrow-right"}></use>
+                  </svg>
+                </button>
+              )}
+              {results.length === totalQuestions &&
+                Number(questionId) === totalQuestions && (
+                  <button className={styles.result} onClick={finishTest}>
+                    See results
+                  </button>
+                )}
+            </div>
+          </>
+        )}
       </Container>
     </div>
   );

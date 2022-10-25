@@ -3,9 +3,16 @@ import classNames from "classnames";
 
 import Button from "../../shared/components/Button";
 
+import sprite from "../../images/icons/sprite.svg";
 import styles from "./homePage.module.scss";
 
 const HomePage = () => {
+  const arrowIcon = (
+    <svg className={styles.arrow}>
+      <use href={sprite + "#icon-arrow-right"}></use>
+    </svg>
+  );
+
   return (
     <main className={styles.container}>
       <div className={styles.wrapper}>
@@ -25,6 +32,7 @@ const HomePage = () => {
               type="button"
               text="QA technical training"
               className={classNames("button", "mainBtn", "firstBtn")}
+              children={arrowIcon}
             />
           </Link>
           <Link to={"/test/theory"}>
@@ -32,6 +40,7 @@ const HomePage = () => {
               type="button"
               text="Testing theory"
               className={classNames("button", "mainBtn", "secondBtn")}
+              children={arrowIcon}
             />
           </Link>
         </div>
@@ -41,8 +50,3 @@ const HomePage = () => {
 };
 
 export default HomePage;
-
-{
-  /* <Link to={"/test"} onClick={() => setQuestionsKind("tech")} ><button type="button" className={styles.button} >QA technical training</button></Link>
-<Link to={"/test"} onClick={() => setQuestionsKind("tech")} ><button type="button" className={styles.button} >Testing theory</button></Link> */
-}
