@@ -48,10 +48,7 @@ const UserRoutes = () => {
           <Route path="/team" element={<TeamRegisterPage />} />
         </Route>
 
-        <Route path='*' element={<NotFoundPage />} />
-
- {/*//           <Route path="/register" element={<RegisterPage />} />*/}
-
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>
   );

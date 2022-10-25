@@ -2,15 +2,15 @@
 @import "../../shared/styles/utils/mixins";
 
 .wrapper {
-  padding: 40px 20px 76px;
+  padding: 40px 20px 56px;
   margin-bottom: 20px;
   background-color: $color-white;
 
   @include mq(tablet) {
-    padding: 40px 73px 60px;
+    padding: 40px 73px 40px;
   }
   @include mq(desktop) {
-    padding: 40px 86px 80px;
+    padding: 40px 86px 60px;
   }
 }
 
@@ -28,6 +28,25 @@
     margin-bottom: 8px;
     text-transform: none;
     @include fonts(14px, 17px);
+  }
+}
+
+.list {
+  max-height: 240px;
+  overflow: auto;
+  padding-bottom: 20px;
+
+  @include mq(tablet) {
+    max-height: 340px;
+  }
+}
+
+.answer {
+  @include mq(mobile) {
+    max-width: 190px;
+  }
+  @include mq(tablet) {
+    max-width: 500px;
   }
 }
 
