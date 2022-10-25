@@ -5,6 +5,8 @@
 
 .NavElem {
   padding: 28px 0;
+  width: 100%;
+  text-align: center;
   border-bottom: 1px solid #e2e3e5;
 
   @include mq(tablet) {

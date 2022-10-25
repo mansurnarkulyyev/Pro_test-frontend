@@ -3,10 +3,14 @@ import s from "./publicNav.module.scss"
 import { NavLink } from 'react-router-dom';
 
 const NavPublic = () => {
+    function getClassName({ isActive }) {
+        const style = isActive ? s.isActive : s.menu;
+        return style;
+      }
     return (
         <>
             <li className={s.NavElem}>
-                <NavLink exact to="/contacts" className={s.menu}>
+                <NavLink exact to="/contacts" className={getClassName}>
                     Contacts
                 </NavLink>
             </li>
