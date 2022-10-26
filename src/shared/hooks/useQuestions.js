@@ -13,18 +13,21 @@ const useQuestions = ({ key, initialState, mainUnit, mainUnitProp }) => {
     return entity;
   }, [key, mainUnit, mainUnitProp]);
 
-  const fill = (id, idx) => {
-    const arr = JSON.parse(localStorage.getItem(key)) || [];
-    const item = arr.find((item) => item.id === id);
-    if (item) {
-      item.index = idx;
-    } else {
-      const obj = { id, index: idx };
-      arr.push(obj);
-    }
-    localStorage.setItem(key, JSON.stringify(arr));
-    setState(idx);
-  };
+  const fill = useCallback(
+    (id, idx) => {
+      const arr = JSON.parse(localStorage.getItem(key)) || [];
+      const item = arr.find((item) => item.id === id);
+      if (item) {
+        item.index = idx;
+      } else {
+        const obj = { id, index: idx };
+        arr.push(obj);
+      }
+      localStorage.setItem(key, JSON.stringify(arr));
+      setState(idx);
+    },
+    [key]
+  );
 
   useEffect(() => {
     setState(recall(mainUnit));

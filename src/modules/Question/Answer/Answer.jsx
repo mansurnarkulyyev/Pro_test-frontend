@@ -1,7 +1,19 @@
-import styles from "../question.module.scss";
-const Answer = ({ onLabelClick, value, checked, onInputClick, answer }) => {
+import styles from "./answer.module.scss";
+
+const Answer = ({
+  meta,
+  onLabelClick,
+  value,
+  checked,
+  onInputClick,
+  answer,
+}) => {
+  const { question, questionId, idx } = meta;
   return (
-    <label onClick={onLabelClick} className={styles.label}>
+    <label
+      onClick={() => onLabelClick(questionId, idx)}
+      className={styles.label}
+    >
       <input
         className={styles.radio}
         type="radio"
@@ -9,7 +21,7 @@ const Answer = ({ onLabelClick, value, checked, onInputClick, answer }) => {
         value={value}
         checked={checked}
         readOnly={true}
-        onClick={onInputClick}
+        onClick={() => onInputClick({ question, answer })}
       />
       <div className={styles.fake}></div>
       <div className={styles.answer}>{answer}</div>

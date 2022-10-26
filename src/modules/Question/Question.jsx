@@ -15,10 +15,11 @@ const Question = ({ item, total, onChange }) => {
     return (
       <li className={styles.item} key={idx}>
         <Answer
-          onLabelClick={() => fill(questionId, idx)}
+          meta={{ question, questionId, idx }}
+          onLabelClick={fill}
           value={answer}
           checked={idx === state}
-          onInputClick={() => onChange({ question, answer })}
+          onInputClick={onChange}
           answer={answer}
         />
       </li>

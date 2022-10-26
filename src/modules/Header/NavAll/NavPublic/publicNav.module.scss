@@ -17,8 +17,8 @@
   text-decoration: none;
   color: $color-black;
 
-  :hover,
-  :focus {
+  &:hover,
+  &:focus {
     border-bottom: $color-focus;
   }
 }
