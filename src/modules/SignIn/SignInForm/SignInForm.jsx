@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { useNavigate } from "react-router";
+import { ProgressBar } from "react-loader-spinner";
 
 import useForm from "../../../shared/hooks/useForm";
 
@@ -10,9 +11,17 @@ import { initialState } from "../../../data/initialStateAuth";
 
 import s from "./signInForm.module.scss";
 
-function SignInForm({ onSubmit }) {
+function SignInForm({ onSubmit, loading }) {
   const navigate = useNavigate();
-  const { state, handleChange, handleSubmit } = useForm({
+  const {
+    state,
+    handleChange,
+    handleSubmit,
+    validateEmail,
+    validatePassword,
+    errorEmail,
+    errorPassword,
+  } = useForm({
     onSubmit,
     initialState,
   });
@@ -30,29 +39,47 @@ function SignInForm({ onSubmit }) {
         placeholder="Email"
         type="email"
         handleChange={handleChange}
+        handleBlur={validateEmail}
         required
       />
+      {errorEmail}
       <FormField
         name="password"
         value={password}
         placeholder="Password"
         type="password"
-        handleChange={handleChange}
+        handleBlur={validatePassword}
         required
+        handleChange={handleChange}
       />
-      <div className={s[`wrapper-btn`]}>
-        <Button
-          className={classNames("button", "text", "focus", "auth")}
-          type="submit"
-          text="Sign in"
-        />
-        <Button
-          className={classNames("button", "text", "base", "auth")}
-          type="button"
-          text="Sign up"
-          onClick={goToSignUp}
-        />
-      </div>
+      {errorPassword}
+      {(loading && (
+        <div className={s[`wrapper-btn`]}>
+          <ProgressBar
+            height="80"
+            width="180"
+            ariaLabel="progress-bar-loading"
+            wrapperStyle={{}}
+            wrapperClass="progress-bar-wrapper"
+            borderColor="#FF6B09"
+            barColor="#FF6B09"
+          />
+        </div>
+      )) || (
+        <div className={s[`wrapper-btn`]}>
+          <Button
+            className={classNames("button", "text", "focus", "auth")}
+            type="submit"
+            text="Sign in"
+          />
+          <Button
+            className={classNames("button", "text", "base", "auth")}
+            type="button"
+            text="Sign up"
+            onClick={goToSignUp}
+          />
+        </div>
+      )}
     </form>
   );
 }
