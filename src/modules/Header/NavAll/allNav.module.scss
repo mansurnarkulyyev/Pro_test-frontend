@@ -9,6 +9,7 @@
     display: flex;
     justify-content: space-between;
     line-height: 14px;
+    flex-direction: column;
 
         @include mq(tablet) {
             font-size: 12px;
@@ -26,7 +27,12 @@
 .Nav {
   display: flex;
   align-items: center;
+  flex-direction: column;
   padding: 0;
   margin: 0;
   list-style: none;
+
+  @include mq(tablet) {
+    flex-direction: row;
+  }
 }
