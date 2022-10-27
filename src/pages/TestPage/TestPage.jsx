@@ -17,6 +17,8 @@ import SVGCreator from "../../shared/components/SVGCreator";
 import Spinner from "../../shared/components/Spinner";
 import styles from "./testPage.module.scss";
 
+//import Section
+
 const initialState = {
   loading: false,
   error: null,
@@ -98,6 +100,7 @@ const TestPage = () => {
 
   return (
     <div className={styles.main}>
+      //Section
       <Container>
         {loading && <Spinner />}
         {loading && !questions.length && (

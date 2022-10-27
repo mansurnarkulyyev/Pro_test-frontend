@@ -11,17 +11,17 @@ const NavPrivate = () => {
   return (
     <>
       <li className={s.NavElem}>
-        <NavLink exact to="/" className={getClassName}>
+        <NavLink to="/home" className={getClassName}>
           Home
         </NavLink>
       </li>
       <li className={s.NavElem}>
-        <NavLink exact to="/useful-info" className={getClassName}>
+        <NavLink to="/useful-info" className={getClassName}>
           Materials
         </NavLink>
       </li>
       <li className={s.NavElem}>
-        <NavLink exact to="/contacts" className={getClassName}>
+        <NavLink to="/contacts" className={getClassName}>
           Contacts
         </NavLink>
       </li>

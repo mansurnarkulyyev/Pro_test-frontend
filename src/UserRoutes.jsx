@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import PublicRoute from "./shared/components/PublicRoute/PublicRoute.jsx";
 import PrivateRoute from "./shared/components/PrivateRoute/PrivateRoute.jsx";
@@ -19,21 +19,6 @@ const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 const UserRoutes = () => {
   return (
     <Suspense fallback={<p>...Loading page</p>}>
-      {/* <Routes>
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/" element={<HomePage />} />
-        <Route path="/register" element={<TeamRegisterPage />} />
-        <Route path="/diagram/:kind" element={<PieRechartComponent />} /> 
-      <Route path="/diagram/:kind" element={<DiagramPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-        <Route path="/test/:kind" element={<TestPage />} />
-       // <Route path="/diagram" element={<DiagramPage />} />
-        <Route path="/contacts" element={<ContactsPage />} />
-        <Route path="/register" element={<TeamRegisterPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes> */}
-
       <Routes>
         <Route element={<PublicRoute />}>
           <Route path="/signup" element={<SignUp />} />
@@ -41,16 +26,16 @@ const UserRoutes = () => {
         </Route>
 
         <Route element={<PrivateRoute />}>
-          <Route path="/" exact={true} element={<HomePage />} />
+          <Route path="/" element={<Navigate to="/home" />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/diagram/:kind" element={<DiagramPage />} />
           <Route path="/test/:kind" element={<TestPage />} />
           <Route path="/useful-info" element={<MaterialsPage />} />
-          <Route path="/contacts" element={<ContactsPage />} />
           <Route path="/team" element={<TeamRegisterPage />} />
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />
-
+        <Route path="/contacts" element={<ContactsPage />} />
       </Routes>
     </Suspense>
   );
