@@ -3,8 +3,8 @@
 
 .spinner {
   position: fixed;
-  top: calc(50vh - 32px);
-  left: calc(50vw - 32px);
+  top: calc(50vh - 16px);
+  left: calc(50vw - 16px);
   width: 32px;
   height: 32px;
   animation: rotation 5s linear;
@@ -12,8 +12,8 @@
   fill: $color-focus;
 
   @include mq(tablet) {
-    top: calc(50vh - 52px);
-    left: calc(50vw - 52px);
+    top: calc(50vh - 26px);
+    left: calc(50vw - 26px);
     width: 52px;
     height: 52px;
   }

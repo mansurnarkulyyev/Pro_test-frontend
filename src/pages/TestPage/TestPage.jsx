@@ -11,6 +11,7 @@ import {
   removeResults,
 } from "../../redux/questions/localResults/localResults-actions";
 import Container from "../../shared/components/Container";
+import ButtonUniversal from "../../shared/components/ButtonUniversal/ButtonUniversal";
 import Question from "../../modules/Question";
 import SVGCreator from "../../shared/components/SVGCreator";
 import Spinner from "../../shared/components/Spinner";
@@ -99,6 +100,9 @@ const TestPage = () => {
     <div className={styles.main}>
       <Container>
         {loading && <Spinner />}
+        {loading && !questions.length && (
+          <div className={styles.skeleton}></div>
+        )}
         {error && <h2 className={styles.error}>{error}</h2>}
         {!error && (
           <>
@@ -107,9 +111,12 @@ const TestPage = () => {
                 [{kind === "tech" ? "QA technical training" : "Testing theory"}_
                 ]
               </span>
-              <button className={styles.btn} onClick={interruptTest}>
-                Finish test
-              </button>
+              <ButtonUniversal
+                type="button"
+                text="Finish test"
+                btnStyles={styles.btn}
+                onClick={interruptTest}
+              />
             </div>
             {questions.length > 0 && (
               <Question
@@ -126,32 +133,37 @@ const TestPage = () => {
               }
             >
               {questionId > 1 && (
-                <button
-                  className={styles.prev}
+                <ButtonUniversal
+                  type="button"
+                  text={prevText}
+                  btnStyles={styles.prev}
                   onClick={() => changeId("back")}
-                >
-                  <div className={styles.left}>
-                    <SVGCreator iconName="arrow-left" width={24} height={24} />
-                  </div>
-                  {prevText}
-                </button>
+                  svgStyles={styles.left}
+                  iconName="arrow-left"
+                  svgWidth={24}
+                  svgHeight={24}
+                />
               )}
               {questionId < totalQuestions && (
-                <button
-                  className={styles.next}
+                <ButtonUniversal
+                  type="button"
+                  text={nextText}
+                  btnStyles={styles.next}
+                  svgStyles={styles.right}
+                  iconName="arrow-right"
+                  svgWidth={24}
+                  svgHeight={24}
                   onClick={() => changeId("forward")}
-                >
-                  {nextText}
-                  <div className={styles.right}>
-                    <SVGCreator iconName="arrow-right" width={24} height={24} />
-                  </div>
-                </button>
+                />
               )}
               {results.length === totalQuestions &&
                 numericQuestionId === totalQuestions && (
-                  <button className={styles.result} onClick={finishTest}>
-                    See results
-                  </button>
+                  <ButtonUniversal
+                    type="button"
+                    text="See results"
+                    btnStyles={styles.result}
+                    onClick={finishTest}
+                  />
                 )}
             </div>
           </>

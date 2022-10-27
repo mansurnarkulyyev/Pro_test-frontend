@@ -2,15 +2,29 @@
 @import "../../shared/styles/utils/mixins";
 
 .wrapper {
+  height: 456px;
+  overflow: auto;
   padding: 40px 20px 56px;
   margin-bottom: 20px;
   background-color: $color-white;
 
   @include mq(tablet) {
+    height: 453px;
     padding: 40px 73px 40px;
   }
   @include mq(desktop) {
+    height: 445px;
     padding: 40px 86px 60px;
+  }
+}
+
+.wrapper,
+.list {
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $color-input;
   }
 }
 
