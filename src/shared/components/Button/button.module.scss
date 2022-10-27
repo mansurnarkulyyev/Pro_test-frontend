@@ -105,7 +105,141 @@ a {
 .top {
   width: 190px;
   height: 48px;
+
   @include mq(mobile) {
     margin-top: 40px;
+  }
+}
+
+.icon {
+  background-color: transparent;
+  border-color: transparent;
+  @include flex();
+
+  width: 30px;
+  height: 30px;
+
+  animation: rotate-scale-up $cubic $timeDelay;
+
+  @include mq(tablet) {
+    width: 36px;
+    height: 36px;
+  }
+
+  &-delete,
+  &-add {
+    padding: 0;
+    width: 24px;
+    height: 24px;
+
+    @include mq(tablet) {
+      width: 34px;
+      height: 34px;
+    }
+
+    fill: $color-focus;
+    transition: $timeDelay $cubic $timeDelay;
+
+
+    &:hover,
+    &:focus {
+      fill: black;
+      transform: fill;
+
+      animation: rotate-scale-up 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) forwards;
+
+    }
+  }
+}
+
+
+.add {
+  @include flex();
+  padding: 3px;
+
+  background-color: $color-focus;
+  border-radius: 50%;
+
+  transition: $timeDelay $cubic $timeDelay;
+
+  &:hover,
+  &:focus {
+    background-color: white;
+    transform: background-color;
+  }
+
+}
+
+.icon-add {
+  fill: white;
+  transition: $timeDelay $cubic $timeDelay;
+
+  &:hover,
+  &:focus {
+    fill: $color-text;
+    transform: fill;
+    animation: rotate-90-cw 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) forwards;
+  }
+}
+
+
+//animation //
+
+@-webkit-keyframes rotate-scale-up {
+  0% {
+    -webkit-transform: scale(1) rotateZ(0);
+    transform: scale(1) rotateZ(0);
+  }
+
+  50% {
+    -webkit-transform: scale(2) rotateZ(180deg);
+    transform: scale(2) rotateZ(180deg);
+  }
+
+  100% {
+    -webkit-transform: scale(1) rotateZ(360deg);
+    transform: scale(1) rotateZ(360deg);
+  }
+}
+
+@keyframes rotate-scale-up {
+  0% {
+    -webkit-transform: scale(1) rotateZ(0);
+    transform: scale(1) rotateZ(0);
+  }
+
+  50% {
+    -webkit-transform: scale(2) rotateZ(180deg);
+    transform: scale(2) rotateZ(180deg);
+  }
+
+  100% {
+    -webkit-transform: scale(1) rotateZ(360deg);
+    transform: scale(1) rotateZ(360deg);
+  }
+}
+
+// add animation
+@-webkit-keyframes rotate-90-cw {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+
+  100% {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes rotate-90-cw {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+
+  100% {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
   }
 }
