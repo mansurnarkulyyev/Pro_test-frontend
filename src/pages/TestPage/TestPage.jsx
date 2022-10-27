@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import useBreakpoints from "../../shared/hooks/useBreakpoints";
@@ -12,8 +12,8 @@ import {
 } from "../../redux/questions/localResults/localResults-actions";
 import Container from "../../shared/components/Container";
 import Question from "../../modules/Question";
+import SVGCreator from "../../shared/components/SVGCreator";
 import Spinner from "../../shared/components/Spinner";
-import sprite from "../../images/icons/sprite.svg";
 import styles from "./testPage.module.scss";
 
 const initialState = {
@@ -29,6 +29,7 @@ const TestPage = () => {
   const { questions, loading, error } = state;
   const { kind } = useParams();
   const questionId = searchParams.get("questionId");
+  const numericQuestionId = Number(questionId);
   const results = useSelector(getLocalResults);
 
   useEffect(() => {
@@ -81,15 +82,14 @@ const TestPage = () => {
     (question) => question.questionId === questionId
   );
 
-  const decrementId = () => {
-    const newId = Number(questionId) - 1;
-    setSearchParams({ questionId: newId });
-  };
-
-  const incrementId = () => {
-    const newId = Number(questionId) + 1;
-    setSearchParams({ questionId: newId });
-  };
+  const changeId = useCallback(
+    (direction) => {
+      const newId =
+        direction === "forward" ? numericQuestionId + 1 : numericQuestionId - 1;
+      setSearchParams({ questionId: newId });
+    },
+    [numericQuestionId, setSearchParams]
+  );
 
   const setVariant = ({ question, answer }) => {
     dispatch(addResult({ question, answer }));
@@ -126,23 +126,29 @@ const TestPage = () => {
               }
             >
               {questionId > 1 && (
-                <button className={styles.prev} onClick={decrementId}>
-                  <svg className={styles.left} width="24" height="24">
-                    <use href={sprite + "#icon-arrow-left"}></use>
-                  </svg>
+                <button
+                  className={styles.prev}
+                  onClick={() => changeId("back")}
+                >
+                  <div className={styles.left}>
+                    <SVGCreator iconName="arrow-left" width={24} height={24} />
+                  </div>
                   {prevText}
                 </button>
               )}
               {questionId < totalQuestions && (
-                <button className={styles.next} onClick={incrementId}>
+                <button
+                  className={styles.next}
+                  onClick={() => changeId("forward")}
+                >
                   {nextText}
-                  <svg className={styles.right} width="24" height="24">
-                    <use href={sprite + "#icon-arrow-right"}></use>
-                  </svg>
+                  <div className={styles.right}>
+                    <SVGCreator iconName="arrow-right" width={24} height={24} />
+                  </div>
                 </button>
               )}
               {results.length === totalQuestions &&
-                Number(questionId) === totalQuestions && (
+                numericQuestionId === totalQuestions && (
                   <button className={styles.result} onClick={finishTest}>
                     See results
                   </button>

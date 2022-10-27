@@ -4,7 +4,7 @@ import styles from "./spinner.module.scss";
 function Spinner() {
   return (
     <svg className={styles.spinner}>
-      <use href={sprite + "#spinner"}></use>
+      <use href={sprite + "#icon-spinner"}></use>
     </svg>
   );
 }
