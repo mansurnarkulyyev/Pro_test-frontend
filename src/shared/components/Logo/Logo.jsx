@@ -6,7 +6,7 @@ import {ReactComponent as LogoIcon} from "../../../images/icons/logo.svg";
 function Logo() {
     return (
         <>
-            <Link to="/" className={s.logo}>
+            <Link to="/home" className={s.logo}>
                 <LogoIcon />
             </Link>
         </>
