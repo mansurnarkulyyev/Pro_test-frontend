@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import useQuestions from "../../shared/hooks/useQuestions";
 import Answer from "./Answer";
 import styles from "./question.module.scss";
@@ -34,6 +35,22 @@ const Question = ({ item, total, onChange }) => {
       <ul className={styles.list}>{elements}</ul>
     </div>
   );
+};
+
+Question.defaultProps = {
+  onChange: () => {},
+};
+
+Question.propTypes = {
+  item: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    question: PropTypes.string.isRequired,
+    questionId: PropTypes.string.isRequired,
+    answers: PropTypes.arrayOf(PropTypes.string).isRequired,
+    rightAnswer: PropTypes.string.isRequired,
+  }),
+  total: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default Question;

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import styles from "./answer.module.scss";
 
 const Answer = ({
@@ -27,6 +28,19 @@ const Answer = ({
       <div className={styles.answer}>{answer}</div>
     </label>
   );
+};
+
+Answer.propTypes = {
+  meta: PropTypes.exact({
+    question: PropTypes.string.isRequired,
+    questionId: PropTypes.string.isRequired,
+    idx: PropTypes.number.isRequired,
+  }),
+  onLabelClick: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  checked: PropTypes.bool.isRequired,
+  onInputClick: PropTypes.func.isRequired,
+  answer: PropTypes.string.isRequired,
 };
 
 export default Answer;

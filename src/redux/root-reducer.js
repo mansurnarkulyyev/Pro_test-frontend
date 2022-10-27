@@ -22,14 +22,22 @@ import remoteResultsReducer from "./questions/remoteResults/remoteResults-reduce
 
 // export default rootReducer;
 
-const persistConfig = {
-  key: "root",
+const authPersistConfig = {
+  key: "token",
   storage,
-  whitelist: ["auth", "localResults"],
+  whitelist: ["token"],
 };
 
+const persistConfig = {
+  key: "localResults",
+  storage,
+  whitelist: ["localResults"],
+};
+
+const authPersistReducer = persistReducer(authPersistConfig, authReducer);
+
 const rootReducer = combineReducers({
-  auth: authReducer,
+  auth: authPersistReducer,
   localResults: localResultsReducer,
   remoteResults: remoteResultsReducer,
 });
