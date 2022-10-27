@@ -5,11 +5,24 @@
     margin-top: 20px;
 
     @include mq(tablet) {
-        width: 501px;
+        width: inherit;
         margin-top: 32px;
     }
 }
 
 .wrapper-btn {
+
     display: flex;
+
+    @include mq(tablet) {
+        width: 425px
+    }
+}
+
+.wrapper-loader {
+    @include flex();
+
+    @include mq(tablet) {
+        width: 425px
+    }
 }

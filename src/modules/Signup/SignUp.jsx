@@ -27,7 +27,7 @@ function SignUp() {
     <div className={s.wrapper}>
       <AuthCommonPart />
       {!email ? (
-        <SignUpForm onSubmit={onSingUp} error={errMessage} />
+        <SignUpForm onSubmit={onSingUp} error={errMessage} loading={loading} />
       ) : (
         <div className={s["wrapper-title"]}>
           <Title
@@ -39,7 +39,6 @@ function SignUp() {
           </Link>
         </div>
       )}
-      {loading && <p>Loading...</p>}
       {error && NotificationManager.error(errMessage)}
     </div>
   );

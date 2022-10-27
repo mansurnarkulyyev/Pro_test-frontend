@@ -1,27 +1,26 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { NotificationManager } from "react-notifications";
+
+import * as error from "../components/LocalToastTargetComponent/validationErrors";
 
 const useForm = ({ onSubmit, initialState }) => {
   const [state, setState] = useState({ ...initialState });
+  const [errorEmail, setErrorEmail] = useState("");
+  const [errorPassword, setErrorPassword] = useState("");
 
   const validateEmail = ({ target }) => {
     const emailRight = String(target.value)
       .toLowerCase()
       .match(/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/);
     if (!emailRight) {
-      NotificationManager.error("Invalid email");
-    } else {
-      NotificationManager.success("Valid email");
+      setErrorEmail(error.localErrorEmail);
     }
   };
   const validatePassword = ({ target }) => {
     const passwordRight = String(target.value).toLowerCase();
     // .match(/^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$/);
     if (!passwordRight) {
-      NotificationManager.error("Bad password");
-    } else {
-      NotificationManager.success("Good password");
+      setErrorPassword(error.localErrorPassword);
     }
   };
 
@@ -53,6 +52,8 @@ const useForm = ({ onSubmit, initialState }) => {
     handleChange,
     handleSubmit,
     reset,
+    errorEmail,
+    errorPassword,
     validateEmail,
     validatePassword,
   };
