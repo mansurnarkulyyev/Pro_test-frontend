@@ -6,12 +6,18 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-color: transparent;
+  :not(:last-child) {
+    margin-bottom: 32px;
+  }
+}
+
+.container {
+  width: 129px;
 }
 
 .title {
   position: relative;
   color: #000;
-  width: 129px;
   letter-spacing: 0.02em;
   line-height: 1.22;
   &::after {
