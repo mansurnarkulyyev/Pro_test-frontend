@@ -11,5 +11,18 @@
 }
 
 .wrapper-btn {
+
     display: flex;
+
+    @include mq(tablet) {
+        width: 425px
+    }
+}
+
+.wrapper-loader {
+    @include flex();
+
+    @include mq(tablet) {
+        width: 425px
+    }
 }

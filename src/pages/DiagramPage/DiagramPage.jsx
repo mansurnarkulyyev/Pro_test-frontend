@@ -12,7 +12,7 @@ const DiagramPage = () => {
   const remoteResults = useSelector(getRemoteResults);
 
   useEffect(() => {
-    if (!remoteResults) {
+    if (!remoteResults.length) {
       return;
     }
     const { results } = remoteResults.find((item) => item.kind === kind);

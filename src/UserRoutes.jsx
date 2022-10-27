@@ -51,7 +51,6 @@ const UserRoutes = () => {
 
         <Route path="*" element={<NotFoundPage />} />
 
-        {/*//           <Route path="/register" element={<RegisterPage />} />*/}
       </Routes>
     </Suspense>
   );

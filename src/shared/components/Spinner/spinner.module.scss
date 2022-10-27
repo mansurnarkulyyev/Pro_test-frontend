@@ -1,0 +1,29 @@
+@import "../../../shared/styles/utils//mixins";
+@import "../../../shared/styles/utils/vars";
+
+.spinner {
+  position: fixed;
+  top: calc(50vh - 32px);
+  left: calc(50vw - 32px);
+  width: 32px;
+  height: 32px;
+  animation: rotation 5s linear;
+  animation-iteration-count: infinite;
+  fill: $color-focus;
+
+  @include mq(tablet) {
+    top: calc(50vh - 52px);
+    left: calc(50vw - 52px);
+    width: 52px;
+    height: 52px;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -29,8 +29,7 @@ function SignIn() {
   return (
     <div className={s.wrapper}>
       <AuthCommonPart />
-      <SignInForm onSubmit={onSingIn} error={errMessage} />
-      {loading && <p>Loading...</p>}
+      <SignInForm onSubmit={onSingIn} loading={loading} />
       {error && NotificationManager.error(errMessage)}
     </div>
   );
