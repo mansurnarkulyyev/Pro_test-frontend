@@ -13,7 +13,7 @@ const NavbarAuth = () => {
   return (
     <>
       <div className={s.NavAuth}>
-        <div className={s.avatar + " " + s.marginleft}>{avatar.charAt(1)}</div>
+        <div className={s.avatar + " " + s.marginleft}>{avatar.charAt(1).toUpperCase()}</div>
         <div className={s.marginleft}>{userName}</div>
         <div className={s.logbtncontainer + " " + s.marginleft}>
           <button className={s.btn} type="button" onClick={() => dispatch(logoutRequest(token))}>
