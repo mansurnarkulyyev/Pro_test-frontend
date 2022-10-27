@@ -54,7 +54,7 @@ function SignInForm({ onSubmit, loading }) {
       />
       {errorPassword}
       {(loading && (
-        <div className={s[`wrapper-btn`]}>
+        <div className={s[`wrapper-loader`]}>
           <ProgressBar
             height="80"
             width="180"

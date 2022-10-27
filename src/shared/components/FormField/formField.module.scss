@@ -44,6 +44,10 @@ input:invalid:not(:placeholder-shown) {
         width: inherit;
     }
 
+    @include mq(tablet) {
+        width: 425px;
+    }
+
 }
 
 .radio-wrapper {

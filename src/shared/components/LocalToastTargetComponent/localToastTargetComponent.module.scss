@@ -14,7 +14,7 @@
     }
 
     @include mq(mobile-only) {
-        margin-top: -10px;
+        margin-top: 5px;
     }
 
     margin-bottom: 10px;
@@ -50,6 +50,10 @@
 }
 
 .div-text {
+    @include mq(mobile-only) {
+        font-size: 10px;
+    }
+
     @include fonts();
     font-size: 14px;
 }
