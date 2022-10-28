@@ -2,8 +2,8 @@
 import { instance } from "./api";
 
 
-export async function addUserInfo(data) {
-    const  {data:result}  = await instance.post("users/info", data, {headers:{"Content-Type":"multipart/form-data"}});
+export async function addUserInfo({userData}) {
+    const  {data:result}  = await instance.post("users/info", userData, {headers:{"Content-Type":"multipart/form-data"}});
     return result;
 }
 
