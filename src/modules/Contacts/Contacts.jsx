@@ -4,9 +4,9 @@ import ContactForm from "./ContactsForm";
 import ContactList from "./ContactsList";
 
 import Modal from "../../shared/components/Modal";
-import Spinner from "../../shared/components/Spinner";
+// import Spinner from "../../shared/components/Spinner";
 
-import s from "./contacts.module.scss";
+// import s from "./contacts.module.scss";
 
 import contactsList from "../../data/contactsList.json";
 
