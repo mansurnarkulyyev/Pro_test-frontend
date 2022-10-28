@@ -1,45 +1,22 @@
 import { useEffect, useState } from "react";
 import { getUserInfo } from "../../../shared/api/userInfo";
+import { useFetching } from "../../../shared/hooks/useFetching";
 import styles from "./contactsCard.module.scss"
 
 const ContactsCard = () => {
 
-  const [state, setState] = useState({
-    items: [],
-    loading: false,
-    error: null,
-  });
+  const [state, setState] = useState([]);
+  const [fetchUserInfo, isLoading, error] = useFetching(async () => {
+    const response = await getUserInfo()
+    setState(response);
+  })
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      setState(prevState => ({
-        ...prevState,
-        loading: true,
-      }));
+    fetchUserInfo()
+  }, [])
 
-      try {
-        const data = await getUserInfo();
-        setState(prevState => ({
-          ...prevState,
-          items: [...data],
-          loading: false,
-        }))
-      } catch (error) {
-        setState(prevState => ({
-          ...prevState,
-          loading: false,
-          error,
-        }))
-      }
-    };
 
-    fetchPosts();
-  }, []);
-
-  const { items, loading, error } = state;
-  console.log(items);
-
-  const elements = items.map(({ id, name, position, cover, about }) => <li className={styles.singleCard} key={id} >
+  const elements = state.map(({ id, name, position, cover, about }) => <li className={styles.singleCard} key={id} >
     <img src={cover} alt={`${name}'s image`} className={styles.image} />
     <div className={styles.textContent} >
       <h3 className={styles.name} >{name}</h3>
@@ -51,7 +28,7 @@ const ContactsCard = () => {
 
   return (
     <div>
-      <ul>{elements}</ul>
+      <ul className={styles.contactsList}>{elements}</ul>
     </div>
   );
 };

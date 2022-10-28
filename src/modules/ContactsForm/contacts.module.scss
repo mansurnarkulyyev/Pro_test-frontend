@@ -1,11 +1,37 @@
 .form{
-display: flex;
-    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    max-width: 300px;
+    margin: auto;
+    display: grid;
+    height: 400px;
     align-items: center;
-    margin:100px;
+    justify-items: center;
 }
 
-.item{
-    padding: 15px;
-    margin: 10px  0px;
+input[type="file"]{
+    display: block;
+    padding: 13px;
+    background-color: #111d2e;
+    color: aqua;
+    width: 250px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #FF6B09;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+button:hover{
+    opacity: 0.7;
 }
