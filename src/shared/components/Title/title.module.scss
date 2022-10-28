@@ -37,3 +37,30 @@
     @include fonts($fs: normal, $fw: 700, $fsz: 22px, $lh: 30px, $ls: 0.02em);
 
 }
+
+.team {
+    text-align: center;
+    margin-bottom: 20px;
+    @include fonts($fs: normal, $fw: 700, $fsz: 18px, $lh: 22px, $ls: 0.02em);
+
+    @include mq(tablet) {
+        @include fonts($fs: normal, $fw: 700, $fsz: 22px, $lh: 27px, $ls: 0.02em);
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        margin: 0 auto;
+        margin-top: 14px;
+        width: 130px;
+        height: 1px;
+
+        opacity: 0.15;
+        background-color: #00122F;
+
+        @include mq(tablet) {
+            width: 320px;
+            margin-bottom: 40px;
+        }
+    }
+}
