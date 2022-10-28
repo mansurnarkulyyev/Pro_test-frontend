@@ -27,7 +27,7 @@ const materialsSlice = createSlice({
     [operations.addLiteratureRequest.rejected]: rejected,
     [operations.addLiteratureRequest.fulfilled]: (store, { payload }) => ({
       ...store,
-      literature: [store.literature, ...payload],
+      literature: [...store.literature, payload],
       loading: false,
       error: null,
     }),
@@ -54,7 +54,7 @@ const materialsSlice = createSlice({
     [operations.addResourcesRequest.rejected]: rejected,
     [operations.addResourcesRequest.fulfilled]: (store, { payload }) => ({
       ...store,
-      resources: [store.resources, ...payload],
+      resources: [...store.resources, payload],
       loading: false,
       error: null,
     }),

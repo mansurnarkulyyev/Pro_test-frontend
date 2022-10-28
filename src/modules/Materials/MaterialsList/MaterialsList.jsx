@@ -1,8 +1,12 @@
 import classNames from "classnames";
 
+import useCloseModal from "../../../shared/hooks/useCloseModal";
+
 import MaterialAddForm from "../MaterialsAddForm/MaterialAddForm";
 import MaterialsListItem from "./MaterialListItem/MaterialListItem";
+
 import Button from "../../../shared/components/Button";
+import Modal from "../../../shared/components/Modal";
 
 import s from "./materialsList.module.scss";
 
@@ -15,6 +19,7 @@ function MaterialsList({
   resources,
   onAdd,
 }) {
+  const { handleClose } = useCloseModal(closeModal);
   const elements = items.map(({ title, link, _id }, inx) => (
     <MaterialsListItem
       key={_id}
@@ -39,7 +44,11 @@ function MaterialsList({
         />
       </div>
 
-      {openModal && <MaterialAddForm onSubmit={onAdd} onClose={closeModal} />}
+      {openModal && (
+        <Modal>
+          <MaterialAddForm onSubmit={onAdd} handleClose={handleClose} />
+        </Modal>
+      )}
     </>
   );
 }

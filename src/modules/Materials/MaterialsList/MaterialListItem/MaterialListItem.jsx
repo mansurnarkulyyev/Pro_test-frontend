@@ -12,7 +12,12 @@ function MaterialsListItem({ title, link, inx, onDelete, resources, _id }) {
     <li className={s.item}>
       <div>
         {inx}.&nbsp;
-        <a href={link} className={titleS}>
+        <a
+          href={link}
+          className={titleS}
+          target="_blank"
+          rel="noopener norefferal"
+        >
           {title}
         </a>
       </div>
