@@ -24,8 +24,8 @@ function Header() {
 
         <div className={s.NavAll}>
           {isActive ? (
-            <BurgerModal isActive={isActive}>
-              <NavAll />
+            <BurgerModal isActive={isActive} onClick={toggleModal}>
+              <NavAll onClick={toggleModal} isModalOpen={isActive} />
             </BurgerModal>
           ) : (
             <div className={s.tabDesk}>
