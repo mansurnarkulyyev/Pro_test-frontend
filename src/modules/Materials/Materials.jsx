@@ -1,69 +1,59 @@
-import { useState, useEffect, useRef } from "react";
 import { NotificationManager } from "react-notifications";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { materials } from "../../redux/materials/materials-selectors";
+import * as operations from "../../redux/materials/materials-operations";
 
 import MaterialsList from "./MaterialsList";
 import Spinner from "../../shared/components/Spinner";
 
-import { getList } from "../../shared/api/materials";
-
-function Materials({ articels, links }) {
-  const [state, setState] = useState({
-    literature: [],
-    resources: [],
-  });
-  const [loading, setLoading] = useState("false");
-  const [error, setError] = useState("null");
-  // const errMessage = error?.data.message;
-  const firstRender = useRef(true);
+function Materials({ articels }) {
+  const dispatch = useDispatch();
+  const { literature, resources, loading, error } = useSelector(materials);
+  const [openModal, setOpenModal] = useState(false);
+  let errMessage = "";
+  if (error) {
+    errMessage = error.data.message;
+  }
 
   useEffect(() => {
-    async function fetchProductsList() {
-      setLoading(true);
-      setError(false);
+    dispatch(operations.fetchLiteratureRequest());
+    dispatch(operations.fetchResourcesRequest());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-      try {
-        const { data } = await getList();
-        const { literature, resources } = data;
-        setState((prevState) => ({
-          ...prevState,
-          literature,
-          resources,
-        }));
-      } catch (error) {
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    }
-    // query && fetchProductsList();
-    if (!firstRender.current) {
-      fetchProductsList();
-    } else {
-      firstRender.current = false;
-    }
-    // eslint-disable-next-line no-use-before-define
-  }, [literature, resources]);
-
-  function onAdd() {}
-  function onDelete() {}
-
-  const { literature, resources } = state;
+  function showModal() {
+    setOpenModal(true);
+  }
+  function closeModal() {
+    setOpenModal(false);
+  }
+  function onAdd(data) {
+    articels
+      ? dispatch(operations.addLiteratureRequest(data))
+      : dispatch(operations.addResourcesRequest(data));
+    closeModal();
+  }
+  function onDelete(data) {
+    articels
+      ? dispatch(operations.deleteLiteratureRequest(data))
+      : dispatch(operations.deleteResourcesRequest(data));
+  }
 
   return (
     <>
       {loading && <Spinner />}
-      {articels && (
-        <MaterialsList items={literature} onDelete={onDelete} onAdd={onAdd} />
-      )}
-      {links && (
-        <MaterialsList
-          items={resources}
-          onDelete={onDelete}
-          onAdd={onAdd}
-          resources={true}
-        />
-      )}
-      {error && NotificationManager.error(error)}
+      <MaterialsList
+        items={articels ? literature : resources}
+        onDelete={onDelete}
+        onOpenModal={showModal}
+        openModal={openModal}
+        onAdd={onAdd}
+        closeModal={closeModal}
+        resources={articels ? false : true}
+      />
+      {error && NotificationManager.error(errMessage)}
     </>
   );
 }

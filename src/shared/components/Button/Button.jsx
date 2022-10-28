@@ -16,13 +16,16 @@ function Button({ type, text, className, disabled, icon, onClick, children }) {
     case "delete":
       svg = close;
       break;
+    case "close":
+      svg = close;
+      break;
     case "edit":
       svg = edit;
       break;
     default:
       svg = "";
   }
-  const classes = className.split(" ").map((el) => classNames(s[el]));
+  const classes = className?.split(" ").map((el) => classNames(s[el]));
 
   return (
     <button
