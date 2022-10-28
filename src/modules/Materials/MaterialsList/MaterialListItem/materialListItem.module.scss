@@ -1,0 +1,29 @@
+@import '../../../../shared/styles/utils/mixins';
+@import '../../../../shared/styles/utils/vars';
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title,
+.item {
+    text-decoration: none;
+    color: black;
+    margin-right: 5px;
+
+    @include fonts($fs: normal, $fw: 500, $fsz: 10px, $lh: 16px, $ls: 0.02em);
+
+    @include mq(tablet) {
+        @include fonts($fs: normal, $fw: 500, $fsz: 14px, $lh: 22px, $ls: 0.02em);
+
+    }
+
+
+
+    &-resources {
+        text-decoration: underline;
+        color: inherit;
+    }
+}

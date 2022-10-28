@@ -1,0 +1,45 @@
+@import '../../../shared/styles/utils/mixins';
+
+
+.list {
+    margin-bottom: 20px;
+    width: 207px;
+
+    @include fonts();
+    font-size: 10px;
+
+    &::before {
+        content: '';
+        display: block;
+        width: 150px;
+        height: 1px;
+
+        margin-top: 12px;
+        margin-bottom: 8px;
+
+        background-color: #00122F;
+        opacity: 0.15;
+
+        @include mq(tablet) {
+            width: 336px;
+            position: absolute;
+            left: -80px;
+            top: -40px;
+        }
+    }
+
+    @include mq(tablet) {
+        position: relative;
+        margin-top: 44px;
+        margin-left: 80px;
+        width: 260px;
+
+    }
+}
+
+.btn {
+    @include mq(tablet) {
+        margin-left: 80px;
+        width: 260px;
+    }
+}

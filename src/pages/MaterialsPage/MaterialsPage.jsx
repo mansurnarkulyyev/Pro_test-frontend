@@ -1,25 +1,29 @@
+import Materials from "../../modules/Materials/Materials";
+
+import Main from "../../shared/components/Main";
+import Section from "../../shared/components/Section";
+import Container from "../../shared/components/Container";
+import Title from "../../shared/components/Title";
+
 import s from "./materialsPage.module.scss";
 
 const MaterialsPage = () => {
   return (
-    <main className={s.wrapper}>
-      <div className={s.container}>
-        <h2 className={s.title}>Useful literature</h2>
-        <ol className={s.literatureList}>
-          <li>Testing dot.com Savin.</li>
-          <li>A mental hospital in the hands of patients.</li>
-          <li>Scrum. J. Sutherland.</li>
-        </ol>
-      </div>
-      <div className={s.container}>
-        <h2 className={s.title}>Useful resources</h2>
-        <ol className={s.literatureList}>
-          <li>Testing dot.com Savin.</li>
-          <li>A mental hospital in the hands of patients.</li>
-          <li>Scrum. J. Sutherland.</li>
-        </ol>
-      </div>
-    </main>
+    <Main>
+      <Section className="materials">
+        <Container>
+          <Title text="Useful literature" className="materials" />
+          <div className={s[`wrapper-list`]}>
+            <Materials articels={true} />
+          </div>
+
+          <Title text="Useful resources" className="materials" />
+          <div className={s[`wrapper-list`]}>
+            <Materials links={true} resources={true} />
+          </div>
+        </Container>
+      </Section>
+    </Main>
   );
 };
 

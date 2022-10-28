@@ -28,3 +28,8 @@
 .signup {
     margin-top: 15px;
 }
+
+.materials {
+    @include fonts($fs: normal, $fw: 700, $fsz: 22px, $lh: 30px, $ls: 0.02em);
+
+}

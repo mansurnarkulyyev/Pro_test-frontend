@@ -13,7 +13,6 @@ import {
 import Container from "../../shared/components/Container";
 import ButtonUniversal from "../../shared/components/ButtonUniversal/ButtonUniversal";
 import Question from "../../modules/Question";
-import SVGCreator from "../../shared/components/SVGCreator";
 import Spinner from "../../shared/components/Spinner";
 import styles from "./testPage.module.scss";
 
