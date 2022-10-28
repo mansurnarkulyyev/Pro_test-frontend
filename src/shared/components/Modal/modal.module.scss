@@ -1,0 +1,31 @@
+@import '../../../shared/styles/utils/vars';
+
+.overlay {
+
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999;
+}
+
+.modal-content {
+    padding: 20px;
+    background-color: white;
+}
+
+.wrapper-btn {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}

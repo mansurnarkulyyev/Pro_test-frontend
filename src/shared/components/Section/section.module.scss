@@ -24,8 +24,7 @@
   &.materials {
 
     @include mq(mobile-only) {
-      // background-position: top right;
-
+      background-position: top -24% right -4%;
       background-image:
         url("../../../images/materialsBg/materials-bg-mobile-1x.png");
 

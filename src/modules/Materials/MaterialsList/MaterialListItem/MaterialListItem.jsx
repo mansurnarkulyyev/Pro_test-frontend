@@ -4,7 +4,7 @@ import Button from "../../../../shared/components/Button";
 
 import s from "./materialListItem.module.scss";
 
-function MaterialsListItem({ title, link, inx, onDelete, resources }) {
+function MaterialsListItem({ title, link, inx, onDelete, resources, _id }) {
   const titleS = resources
     ? classNames(s[`title-resources`], s.title)
     : s.title;
@@ -12,7 +12,12 @@ function MaterialsListItem({ title, link, inx, onDelete, resources }) {
     <li className={s.item}>
       <div>
         {inx}.&nbsp;
-        <a href={link} className={titleS}>
+        <a
+          href={link}
+          className={titleS}
+          target="_blank"
+          rel="noopener norefferal"
+        >
           {title}
         </a>
       </div>
@@ -20,7 +25,7 @@ function MaterialsListItem({ title, link, inx, onDelete, resources }) {
         <Button
           icon="delete"
           className={classNames("icon", "delete")}
-          onClick={onDelete}
+          onClick={() => onDelete(_id)}
         />
       </div>
     </li>

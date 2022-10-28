@@ -1,18 +1,34 @@
 import classNames from "classnames";
 
+import useCloseModal from "../../../shared/hooks/useCloseModal";
+
+import MaterialAddForm from "../MaterialsAddForm/MaterialAddForm";
 import MaterialsListItem from "./MaterialListItem/MaterialListItem";
+
 import Button from "../../../shared/components/Button";
+import Modal from "../../../shared/components/Modal";
 
 import s from "./materialsList.module.scss";
 
-function MaterialsList({ items, onDelete, onAdd, resources }) {
-  const elements = items.map(({ title, link }, inx) => (
+function MaterialsList({
+  items,
+  onDelete,
+  onOpenModal,
+  openModal,
+  closeModal,
+  resources,
+  onAdd,
+}) {
+  const { handleClose } = useCloseModal(closeModal);
+  const elements = items.map(({ title, link, _id }, inx) => (
     <MaterialsListItem
-      key={title}
+      key={_id}
       inx={inx + 1}
       title={title}
       link={link}
-      onDelete={onDelete}
+      onDelete={() => {
+        onDelete(_id);
+      }}
       resources={resources}
     />
   ));
@@ -24,9 +40,15 @@ function MaterialsList({ items, onDelete, onAdd, resources }) {
         <Button
           icon="add"
           className={classNames("add", "button")}
-          onClick={onAdd}
+          onClick={onOpenModal}
         />
       </div>
+
+      {openModal && (
+        <Modal>
+          <MaterialAddForm onSubmit={onAdd} handleClose={handleClose} />
+        </Modal>
+      )}
     </>
   );
 }
