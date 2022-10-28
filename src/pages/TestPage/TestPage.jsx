@@ -100,7 +100,6 @@ const TestPage = () => {
 
   return (
     <div className={styles.main}>
-      //Section
       <Container>
         {loading && <Spinner />}
         {loading && !questions.length && (

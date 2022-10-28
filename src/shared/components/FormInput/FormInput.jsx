@@ -6,7 +6,7 @@ function FormInput(props) {
     return (
         <div className={s.formInput}>
             <label htmlFor="">{label}</label>
-            <input placeholder={props.placeholder} name={props.name}
+            <input className={s.item} placeholder={props.placeholder} name={props.name}
             />
         </div>
     )
