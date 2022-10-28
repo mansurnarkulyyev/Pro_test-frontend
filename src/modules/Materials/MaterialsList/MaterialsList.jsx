@@ -19,7 +19,6 @@ function MaterialsList({
   resources,
   onAdd,
 }) {
-  const { handleClose } = useCloseModal(closeModal);
   const elements = items.map(({ title, link, _id }, inx) => (
     <MaterialsListItem
       key={_id}
@@ -45,8 +44,8 @@ function MaterialsList({
       </div>
 
       {openModal && (
-        <Modal>
-          <MaterialAddForm onSubmit={onAdd} handleClose={handleClose} />
+        <Modal closeModal={closeModal}>
+          <MaterialAddForm onSubmit={onAdd} />
         </Modal>
       )}
     </>
