@@ -1,77 +1,57 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { getUserInfo } from "../../../shared/api/userInfo";
 import styles from "./contactsCard.module.scss"
 
-const ContactsCard = ({ name, title, avatarURL, text }) => {
-  // const [data, setData] = useState([]);
+const ContactsCard = () => {
 
-  // console.log(data);
+  const [state, setState] = useState({
+    items: [],
+    loading: false,
+    error: null,
+  });
 
-  // const getUserData = async () => {
-  //   const res = await axios.get("/getdata", {
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     }
-  //   })
+  useEffect(() => {
+    const fetchPosts = async () => {
+      setState(prevState => ({
+        ...prevState,
+        loading: true,
+      }));
 
-  //   if (res.data.status === 401 || res.data) {
-  //     console.log("error");
-  //   } else {
-  //     setData(res.data.getUser)
-  //   }
-  // };
+      try {
+        const data = await getUserInfo();
+        setState(prevState => ({
+          ...prevState,
+          items: [...data],
+          loading: false,
+        }))
+      } catch (error) {
+        setState(prevState => ({
+          ...prevState,
+          loading: false,
+          error,
+        }))
+      }
+    };
 
+    fetchPosts();
+  }, []);
 
-  // const deleteUser = async (id) => {
-  //   const res = await axios.delete(`/${id}`, {
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     }
-  //   })
+  const { items, loading, error } = state;
+  console.log(items);
 
-  //   if (res.data.status === 401 || res.data) {
-  //     console.log("error");
-  //   } else {
-  //     // setData(res.data.getUser)
-  //     console.log("User delete");
-  //   }
-  // };
-
-
-
-  // useEffect(() => {
-  //   getUserData();
-  // }, []);
+  const elements = items.map(({ id, name, position, cover, about }) => <li className={styles.singleCard} key={id} >
+    <img src={cover} alt={`${name}'s image`} className={styles.image} />
+    <div className={styles.textContent} >
+      <h3 className={styles.name} >{name}</h3>
+      <p className={styles.position} >{position}</p>
+      <p className={styles.about} >{about}</p>
+      <button >delete</button>
+    </div>
+  </li>);
 
   return (
     <div>
-      {/* {
-        data.length > 0 ? data.map((el, i) => {
-          return (<>
-            <>
-              <li className={styles.singleCard} >
-                <img src={el.avatarURL} alt={`${name}'s image`} className={styles.image} />
-                <div className={styles.textContent} >
-                  <h3 className={styles.name} >{el.name}</h3>
-                  <p className={styles.position} >{el.title}</p>
-                  <p className={styles.about} >{el.text}</p>
-                  <button onClick={() => deleteUser(el._id)}>delete</button>
-                </div>
-              </li>
-            </>
-          </>)
-        }) : ""
-      } */}
-
-      <li className={styles.singleCard} >
-        <img src={avatarURL} alt={`${name}'s image`} className={styles.image} />
-        <div className={styles.textContent} >
-          <h3 className={styles.name} >{name}</h3>
-          <p className={styles.position} >{title}</p>
-          <p className={styles.about} >{text}</p>
-          <button >delete</button>
-        </div>
-      </li>
+      <ul>{elements}</ul>
     </div>
   );
 };
