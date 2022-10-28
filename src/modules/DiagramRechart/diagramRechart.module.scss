@@ -1,66 +1,69 @@
-@import '../../shared/styles/utils/mixins';
-
+@import "../../shared/styles/utils/mixins";
 
 .rechart {
-text-align: -webkit-center;
-    @include mq(desktop) {
-            align-items: center;
-            display: flex;
-            flex-direction: column;
-        }
-   
+  text-align: -webkit-center;
+  @include mq(desktop) {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .title {
-    font-size: 16px;
-    @include mq(mobile) {
-    color: #00122F;
+  font-size: 16px;
+  @include mq(mobile) {
+    color: #00122f;
     @include fonts($fs: normal, $fw: 500, $fsz: 16px, $lh: 36px, $ls: 0.02em);
     margin-top: 40px;
-    }
+  }
 }
 
 .line {
-    margin-top: 15px;
-    opacity: 0.15;
-    border: 1px solid #00122F;
+  margin-top: 15px;
+  margin-bottom: 18px;
+  opacity: 0.15;
+  border: 1px solid #00122f;
+
+  @include mq(tablet) {
+    margin-bottom: 40px;
+  }
 }
 
 .line2 {
-    opacity: 0.15;
+  opacity: 0.15;
 }
 
 .test_th {
-    font-size: 10px;
-    @include mq(mobile) {
+  font-size: 10px;
+  @include mq(mobile) {
     @include fonts($fs: normal, $fw: 500, $fsz: 16px, $lh: 36px, $ls: 0.02em);
-    }
+  }
 }
 
 .result {
-    display: flex;
-    justify-content: space-evenly;
-    @include fonts($fs: normal, $fw: 500, $fsz: 10px, $lh: 36px, $ls: 0.02em);
-    @include mq(mobile) {
+  display: flex;
+  justify-content: space-evenly;
+  @include fonts($fs: normal, $fw: 500, $fsz: 10px, $lh: 36px, $ls: 0.02em);
+  @include mq(mobile) {
     display: flex;
     gap: 30px;
     @include fonts($fs: normal, $fw: 500, $fsz: 16px, $lh: 36px, $ls: 0.02em);
-    }
+  }
 }
 
-.cat{
+.cat {
   height: 120px;
-    @include mq(mobile) {
-        display: block;
-       max-width: 100%;
-        height: auto;
-    }
+  @include mq(mobile) {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 .text {
-    @include fonts($fs: normal, $fw: 500, $fsz: 10px, $lh: 36px, $ls: 0.02em);
-  
-    @include mq(mobile) {
+  @include fonts($fs: normal, $fw: 500, $fsz: 10px, $lh: 36px, $ls: 0.02em);
+
+  @include mq(mobile) {
     @include fonts($fs: normal, $fw: 500, $fsz: 16px, $lh: 36px, $ls: 0.02em);
-    }
+  }
 }

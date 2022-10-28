@@ -1,92 +1,66 @@
-
-import React from "react";
-import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
+import { PieChart, Pie, Cell, Legend } from "recharts";
+import CustomLegend from "../CustomLegend";
+import useBreakpoints from "../../../shared/hooks/useBreakpoints";
 
 function Diagram({ rights, wrongs }) {
+  const { less768px, bigger768px, bigger1280px } = useBreakpoints();
+  const radius = less768px ? 78 : 143;
+  const width = less768px ? 320 : bigger768px ? 768 : 1280;
+  const height = radius * 2;
+  const iconSize = less768px ? 14 : 25;
+  const legendTop = less768px ? 18 : bigger1280px ? 54 : 52;
+  const legendLeft = less768px ? 230 : bigger1280px ? 600 : 567;
+  const total = rights + wrongs;
 
-    // const [correct, setCorrect] = useState([]);
-    // const [incorrect, setIncorrect] = useState([]);
+  const COLORS = ["#FF6B01", "#D7D7D7"];
+  const pieData = [
+    {
+      name: "Correct",
+      value: rights,
+      color: COLORS[0],
+    },
+    {
+      name: "Incorrect",
+      value: wrongs,
+      color: COLORS[1],
+    },
+  ];
 
-    // import classNames from 'classnames';
-    // import React from 'react'
-    // import Chart from 'react-apexcharts'
-    // import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
-
-    // import s from "./diagram.module.scss";
-
-
-    // useEffect(() => {
-    //     const getData = async () => {
-    // const correct = [];
-    // const incorrect = [];
-    //         const reqData = await fetch("https://");
-    //         const resData = await reqData.json();
-    // console.log(resData);
-    //         for (let i = 0; i < resData.length; i += 1) {
-    //             correct.push(resData[i].tech)
-    //             incorrect.push(resData[i].theory)
-
-    //         }
-
-    // setCorrect(correct);
-    // setIncorrect(incorrect);
-
-    //     }
-    //     getData();
-    // })
-
-
-    const COLORS = ["#FF6B01", "#D7D7D7"];
-    const pieData = [
-        {
-            name: "Correct",
-            // value: { rights },
-            value: 20,
-        },
-        {
-            name: "Incorrect",
-            value: 37,
-        },
-    ];
-    const CustomTooltip = ({ active, payload, label, value }) => {
-        if (active) {
-            return (
-                <div
-                    className="custom-tooltip"
-                    style={{
-                        backgroundColor: "#ffff",
-                        padding: "5px",
-                        border: "1px solid #cccc",
-                    }}
-                >
-                    <label>{`${payload[0].name} : ${payload[0].value}%`}</label>
-                </div>
-            );
+  return (
+    <PieChart width={width} height={height}>
+      <Pie
+        data={pieData}
+        color="#000000"
+        dataKey="value"
+        nameKey="name"
+        cx="50%"
+        cy="50%"
+        stroke="none"
+        outerRadius={radius}
+      >
+        {pieData.map((_, index) => (
+          <Cell key={`cell-${index}`} fill={COLORS[index]} />
+        ))}
+      </Pie>
+      <Legend
+        content={
+          <CustomLegend
+            data={pieData}
+            total={total}
+            iconName="legend"
+            iconWidth={iconSize}
+            iconHeight={iconSize}
+          />
         }
-        return null;
-    };
-    return (
-        <PieChart width={500} height={300}>
-            <Pie
-                data={pieData}
-                color="#000000"
-                dataKey="value"
-                nameKey="name"
-                cx="50%"
-                cy="50%"
-                stroke="none"
-                outerRadius={120}
-                fill="#FF6B01"
-            >
-                {pieData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                ))}
-            </Pie>
-            <Tooltip content={<CustomTooltip />} />
-            <Legend layout="vertical" verticalAlign="middle" align="right" />
-        </PieChart>
-    );
-
+        width={41}
+        layout="vertical"
+        align="right"
+        verticalAlign="top"
+        iconSize={iconSize}
+        wrapperStyle={{ top: legendTop, left: legendLeft }}
+      />
+    </PieChart>
+  );
 }
 
 export default Diagram;
