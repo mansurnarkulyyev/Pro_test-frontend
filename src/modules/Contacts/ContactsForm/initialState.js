@@ -1,5 +1,6 @@
 export const initialState = {
   name: "",
-  profession: "",
-  bio: "",
+  position: "",
+  about: "",
+  cover: "",
 };

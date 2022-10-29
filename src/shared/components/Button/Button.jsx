@@ -6,6 +6,7 @@ import s from "./button.module.scss";
 import add from "../../../images/icons/plus.svg";
 import close from "../../../images/icons/close.svg";
 import edit from "../../../images/icons/edit.svg";
+import download from "../../../images/icons/download.svg";
 
 function Button({ type, text, className, disabled, icon, onClick, children }) {
   let svg;
@@ -18,6 +19,9 @@ function Button({ type, text, className, disabled, icon, onClick, children }) {
       break;
     case "close":
       svg = close;
+      break;
+    case "download":
+      svg = download;
       break;
     case "edit":
       svg = edit;

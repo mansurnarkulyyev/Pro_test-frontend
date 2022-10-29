@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import { HandySvg } from "handy-svg";
 
 import { useMemo } from "react";
 import { nanoid } from "@reduxjs/toolkit";
 
 import s from "./formField.module.scss";
+import download from "../../../images/icons/download.svg";
 
 function FormField({
   className,
@@ -23,7 +25,10 @@ function FormField({
   max,
 }) {
   const id = useMemo(() => nanoid(), []);
+
   const isRadio = type === "radio" ? true : false;
+  const fileInput = type === "file" ? true : false;
+
   const labelStyle = isRadio ? s["label-radio"] : s["label-text"];
   const inputStyle = isRadio
     ? s["input-radio"]
@@ -70,10 +75,45 @@ function FormField({
     </div>
   );
 
+  const fileField = (
+    <>
+      <div className={s[`wrapper-file`]}>
+        <HandySvg src={download} width="20" height="20" />
+      </div>
+      <div className={s.file}>
+        <input
+          className={classNames("file-input")}
+          type={type}
+          value={value}
+          onChange={handleChange}
+          id="cover"
+          name="cover"
+          accept=".jpg, .jpeg, .png"
+        />
+      </div>
+    </>
+  );
+
+  /*<div className={s.file}>
+      <input
+        className={classNames("file-input")}
+        type={type}
+        value={value}
+        onChange={handleChange}
+        id="cover"
+        name="cover"
+        accept=".jpg, .jpeg, .png"
+        multiple
+      />
+    </div>
+  
+  */
+
   return (
     <>
-      {isRadio && radioField}
-      {!isRadio && textField}
+      {!fileInput && isRadio && radioField}
+      {!fileInput && !isRadio && textField}
+      {fileInput && fileField}
     </>
   );
 }
