@@ -6,10 +6,11 @@
   padding-bottom: 20px;
   @include mq(tablet) {
     padding-top: 40px;
-    padding-bottom: 273px;
+    padding-bottom:225px;
   }
   @include mq(desktop) {
     padding: 40px 230px 107px;
+    padding-bottom: 232px;
   }
 }
 
