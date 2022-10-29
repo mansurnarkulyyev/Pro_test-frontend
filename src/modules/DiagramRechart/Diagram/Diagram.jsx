@@ -5,11 +5,11 @@ import useBreakpoints from "../../../shared/hooks/useBreakpoints";
 function Diagram({ rights, wrongs }) {
   const { less768px, bigger768px, bigger1280px } = useBreakpoints();
   const radius = less768px ? 78 : 143;
-  const width = less768px ? 320 : bigger768px ? 768 : 1280;
+  const width = less768px ? 320 : bigger768px ? 550 : 1280;
   const height = radius * 2;
   const iconSize = less768px ? 14 : 25;
   const legendTop = less768px ? 18 : bigger1280px ? 54 : 52;
-  const legendLeft = less768px ? 230 : bigger1280px ? 600 : 567;
+  const legendLeft = less768px ? 230 : bigger1280px ? 460 : 467;
   const total = rights + wrongs;
 
   const COLORS = ["#FF6B01", "#D7D7D7"];
