@@ -1,0 +1,81 @@
+@import '../../../../shared/styles/utils/mixins';
+@import '../../../../shared/styles/utils/vars';
+
+.item {
+    list-style: none;
+
+    width: 280px;
+
+    background-color: white;
+
+    @include mq(tablet) {
+        width: 336px;
+    }
+
+    @include mq(mobile-only) {
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+
+    @include mq(desktop) {
+        width: 288px;
+    }
+
+}
+
+.wrapper-img {
+    @include flex();
+    width: inherit;
+    height: 244px;
+}
+
+.img {
+    display: block;
+    border-radius: 50%;
+}
+
+.wrapper-text {
+    width: 280px;
+    padding: 20px;
+
+    @include mq(tablet) {
+        width: 336px;
+    }
+}
+
+.name,
+.proff,
+.bio {
+    text-align: left;
+}
+
+.name {
+    @include fonts($fs: normal, $fw: 700, $fsz: 12px, $lh: 12px, $ls: 0.12em);
+    color: black;
+    text-transform: uppercase;
+
+    margin-bottom: 6px;
+}
+
+.proff {
+    @include fonts($fs: normal, $fw: 400, $fsz: 12px, $lh: 12px, $ls: 0.02em);
+    color: $color-text;
+
+    margin-bottom: 10px;
+}
+
+.bio {
+    @include fonts($fs: normal, $fw: 400, $fsz: 12px, $lh: 16px, $ls: 0.02em);
+    color: black;
+}
+
+.wrapper-btn {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+
+}
