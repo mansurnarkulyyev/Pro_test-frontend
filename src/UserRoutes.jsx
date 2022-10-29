@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import PublicRoute from "./shared/components/PublicRoute/PublicRoute.jsx";
 import PrivateRoute from "./shared/components/PrivateRoute/PrivateRoute.jsx";
 
-import TeamRegisterPage from "./pages/TeamRegisterPage/TeamRegisterPage";
+import Spinner from "./shared/components/Spinner";
 // import Question from "./modules/Question";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
@@ -18,7 +18,7 @@ const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 const UserRoutes = () => {
   return (
-    <Suspense fallback={<p>...Loading page</p>}>
+    <Suspense fallback={<Spinner />}>
       <Routes>
         <Route element={<PublicRoute />}>
           <Route path="/signup" element={<SignUp />} />
@@ -31,7 +31,6 @@ const UserRoutes = () => {
           <Route path="/diagram/:kind" element={<DiagramPage />} />
           <Route path="/test/:kind" element={<TestPage />} />
           <Route path="/useful-info" element={<MaterialsPage />} />
-          <Route path="/team" element={<TeamRegisterPage />} />
         </Route>
 
         <Route path="*" element={<NotFoundPage />} />

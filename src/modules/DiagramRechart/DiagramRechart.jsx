@@ -28,12 +28,12 @@ function DiagramRechart({ rights, wrongs }) {
       <Diagram rights={rights} wrongs={wrongs} />
 
       <div className={s.result}>
-        <p>
-          Correct answers - <strong>{rights}</strong>
+        <p className={s.testText}>
+          Correct answers - <strong className={s.testText}>{rights}</strong>
         </p>
         <div className={s.line2}>&#124;</div>
-        <p>
-          Total questions - <strong>{rights + wrongs}</strong>
+        <p className={s.testText}>
+          Total questions - <strong className={s.testText}>{rights + wrongs}</strong>
         </p>
       </div>
 

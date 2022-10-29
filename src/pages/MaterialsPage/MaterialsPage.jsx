@@ -19,7 +19,7 @@ const MaterialsPage = () => {
 
           <Title text="Useful resources" className="materials" />
           <div className={s[`wrapper-list`]}>
-            <Materials links={true} resources={true} />
+            <Materials />
           </div>
         </Container>
       </Section>

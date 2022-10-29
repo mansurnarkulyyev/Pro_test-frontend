@@ -127,7 +127,9 @@ a {
   }
 
   &-delete,
-  &-add {
+  &-close,
+  &-add,
+  &-edit {
     padding: 0;
     width: 24px;
     height: 24px;

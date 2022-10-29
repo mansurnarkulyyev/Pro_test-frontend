@@ -1,17 +1,23 @@
 import Contacts from "../../modules/Contacts";
 
-import styles from "./contactsPage.module.scss"
+import Title from "../../shared/components/Title";
+import Main from "../../shared/components/Main";
+import Section from "../../shared/components/Section";
+import Container from "../../shared/components/Container";
+
+import s from "./contactsPage.module.scss";
 
 const ContactsPage = () => {
-
   return (
-    <main className={styles.wrapper} >
-      <h2  className={styles.title} >Our team</h2>
-      <Contacts />  
-    </main>
+    <Main>
+      <Section className="contacts">
+        <Container>
+          <Title text="Out team" className="team" />
+          <Contacts />
+        </Container>
+      </Section>
+    </Main>
   );
 };
 
-
 export default ContactsPage;
-
