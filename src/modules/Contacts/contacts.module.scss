@@ -1,9 +1,2 @@
 @import '../../shared/styles/utils/mixins';
 @import '../../shared/styles/utils/vars';
-
-.contactsList {
-    @include mq(tablet) {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-}
