@@ -11,6 +11,7 @@ const initialState = {
   email: null,
   token: "",
   isLogin: false,
+  isAdmin: false,
 
   loading: false,
   error: null,
@@ -21,6 +22,7 @@ const fulfilled = (store, { payload }) => {
   store.error = null;
   store.email = payload.email;
   store.token = payload.token;
+  store.isAdmin = payload.isAdmin;
   store.isLogin = true;
 };
 
@@ -33,6 +35,7 @@ const authSlice = createSlice({
     [signupRequest.fulfilled]: (store, { payload }) => {
       store.loading = false;
       store.error = null;
+      store.isAdmin = false;
       store.email = payload.email;
       store.isLogin = false;
     },

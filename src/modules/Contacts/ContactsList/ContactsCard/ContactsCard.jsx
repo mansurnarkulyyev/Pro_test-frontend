@@ -5,21 +5,23 @@ import Button from "../../../../shared/components/Button";
 import s from "./contactsCard.module.scss";
 import defaultImg from "../../../../images/default-avatar.png";
 
-function ContactsCard({ name, profession, bio, url }) {
+function ContactsCard({ name, profession, bio, url, isAdmin }) {
   return (
     <li className={s.item}>
-      <div className={s[`wrapper-btn`]}>
-        <Button
-          icon="delete"
-          className={classNames("icon", "delete")}
-          // onClick={}
-        />
-        <Button
-          icon="edit"
-          className={classNames("icon", "edit")}
-          // onClick={}
-        />
-      </div>
+      {isAdmin && (
+        <div className={s[`wrapper-btn`]}>
+          <Button
+            icon="delete"
+            className={classNames("icon", "delete")}
+            // onClick={}
+          />
+          <Button
+            icon="edit"
+            className={classNames("icon", "edit")}
+            // onClick={}
+          />
+        </div>
+      )}
       <div className={s[`wrapper-img`]}>
         <img className={s.img} src={url ? url : defaultImg} />
       </div>
