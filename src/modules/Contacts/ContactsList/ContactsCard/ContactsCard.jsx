@@ -1,11 +1,16 @@
+/* eslint-disable jsx-a11y/alt-text */
 import classNames from "classnames";
+
+import useAuthState from "../../../../shared/hooks/useAuthState";
 
 import Button from "../../../../shared/components/Button";
 
 import s from "./contactsCard.module.scss";
 import defaultImg from "../../../../images/default-avatar.png";
 
-function ContactsCard({ name, profession, bio, url, isAdmin }) {
+function ContactsCard({ id, name, profession, bio, url, onDelete }) {
+  const { isAdmin } = useAuthState();
+
   return (
     <li className={s.item}>
       {isAdmin && (
@@ -13,7 +18,7 @@ function ContactsCard({ name, profession, bio, url, isAdmin }) {
           <Button
             icon="delete"
             className={classNames("icon", "delete")}
-            // onClick={}
+            onClick={() => onDelete(id)}
           />
           <Button
             icon="edit"

@@ -8,15 +8,18 @@ import Button from "../../../shared/components/Button";
 
 import s from "./contactsList.module.scss";
 
-function ContactsList({ items, showModal }) {
+function ContactsList({ items, showModal, onDelete }) {
   const { isAdmin } = useAuthState();
-  const elements = items.map(({ id, name, profession, bio, url, isAdmin }) => (
+
+  const elements = items.map(({ _id, name, position, about, cover }) => (
     <ContactsCard
-      key={id}
+      key={_id}
+      id={_id}
       name={name}
-      profession={profession}
-      bio={bio}
-      url={url}
+      profession={position}
+      bio={about}
+      url={cover}
+      onDelete={onDelete}
     />
   ));
 

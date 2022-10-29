@@ -18,12 +18,11 @@ const initialState = {
 };
 
 const fulfilled = (store, { payload }) => {
-  console.log("payload slice", payload);
   store.loading = false;
   store.error = null;
   store.email = payload.email;
   store.token = payload.token;
-  store.isAdmin = payload.isAdmin;
+  store.isAdmin = payload.admin;
   store.isLogin = true;
 };
 
