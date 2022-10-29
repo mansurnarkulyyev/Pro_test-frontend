@@ -1,0 +1,38 @@
+.modal {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    top: 71px;
+    background-color: #F5F6FB;
+}
+
+.navModal {
+    display: flex;
+    flex-direction: column;
+}
+
+.logbtncontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: content-box;
+    padding-top: 28px;
+    height: 100%;
+  }
+  
+  .btn {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+  
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  
+  .svg {
+    width: 16px;
+    height: 16px;
+  }

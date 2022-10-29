@@ -1,0 +1,28 @@
+@import '../../../shared/styles/utils/mixins';
+
+.form {
+    width: 240px;
+    margin-top: 20px;
+
+    @include mq(tablet) {
+        width: 501px;
+        margin-top: 32px;
+    }
+}
+
+.wrapper-btn {
+
+    display: flex;
+
+    @include mq(tablet) {
+        width: 425px
+    }
+}
+
+.wrapper-loader {
+    @include flex();
+
+    @include mq(tablet) {
+        width: 425px
+    }
+}

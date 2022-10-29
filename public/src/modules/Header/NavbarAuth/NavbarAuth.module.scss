@@ -1,0 +1,78 @@
+
+@import '../../../shared/styles/utils/mixins';
+@import '../../../shared/styles/utils/vars';
+
+.NavAuth {
+  display: flex;
+  align-items: center;
+}
+
+.marginleft {
+  margin-left: 20px;
+
+  &:first-child {
+    margin-left: 0px;
+  }
+
+  @include mq(tablet) {
+    margin-left: 8px;
+
+    &:first-child {
+      margin-left: 0px;
+    }
+
+    &:last-child {
+      margin-left: 20px;
+    }
+  }
+
+  @include mq(desktop) {
+    margin-left: 20px;
+
+    &:first-child {
+      margin-left: 0px;
+    }
+  }
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $mainFont;
+  font-size: 12px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0px 1px 1px rgba(18, 29, 46, 0.1);
+
+  @include mq(desktop) {
+    font-size: 14px;
+  }
+}
+
+.logbtncontainer {
+  display: flex;
+  align-items: center;
+  box-sizing: content-box;
+  padding-left: 20px;
+  height: 100%;
+  border-left: 1px solid #e2e3e5;
+}
+
+.btn {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.svg {
+  width: 16px;
+  height: 16px;
+}

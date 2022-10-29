@@ -1,0 +1,19 @@
+@import '../../shared/styles/utils/mixins';
+@import '../../shared/styles/utils/vars';
+
+// &::after {
+//   content: " ";
+//   position: absolute;
+//   width: 150px;
+//   height: 1px;
+//   background-color: #00122f;
+//   opacity: 0.15;
+//   bottom: -12px;
+//   left: 0px;
+// }
+.wrapper-list {
+
+  &:not(:last-child) {
+    margin-bottom: 32px;
+  }
+}
