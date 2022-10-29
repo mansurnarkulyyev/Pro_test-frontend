@@ -4,38 +4,6 @@ import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 
 function Diagram({ rights, wrongs }) {
 
-    // const [correct, setCorrect] = useState([]);
-    // const [incorrect, setIncorrect] = useState([]);
-
-    // import classNames from 'classnames';
-    // import React from 'react'
-    // import Chart from 'react-apexcharts'
-    // import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
-
-    // import s from "./diagram.module.scss";
-
-
-    // useEffect(() => {
-    //     const getData = async () => {
-    // const correct = [];
-    // const incorrect = [];
-    //         const reqData = await fetch("https://");
-    //         const resData = await reqData.json();
-    // console.log(resData);
-    //         for (let i = 0; i < resData.length; i += 1) {
-    //             correct.push(resData[i].tech)
-    //             incorrect.push(resData[i].theory)
-
-    //         }
-
-    // setCorrect(correct);
-    // setIncorrect(incorrect);
-
-    //     }
-    //     getData();
-    // })
-
-
     const COLORS = ["#FF6B01", "#D7D7D7"];
     const pieData = [
         {

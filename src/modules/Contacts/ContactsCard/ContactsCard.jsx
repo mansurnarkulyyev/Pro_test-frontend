@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
-import { getUserInfo } from "../../../shared/api/userInfo";
+import { getContactsList } from "../../../shared/api/contacts";
 import { useFetching } from "../../../shared/hooks/useFetching";
 import styles from "./contactsCard.module.scss"
 
 const ContactsCard = () => {
 
   const [state, setState] = useState([]);
-  const [fetchUserInfo, isLoading, error] = useFetching(async () => {
-    const response = await getUserInfo()
+  const [fetchContactsList, isLoading, error] = useFetching(async () => {
+    const response = await getContactsList();
     setState(response);
   })
 
   useEffect(() => {
-    fetchUserInfo()
+    fetchContactsList()
   }, [])
 
 

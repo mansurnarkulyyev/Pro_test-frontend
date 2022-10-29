@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FormInput from '../../shared/components/FormInput';
 import s from "./contacts.module.scss"
 
-import { addUserInfo } from '../../shared/api/userInfo';
 import Button from '../../shared/components/Button';
 import classNames from 'classnames';
+import { getContactsList } from '../../shared/api/contacts';
+import { useDispatch } from 'react-redux';
 
 
-function TeamRegister() {
+function ContactsForm() {
+    // const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -16,7 +18,7 @@ function TeamRegister() {
         let data = new FormData(e.target);
         const result = Object.fromEntries(data.entries())
         console.log(result);
-        addUserInfo(result);
+        getContactsList(result);
     }
 
     const history = useNavigate();
@@ -41,6 +43,6 @@ function TeamRegister() {
     )
 }
 
-export default TeamRegister;
+export default ContactsForm;
 
 
