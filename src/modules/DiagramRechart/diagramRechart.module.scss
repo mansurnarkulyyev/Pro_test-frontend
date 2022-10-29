@@ -81,7 +81,8 @@
 
 .testText{
     font-size: 10px;
+    
       @include mq(tablet) {
-        @include fonts( $fsz: 20px, $lh: 36px, $ls: 0.02em);
+        @include fonts($fs: normal,  $fsz: 20px, $lh: 36px, $ls: 0.02em);
       }
 }
