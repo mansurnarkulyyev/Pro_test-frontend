@@ -42,12 +42,12 @@ function ContactsCard({ name, profession, bio, url, isAdmin }) {
           <Button
             icon="delete"
             className={classNames("icon", "delete")}
-          // onClick={}
+            // onClick={}
           />
           <Button
             icon="edit"
             className={classNames("icon", "edit")}
-          // onClick={}
+            // onClick={}
           />
         </div>
       )}
