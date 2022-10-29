@@ -1,35 +1,6 @@
 @import "../../shared/styles/utils/vars";
 @import "../../shared/styles/utils/mixins";
 
-.main {
-  padding-top: 28px;
-  padding-bottom: 20px;
-  @include mq(tablet) {
-    padding-top: 40px;
-    padding-bottom:225px;
-  }
-  @include mq(desktop) {
-    padding: 40px 230px 107px;
-    padding-bottom: 232px;
-  }
-}
-
-.skeleton {
-  width: 280px;
-  height: 456px;
-  margin-bottom: 20px;
-  background-color: $color-white;
-
-  @include mq(tablet) {
-    width: 704px;
-    height: 453px;
-  }
-  @include mq(desktop) {
-    width: 783px;
-    height: 445px;
-  }
-}
-
 .btnWrapperOne {
   @include flex(flex-end);
 }
@@ -75,20 +46,5 @@
 
   @include mq(tablet) {
     padding: 5px 20px;
-  }
-}
-
-.result {
-  @extend .prev;
-  padding: 10px 20px;
-}
-
-.error {
-  @include fonts(20px);
-  text-align: center;
-
-  @include mq(tablet) {
-    @include fonts(30px);
-    padding-bottom: 3%;
   }
 }

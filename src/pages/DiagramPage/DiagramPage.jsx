@@ -10,17 +10,21 @@ const DiagramPage = () => {
   const [state, setState] = useState({ rights: 0, wrongs: 0 });
   const { kind } = useParams();
   const remoteResults = useSelector(getRemoteResults);
+  const { rights, wrongs } = state;
 
   useEffect(() => {
-    if (!remoteResults.length) {
-      return;
-    }
-    const { results } = remoteResults.find((item) => item.kind === kind);
-    const [rights, wrongs] = results;
-    setState({ rights, wrongs });
+    const renderDiagram = () => {
+      console.log({ remoteResults, kind });
+      const { results } = remoteResults.find((item) => item.kind === kind);
+      const [rights, wrongs] = results;
+      setState((prevState) => ({
+        ...prevState,
+        rights,
+        wrongs,
+      }));
+    };
+    renderDiagram();
   }, [kind, remoteResults]);
-
-  const { rights, wrongs } = state;
 
   return (
     <Main>
