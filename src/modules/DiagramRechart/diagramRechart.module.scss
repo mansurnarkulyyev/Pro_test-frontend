@@ -23,8 +23,9 @@
   margin-bottom: 18px;
   opacity: 0.15;
   border: 1px solid #00122f;
-
+  width: 200px;
   @include mq(tablet) {
+    width: 350.5px;
     margin-bottom: 40px;
   }
 }
@@ -43,12 +44,21 @@
 .result {
   display: flex;
   justify-content: space-evenly;
+  width: 245px;
+  margin-top: 5px;
   @include fonts($fs: normal, $fw: 500, $fsz: 10px, $lh: 36px, $ls: 0.02em);
-  @include mq(mobile) {
+  @include mq(tablet) {
+    margin-top: 35px;
+      width: 450px;
+        }
+  @include mq(desktop) {
+    margin-top: 35px;
+        width: 455px;
     display: flex;
-    gap: 30px;
+    gap: 15px;
     @include fonts($fs: normal, $fw: 500, $fsz: 16px, $lh: 36px, $ls: 0.02em);
   }
+ 
 }
 
 .cat {
@@ -61,9 +71,17 @@
 }
 
 .text {
-  @include fonts($fs: normal, $fw: 500, $fsz: 10px, $lh: 36px, $ls: 0.02em);
-
-  @include mq(mobile) {
-    @include fonts($fs: normal, $fw: 500, $fsz: 16px, $lh: 36px, $ls: 0.02em);
+  font-size: 10px;
+  @include mq(tablet) {
+    @include fonts($fs: normal, $fw: 500, $fsz: 20px, $lh: 36px, $ls: 0.02em);
   }
+}
+
+
+
+.testText{
+    font-size: 10px;
+      @include mq(tablet) {
+        @include fonts( $fsz: 20px, $lh: 36px, $ls: 0.02em);
+      }
 }
