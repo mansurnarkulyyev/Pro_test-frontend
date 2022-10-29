@@ -4,7 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import useBreakpoints from "../../shared/hooks/useBreakpoints";
 import getLocalResults from "../../redux/questions/localResults/localResults-selectors";
 import { setResults } from "../../redux/questions/remoteResults/remoteResults-operations";
-import { fetchQuestions, postResults } from "../../shared/api/questions-api";
+import {
+  fetchQuestions,
+  fetchRandomQuestions,
+  postResults,
+} from "../../shared/api/questions-api";
 import countRightsWrongs from "../../helpers/countRightsWrongs";
 import {
   addResult,
@@ -12,7 +16,9 @@ import {
 } from "../../redux/questions/localResults/localResults-actions";
 import Container from "../../shared/components/Container";
 import ButtonUniversal from "../../shared/components/ButtonUniversal/ButtonUniversal";
+import TestHeader from "../../modules/TestHeader";
 import Question from "../../modules/Question";
+import TestCtrlButtons from "../../modules/TestCtrlButtons";
 import Spinner from "../../shared/components/Spinner";
 import styles from "./testPage.module.scss";
 
@@ -39,6 +45,7 @@ const TestPage = () => {
       setState((prevState) => ({ ...prevState, error: null, loading: true }));
       try {
         const questions = await fetchQuestions(kind);
+        // const questions = await fetchRandomQuestions(kind);
         setState((prevState) => ({
           ...prevState,
           questions,
@@ -74,7 +81,7 @@ const TestPage = () => {
     await postResults(reqBody);
     localStorage.removeItem("answers");
     dispatch(removeResults());
-    dispatch(setResults(kind));
+    await dispatch(setResults(kind));
     navigate(`/diagram/${kind}`);
   };
 
@@ -105,18 +112,11 @@ const TestPage = () => {
         {error && <h2 className={styles.error}>{error}</h2>}
         {!error && (
           <>
-            <div className={styles.headerWrapper}>
-              <span className={styles.header}>
-                [{kind === "tech" ? "QA technical training" : "Testing theory"}_
-                ]
-              </span>
-              <ButtonUniversal
-                type="button"
-                text="Finish test"
-                btnStyles={styles.btn}
-                onClick={interruptTest}
-              />
-            </div>
+            <TestHeader
+              kind={kind}
+              buttonText="Finish test"
+              onClick={interruptTest}
+            />
             {questions.length > 0 && (
               <Question
                 item={currentQuestion}
@@ -124,37 +124,13 @@ const TestPage = () => {
                 onChange={setVariant}
               />
             )}
-            <div
-              className={
-                questionId === "1"
-                  ? styles.btnWrapperOne
-                  : styles.btnWrapperBoth
-              }
+            <TestCtrlButtons
+              questionId={questionId}
+              total={totalQuestions}
+              prevText={prevText}
+              nextText={nextText}
+              onClick={changeId}
             >
-              {questionId > 1 && (
-                <ButtonUniversal
-                  type="button"
-                  text={prevText}
-                  btnStyles={styles.prev}
-                  onClick={() => changeId("back")}
-                  svgStyles={styles.left}
-                  iconName="arrow-left"
-                  svgWidth={24}
-                  svgHeight={24}
-                />
-              )}
-              {questionId < totalQuestions && (
-                <ButtonUniversal
-                  type="button"
-                  text={nextText}
-                  btnStyles={styles.next}
-                  svgStyles={styles.right}
-                  iconName="arrow-right"
-                  svgWidth={24}
-                  svgHeight={24}
-                  onClick={() => changeId("forward")}
-                />
-              )}
               {results.length === totalQuestions &&
                 numericQuestionId === totalQuestions && (
                   <ButtonUniversal
@@ -164,7 +140,7 @@ const TestPage = () => {
                     onClick={finishTest}
                   />
                 )}
-            </div>
+            </TestCtrlButtons>
           </>
         )}
       </Container>

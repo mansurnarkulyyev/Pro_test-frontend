@@ -3,7 +3,7 @@ import styles from "./customLegend.module.scss";
 
 const CustomLegend = ({ data, total, iconName, iconWidth, iconHeight }) => {
   const elements = data.map(({ name, value, color }) => {
-    const percent = `${Math.trunc((value / total) * 100)}%`;
+    const percent = `${Math.round((value / total) * 100)}%`;
     return (
       <li className={styles.item} key={name}>
         <div className={styles.upper} style={{ fill: color }}>
