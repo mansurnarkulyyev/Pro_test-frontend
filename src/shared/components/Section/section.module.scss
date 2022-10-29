@@ -5,25 +5,27 @@
   min-height: 100vh;
   background-color: $background;
 
-  padding-top: 110px;
+  padding-top: 42px;
   padding-bottom: 34px;
 
 
   @include mq(tablet) {
     padding: 134px;
-    padding-top: 148px;
+    padding-top: 82px;
     padding-bottom: 70px;
   }
 
   @include mq(desktop) {
     padding: 124px;
-    padding-top: 168px;
+    padding-top: 100px;
     padding-bottom: 99px;
   }
 
   &.materials {
 
+
     @include mq(mobile-only) {
+
       background-position: top -24% right -4%;
       background-image:
         url("../../../images/materialsBg/materials-bg-mobile-1x.png");
@@ -45,6 +47,7 @@
     }
 
     @include mq(desktop) {
+      padding-top: 42px;
       background-image:
         url("../../../images/materialsBg/materials-bg-desktop-1x.png");
 
@@ -77,4 +80,7 @@
 
 .contacts {
   background-color: #F5F6FB;
+
+  padding-top: 42px;
+
 }
