@@ -8,7 +8,6 @@ function Diagram({ rights, wrongs }) {
     const pieData = [
         {
             name: "Correct",
-            // value: { rights },
             value: 20,
         },
         {
