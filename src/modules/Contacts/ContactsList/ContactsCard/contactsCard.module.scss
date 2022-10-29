@@ -7,6 +7,7 @@
     width: 280px;
 
     background-color: white;
+    padding-top: 10px;
 
     @include mq(tablet) {
         width: 336px;
