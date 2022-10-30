@@ -1,7 +1,7 @@
 import { instance } from "./api";
 
 export async function addContact(userData) {
-  const { data: result } = await instance.post("/contacts/add", userData);
+  const { data: result } = await instance.post("/contacts/add", userData,{headers:{"Content-Type":"multipart/form-data"}});
   return result;
 }
 

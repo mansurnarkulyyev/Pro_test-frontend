@@ -1,61 +1,34 @@
 import classNames from "classnames";
 
-import useForm from "../../../shared/hooks/useForm.js";
-import { initialState } from "./initialState";
 
 import FormField from "../../../shared/components/FormField";
 import Button from "../../../shared/components/Button";
 
-import s from "./contactsForm.module.scss";
+import { addContact } from "../../../shared/api/contacts.js";
 
 function ContactsForm({ onSubmit }) {
-  const { state, handleSubmit, handleChange } = useForm({
-    initialState,
-    onSubmit,
-  });
-  const { name, position, about, cover } = state;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    let data = new FormData(e.target);
+    const result = Object.fromEntries(data.entries())
+    const result1 = await addContact(result);
+
+    console.log(result1);
+  }
+
   return (
-    <>
-      <form className={s.form} onSubmit={handleSubmit}>
-        <FormField
-          type="text"
-          name="name"
-          value={name}
-          handleChange={handleChange}
-          placeholder="Type product name"
-          pattern="[A-Za-zА-Яа-яЁё]"
-        />
-        <FormField
-          type="text"
-          name="position"
-          value={position}
-          handleChange={handleChange}
-          placeholder="Type product profession"
-          pattern="[A-Za-zА-Яа-яЁё]"
-        />
-        <FormField
-          type="text"
-          name="about"
-          value={about}
-          handleChange={handleChange}
-          placeholder="Type product bio"
-          pattern="[A-Za-zА-Яа-яЁё]"
-        />
-        <FormField
-          type="file"
-          name="cover"
-          value={cover}
-          handleChange={handleChange}
-        />
-        <div className={s[`wrapper-btn-submit`]}>
-          <Button
-            type="submit"
-            className={classNames("button", "focus", "text")}
-            text="Add body"
-          />
-        </div>
-      </form>
-    </>
+    <form onSubmit={handleSubmit}>
+      <FormField name="cover" type="file" />
+      <FormField name="name" placeholder="Name" />
+      <FormField name="position" placeholder="Title" />
+      <FormField name="about" placeholder="Lorem text" />
+      <Button
+        className={classNames("button", "text", "focus", "top")}
+        type="submit"
+        text="Submit"
+      />
+    </form>
   );
 }
 export default ContactsForm;
