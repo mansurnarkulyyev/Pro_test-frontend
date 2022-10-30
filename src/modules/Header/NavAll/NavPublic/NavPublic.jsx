@@ -6,11 +6,11 @@ const NavPublic = () => {
     function getClassName({ isActive }) {
         const style = isActive ? s.isActive : s.menu;
         return style;
-      }
+    }
     return (
         <>
             <li className={s.NavElem}>
-                <NavLink exact to="/contacts" className={getClassName}>
+                <NavLink to="/contacts" className={getClassName}>
                     Contacts
                 </NavLink>
             </li>

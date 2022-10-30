@@ -72,8 +72,7 @@
 }
 
 .wrapper-btn {
-    display: flex;
-    justify-content: end;
+    @include flex(flex-end);
     align-items: center;
     padding-top: 10px;
     padding-bottom: 10px;

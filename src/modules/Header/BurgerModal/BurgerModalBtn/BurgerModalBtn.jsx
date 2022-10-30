@@ -6,22 +6,22 @@ function BurgerModalBtn({ isActive, onClick }) {
   const isLogin = useSelector((state) => state.auth.isLogin);
   const userName = useSelector((state) => state.auth.email);
   const avatar = JSON.stringify(userName)
-  const auth = useSelector((state) => state.auth);
+  useSelector((state) => state.auth);
   return (
     <>
       {!isActive ? (
         <>
-        <div className={s.burger}>
-          {isLogin ? <div className={s.avatar}>{avatar.charAt(1)}</div> : <></>}
-          <div className={s.btnContainer}>
-            <button className={s.btn} type="button" isActive={isActive} onClick={onClick}>
-              <svg width="20px" height="20px">
-                <use href={sprite + "#burger"}></use>
-              </svg>
-            </button>
+          <div className={s.burger}>
+            {isLogin ? <div className={s.avatar}>{avatar.charAt(1)}</div> : <></>}
+            <div className={s.btnContainer}>
+              <button className={s.btn} type="button" isActive={isActive} onClick={onClick}>
+                <svg width="20px" height="20px">
+                  <use href={sprite + "#burger"}></use>
+                </svg>
+              </button>
+            </div>
           </div>
-        </div>
-          
+
         </>
       ) : (
         <div className={s.btnContainer}>
