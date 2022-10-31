@@ -26,7 +26,10 @@ const useForm = ({ onSubmit, initialState }) => {
 
   const handleChange = ({ target }) => {
     const { name, value, type, checked } = target;
-    const newValue = type === "checkbox" ? checked : value;
+    let newValue = type === "checkbox" ? checked : value;
+    if (type === "file") {
+      newValue = target.files[0];
+    }
 
     setState((prevState) => ({
       ...prevState,

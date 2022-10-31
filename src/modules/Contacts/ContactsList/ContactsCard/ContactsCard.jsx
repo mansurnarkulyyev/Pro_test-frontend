@@ -6,7 +6,7 @@ import useAuthState from "../../../../shared/hooks/useAuthState";
 import Button from "../../../../shared/components/Button";
 
 import s from "./contactsCard.module.scss";
-import defaultImg from "../../../../images/default-avatar.png";
+// import defaultImg from "../../../../images/default-avatar.png";
 
 function ContactsCard({ id, name, profession, bio, url, onDelete }) {
   const { isAdmin } = useAuthState();
@@ -23,12 +23,13 @@ function ContactsCard({ id, name, profession, bio, url, onDelete }) {
           <Button
             icon="edit"
             className={classNames("icon", "edit")}
-            // onClick={}
+          // onClick={}
           />
         </div>
       )}
       <div className={s[`wrapper-img`]}>
-        <img className={s.img} src={url ? url : defaultImg} />
+        {/* src={url ? url : defaultImg} */}
+        <img className={s.img} src={`https://pro-test-b.herokuapp.com/${url}`} />
       </div>
       <div className={s[`wrapper-text`]}>
         <p className={s.name}>{name}</p>

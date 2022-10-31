@@ -8,7 +8,7 @@ import sprite from "../../../images/icons/sprite.svg";
 const modalRoot = document.querySelector("#modal-root");
 
 function BurgerModal({ isActive, onClick, children }) {
-  
+
   const isLogin = useSelector((state) => state.auth.isLogin);
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token);
@@ -23,7 +23,7 @@ function BurgerModal({ isActive, onClick, children }) {
       <div className={s.modal}>
         <div className={s.navModal}>
           {children}
-        {isLogin ?  <div className={s.logbtncontainer}>
+          {isLogin ? <div className={s.logbtncontainer}>
             <button
               className={s.btn}
               type="button"
@@ -33,7 +33,7 @@ function BurgerModal({ isActive, onClick, children }) {
                 <use href={sprite + "#logout"}></use>
               </svg>
             </button>
-          </div> : <></> }
+          </div> : <></>}
         </div>
       </div>,
       modalRoot
