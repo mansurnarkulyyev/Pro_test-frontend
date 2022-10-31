@@ -5,13 +5,17 @@ import s from "./authCommonPart.module.scss";
 import icon from "../../../images/icons/google-icon.svg";
 
 function AuthCommonPart() {
+  const google = () => {
+    window.open(`${process.env.REACT_APP_API_URL}/api/users/google/callback`, "_self")
+  }
+
   return (
     <>
       <p className={s.subtitle}>
         You can use your Google Account to authorize:
       </p>
       <div className={s["btn-wrapper"]}>
-        <button className={s.button} type="button">
+        <button className={s.button} type="button" onClick={google}>
           <HandySvg src={icon} className={s[`icon-google`]} />
           Google
         </button>
