@@ -1,3 +1,4 @@
+import { memo } from "react";
 import PropTypes from "prop-types";
 import sprite from "../../../images/icons/sprite.svg";
 
@@ -20,4 +21,4 @@ SVGCreator.propTypes = {
   height: PropTypes.number,
 };
 
-export default SVGCreator;
+export default memo(SVGCreator);

@@ -1,3 +1,4 @@
+import { memo } from "react";
 import ButtonUniversal from "../../shared/components/ButtonUniversal/ButtonUniversal";
 import styles from "./testCtrlButtons.module.scss";
 
@@ -44,4 +45,4 @@ const TestCtrlButtons = ({
   );
 };
 
-export default TestCtrlButtons;
+export default memo(TestCtrlButtons);
