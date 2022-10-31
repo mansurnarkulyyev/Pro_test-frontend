@@ -44,8 +44,8 @@ const TestPage = () => {
       setSearchParams({ questionId: id });
       setState((prevState) => ({ ...prevState, error: null, loading: true }));
       try {
-        // const questions = await fetchQuestions(kind);
-        const questions = await fetchRandomQuestions(kind);
+        const questions = await fetchQuestions(kind);
+        // const questions = await fetchRandomQuestions(kind);
         setState((prevState) => ({
           ...prevState,
           questions,
