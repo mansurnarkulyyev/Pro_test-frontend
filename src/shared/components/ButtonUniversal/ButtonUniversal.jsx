@@ -1,3 +1,4 @@
+import { memo } from "react";
 import PropTypes from "prop-types";
 import SVGCreator from "../SVGCreator";
 
@@ -24,6 +25,9 @@ const ButtonUniversal = ({
 };
 
 ButtonUniversal.defaultProps = {
+  type: "button",
+  text: "",
+  btnStyles: "",
   svgStyles: "",
   iconName: "",
   svgWidth: 0,
@@ -32,9 +36,9 @@ ButtonUniversal.defaultProps = {
 };
 
 ButtonUniversal.propTypes = {
-  type: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  btnStyles: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  text: PropTypes.string,
+  btnStyles: PropTypes.string,
   svgStyles: PropTypes.string,
   iconName: PropTypes.string,
   svgWidth: PropTypes.number,
@@ -42,4 +46,4 @@ ButtonUniversal.propTypes = {
   onClick: PropTypes.func,
 };
 
-export default ButtonUniversal;
+export default memo(ButtonUniversal);

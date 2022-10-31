@@ -7,7 +7,7 @@ export const fetchQuestions = async (kind) => {
 
 export const fetchRandomQuestions = async (kind) => {
   const { data } = await instance(`questions/${kind}/random`);
-  return data;
+  return data.questions;
 };
 
 export const postResults = async (body) => {

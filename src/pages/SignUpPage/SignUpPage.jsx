@@ -1,6 +1,6 @@
 import useBreakpoints from "../../shared/hooks/useBreakpoints";
 
-import SignUp from "../../modules/SignUp/SignUp";
+import SignUp from "../../modules/SignUp";
 
 import Container from "../../shared/components/Container";
 import Section from "../../shared/components/Section";

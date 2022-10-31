@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import useBreakpoints from "../../shared/hooks/useBreakpoints";
@@ -44,8 +44,8 @@ const TestPage = () => {
       setSearchParams({ questionId: id });
       setState((prevState) => ({ ...prevState, error: null, loading: true }));
       try {
-        const questions = await fetchQuestions(kind);
-        // const questions = await fetchRandomQuestions(kind);
+        // const questions = await fetchQuestions(kind);
+        const questions = await fetchRandomQuestions(kind);
         setState((prevState) => ({
           ...prevState,
           questions,
@@ -60,7 +60,7 @@ const TestPage = () => {
       }
     };
     getQuestions(kind);
-  }, [kind, questionId, setSearchParams]);
+  }, [kind]);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -69,11 +69,11 @@ const TestPage = () => {
   const prevText = bigger768px ? "Previous question" : "";
   const nextText = bigger768px ? "Next question" : "";
 
-  const interruptTest = () => {
+  const interruptTest = useCallback(() => {
     dispatch(removeResults());
     localStorage.removeItem("answers");
     navigate("/");
-  };
+  }, [dispatch, navigate]);
 
   const finishTest = async () => {
     const resultsCount = countRightsWrongs(questions, results);

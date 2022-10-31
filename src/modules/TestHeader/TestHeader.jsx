@@ -1,3 +1,4 @@
+import { memo } from "react";
 import ButtonUniversal from "../../shared/components/ButtonUniversal/ButtonUniversal";
 import styles from "./testHeader.module.scss";
 
@@ -17,4 +18,4 @@ const TestHeader = ({ kind, buttonText, onClick }) => {
   );
 };
 
-export default TestHeader;
+export default memo(TestHeader);

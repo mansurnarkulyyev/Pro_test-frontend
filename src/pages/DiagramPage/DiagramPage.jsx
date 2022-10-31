@@ -14,7 +14,6 @@ const DiagramPage = () => {
 
   useEffect(() => {
     const renderDiagram = () => {
-      console.log({ remoteResults, kind });
       const { results } = remoteResults.find((item) => item.kind === kind);
       const [rights, wrongs] = results;
       setState((prevState) => ({
