@@ -4,9 +4,11 @@ import { HandySvg } from "handy-svg";
 import s from "./authCommonPart.module.scss";
 import icon from "../../../images/icons/google-icon.svg";
 
+const googleAuthCb = `${process.env.REACT_APP_API_URL}/api/users/google`;
+
 function AuthCommonPart() {
   const google = () => {
-    window.open(`${process.env.REACT_APP_API_URL}/api/users/google/callback`, "_self")
+    window.open(googleAuthCb, "_self")
   }
 
   return (
