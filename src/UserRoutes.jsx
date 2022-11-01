@@ -27,7 +27,6 @@ const UserRoutes = () => {
         <Route element={<PublicRoute />}>
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signin" element={<SignIn />} />
-          <Route path="/api/users/google" element={<GooglePage />} />
         </Route>
 
         <Route element={<PrivateRoute />}>
