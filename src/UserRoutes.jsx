@@ -5,8 +5,6 @@ import PublicRoute from "./shared/components/PublicRoute/PublicRoute.jsx";
 import PrivateRoute from "./shared/components/PrivateRoute/PrivateRoute.jsx";
 
 import Spinner from "./shared/components/Spinner";
-// import GooglePage from "./pages/GooglePage";
-// import Question from "./modules/Question";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const TestPage = lazy(() => import("./pages/TestPage"));
@@ -15,10 +13,7 @@ const ContactsPage = lazy(() => import("./pages/ContactsPage"));
 const DiagramPage = lazy(() => import("./pages/DiagramPage/DiagramPage"));
 const SignIn = lazy(() => import("./pages/SignInPage"));
 const SignUp = lazy(() => import("./pages/SignUpPage"));
-const NotFoundPage = lazy(() => import("./pages/GooglePage"));
-
-
-const GooglePage = lazy(() => import("./pages/NotFoundPage"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 const UserRoutes = () => {
   return (
