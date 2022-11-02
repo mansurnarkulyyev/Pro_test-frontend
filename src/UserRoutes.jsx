@@ -5,7 +5,6 @@ import PublicRoute from "./shared/components/PublicRoute/PublicRoute.jsx";
 import PrivateRoute from "./shared/components/PrivateRoute/PrivateRoute.jsx";
 
 import Spinner from "./shared/components/Spinner";
-// import Question from "./modules/Question";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const TestPage = lazy(() => import("./pages/TestPage"));
