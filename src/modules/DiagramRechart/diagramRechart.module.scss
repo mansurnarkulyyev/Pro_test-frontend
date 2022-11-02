@@ -1,0 +1,88 @@
+@import "../../shared/styles/utils/mixins";
+
+.rechart {
+  text-align: -webkit-center;
+  @include mq(desktop) {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.title {
+  font-size: 16px;
+  @include mq(mobile) {
+    color: #00122f;
+    @include fonts($fs: normal, $fw: 500, $fsz: 16px, $lh: 36px, $ls: 0.02em);
+    margin-top: 40px;
+  }
+}
+
+.line {
+  margin-top: 15px;
+  margin-bottom: 18px;
+  opacity: 0.15;
+  border: 1px solid #00122f;
+  width: 200px;
+  @include mq(tablet) {
+    width: 350.5px;
+    margin-bottom: 40px;
+  }
+}
+
+.line2 {
+  opacity: 0.15;
+}
+
+.test_th {
+  font-size: 10px;
+  @include mq(mobile) {
+    @include fonts($fs: normal, $fw: 500, $fsz: 16px, $lh: 36px, $ls: 0.02em);
+  }
+}
+
+.result {
+  display: flex;
+  justify-content: space-evenly;
+  width: 245px;
+  margin-top: 5px;
+  @include fonts($fs: normal, $fw: 500, $fsz: 10px, $lh: 36px, $ls: 0.02em);
+  @include mq(tablet) {
+    margin-top: 35px;
+      width: 450px;
+        }
+  @include mq(desktop) {
+    margin-top: 35px;
+        width: 455px;
+    display: flex;
+    gap: 15px;
+    @include fonts($fs: normal, $fw: 500, $fsz: 16px, $lh: 36px, $ls: 0.02em);
+  }
+ 
+}
+
+.cat {
+  height: 120px;
+  @include mq(mobile) {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.text {
+  font-size: 10px;
+  @include mq(tablet) {
+    @include fonts($fs: normal, $fw: 500, $fsz: 20px, $lh: 36px, $ls: 0.02em);
+  }
+}
+
+
+
+.testText{
+    font-size: 10px;
+    
+      @include mq(tablet) {
+        @include fonts($fs: normal,  $fsz: 20px, $lh: 36px, $ls: 0.02em);
+      }
+}

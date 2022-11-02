@@ -1,0 +1,38 @@
+
+@import '../../../shared/styles/utils/mixins';
+@import '../../../shared/styles/utils/vars';
+
+.NavAll {
+    font-family: $mainFont;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    display: flex;
+    justify-content: space-between;
+    line-height: 14px;
+    flex-direction: column;
+
+        @include mq(tablet) {
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 12px;
+        }
+
+        @include mq(tablet) {
+            font-size: 14px;
+            line-height: 14px;
+        }
+
+}
+
+.Nav {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  @include mq(tablet) {
+    flex-direction: row;
+  }
+}

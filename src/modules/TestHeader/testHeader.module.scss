@@ -1,0 +1,30 @@
+@import "../../shared/styles/utils/vars";
+@import "../../shared/styles/utils/mixins";
+
+.headerWrapper {
+  @include flex(space-between, center);
+  padding-bottom: 24px;
+}
+
+.header {
+  max-width: 100px;
+  @include fonts(14px, 16px);
+
+  @include mq(tablet) {
+    max-width: 160px;
+    @include fonts(22px, 27px);
+  }
+}
+
+.btn {
+  padding: 18px 38px;
+  border: none;
+  @include fonts(10px, 12px);
+  color: $color-white;
+  background-color: $color-focus;
+
+  @include mq(tablet) {
+    padding: 16px 51px;
+    @include fonts(14px, 17px);
+  }
+}

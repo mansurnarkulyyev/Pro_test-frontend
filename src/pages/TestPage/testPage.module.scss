@@ -1,0 +1,94 @@
+@import "../../shared/styles/utils/vars";
+@import "../../shared/styles/utils/mixins";
+
+.main {
+  padding-top: 28px;
+  padding-bottom: 20px;
+  @include mq(tablet) {
+    padding-top: 40px;
+    padding-bottom:225px;
+  }
+  @include mq(desktop) {
+    padding: 40px 230px 107px;
+    padding-bottom: 232px;
+  }
+}
+
+.skeleton {
+  width: 280px;
+  height: 456px;
+  margin-bottom: 20px;
+  background-color: $color-white;
+
+  @include mq(tablet) {
+    width: 704px;
+    height: 453px;
+  }
+  @include mq(desktop) {
+    width: 783px;
+    height: 445px;
+  }
+}
+
+.btnWrapperOne {
+  @include flex(flex-end);
+}
+
+.btnWrapperBoth {
+  @include flex(space-between);
+}
+
+.prev {
+  @include flex();
+  flex-direction: row-reverse;
+  @include fonts(12px, 14px);
+  color: $color-white;
+  padding: 5px 16px 5px 15px;
+  border: none;
+  background-color: $color-focus;
+
+  @include mq(tablet) {
+    padding-right: 43px;
+  }
+}
+
+.left {
+  @include flex();
+  fill: $color-white;
+  @include mq(tablet) {
+    margin-right: 12px;
+  }
+}
+
+.right {
+  @include flex();
+  @include mq(tablet) {
+    margin-left: 55px;
+  }
+}
+
+.next {
+  @extend .prev;
+  flex-direction: row;
+  color: $color-black;
+  background-color: $color-white;
+
+  @include mq(tablet) {
+    padding: 5px 20px;
+  }
+}
+
+.result {
+  @extend .prev;
+  padding: 10px 20px;
+}
+
+.error {
+  @include fonts(20px);
+  text-align: center;
+
+  @include mq(tablet) {
+    @include fonts(30px);
+    padding-bottom: 3%;
+  }
+}
