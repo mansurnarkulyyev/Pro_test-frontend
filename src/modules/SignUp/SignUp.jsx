@@ -6,7 +6,7 @@ import useAuthState from "../../shared/hooks/useAuthState";
 
 import { signupRequest } from "../../redux/auth/auth-operations";
 
-import AuthCommonPart from "../../shared/components/AuthCommonPart";
+// import AuthCommonPart from "../../shared/components/AuthCommonPart";
 import Title from "../../shared/components/Title";
 import SignUpForm from "./SignUpForm";
 
@@ -25,7 +25,7 @@ function SignUp() {
 
   return (
     <div className={s.wrapper}>
-      <AuthCommonPart />
+//       <AuthCommonPart />
       {!email ? (
         <SignUpForm onSubmit={onSingUp} error={errMessage} loading={loading} />
       ) : (
