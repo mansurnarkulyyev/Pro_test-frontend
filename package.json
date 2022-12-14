@@ -1,5 +1,7 @@
 {
+  
   "name": "frontend",
+  "homepage": "https://mansurnarkulyyev.github.io/react-writing-dashboard",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

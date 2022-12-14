@@ -3,9 +3,9 @@ import s from "./allNav.module.scss";
 import { useSelector } from "react-redux";
 import NavPrivate from "./NavPrivate/NavPrivate";
 import NavPublic from "./NavPublic/NavPublic";
-import NavbarAuth from "../NavbarAuth/NavbarAuth";
+// import NavbarAuth from "../NavbarAuth/NavbarAuth";
 
-const NavAll = ({onClick, isModalOpen}) => {
+const NavAll = ({ onClick, isModalOpen }) => {
   const isLogin = useSelector((state) => state.auth.isLogin);
 
   const onModalClose = () => {

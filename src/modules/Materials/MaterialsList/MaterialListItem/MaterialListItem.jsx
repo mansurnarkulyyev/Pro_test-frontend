@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { Link } from "react-router-dom";
 
 import Button from "../../../../shared/components/Button";
 
@@ -12,14 +13,14 @@ function MaterialsListItem({ title, link, inx, onDelete, resources, _id }) {
     <li className={s.item}>
       <div>
         {inx}.&nbsp;
-        <a
-          href={link}
+        <Link
+          to={link}
           className={titleS}
           target="_blank"
           rel="noopener norefferal"
         >
           {title}
-        </a>
+        </Link>
       </div>
       <div className={s[`wrapper-btn`]}>
         <Button

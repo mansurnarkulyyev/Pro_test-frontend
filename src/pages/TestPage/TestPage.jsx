@@ -1,11 +1,11 @@
-import { useState, useEffect, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import useBreakpoints from "../../shared/hooks/useBreakpoints";
 import getLocalResults from "../../redux/questions/localResults/localResults-selectors";
 import { setResults } from "../../redux/questions/remoteResults/remoteResults-operations";
 import {
-  fetchQuestions,
+  // fetchQuestions,
   fetchRandomQuestions,
   postResults,
 } from "../../shared/api/questions-api";
