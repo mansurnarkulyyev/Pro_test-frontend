@@ -6,7 +6,7 @@ import Button from "../../../shared/components/Button";
 import { useState } from "react";
 import { addContact } from "../../../shared/api/contacts.js";
 
-function ContactsForm({ onSubmit }) {
+function ContactsForm() {
   const [openModal, setOpenModal] = useState(false)
 
   function closeModal() {
@@ -30,6 +30,7 @@ function ContactsForm({ onSubmit }) {
       <FormField name="position" placeholder="Title" />
       <FormField name="about" placeholder="Lorem text" />
       <Button
+        // onClick={closeModal(openModal)}
         className={classNames("button", "text", "focus", "top")}
         type="submit"
         text="Submit"

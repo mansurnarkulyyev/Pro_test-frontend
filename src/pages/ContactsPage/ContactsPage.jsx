@@ -5,7 +5,7 @@ import Main from "../../shared/components/Main";
 import Section from "../../shared/components/Section";
 import Container from "../../shared/components/Container";
 
-import s from "./contactsPage.module.scss";
+// import s from "./contactsPage.module.scss";
 
 const ContactsPage = () => {
   return (

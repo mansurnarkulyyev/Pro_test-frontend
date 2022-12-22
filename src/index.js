@@ -25,5 +25,5 @@ root.render(
       </PersistGate>
     </Provider>
   </BrowserRouter>
-  // </React.StrictMode>
+  // {/* </React.StrictMode> */}
 );

@@ -6,7 +6,7 @@ function BurgerModalBtn({ isActive, onClick }) {
   const isLogin = useSelector((state) => state.auth.isLogin);
   const userName = useSelector((state) => state.auth.email);
   const avatar = JSON.stringify(userName);
-  const auth = useSelector((state) => state.auth);
+  // const auth = useSelector((state) => state.auth);
   return (
     <>
       {!isActive ? (
