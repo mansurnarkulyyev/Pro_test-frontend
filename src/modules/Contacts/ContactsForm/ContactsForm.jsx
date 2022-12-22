@@ -30,6 +30,7 @@ function ContactsForm({ onSubmit }) {
       <FormField name="position" placeholder="Title" />
       <FormField name="about" placeholder="Lorem text" />
       <Button
+        // onClick={closeModal}
         className={classNames("button", "text", "focus", "top")}
         type="submit"
         text="Submit"
